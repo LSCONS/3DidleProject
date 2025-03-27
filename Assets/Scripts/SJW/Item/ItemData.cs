@@ -6,7 +6,8 @@ using UnityEngine;
 public enum ItemType
 {
     UseItem,        //사용 아이템
-    EquipItem       //장비 아이템
+    EquipItem,      //장비 아이템
+    Resource,       //자원 아이템
 }
 
 public enum EquipItemType
@@ -18,16 +19,18 @@ public enum EquipItemType
 
 public enum UseItemType
 {
-    HP,
-    MP
+    HP,     //체력
+    MP      //마나
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class ItemData : ScriptableObject
 {
     public int ID;
+    public Sprite Icon;
     public string Name;
     public string Description;
+    public int Price;
     public ItemType Type;
     public UseItemData[] useItemDatas;
     public EquipItemData[] equipItemData;
