@@ -62,8 +62,4 @@ public class MapController : MonoBehaviour
                 changeMap[i].transform.position = changePos[i];
         }
     }
-
-
-
-
 }

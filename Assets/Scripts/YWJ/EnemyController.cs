@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private IMonsterBehaivor monsterBehaivor;
+    private IMonsterBehaivor<EnemyController> monsterBehaivor;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    public void SetBehavior(IMonsterBehaivor _monsterBehaivor)
+    public void SetBehavior(IMonsterBehaivor<EnemyController> _monsterBehaivor)
     {
         monsterBehaivor = _monsterBehaivor;
     }
