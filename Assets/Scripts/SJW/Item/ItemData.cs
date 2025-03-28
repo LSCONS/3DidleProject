@@ -15,6 +15,9 @@ public enum EquipItemType
     Helmet,       //헬멧 
     Armor,        //갑바
     Shoes,        //신발
+    Necklace,     //목걸이
+    Ring,         //반지
+    Weapon,       //무기
 }
 
 public enum UseItemType
@@ -52,5 +55,6 @@ public class UseItemData
 public class EquipItemData
 {
     public EquipItemType EquipType;
+    public int AttackValue;
     public int ArmorValue;
 }
