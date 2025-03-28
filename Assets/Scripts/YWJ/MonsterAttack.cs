@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterAttack : MonoBehaviour, IMonsterBehaivor
+public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
 {
-    public void EnterBehaivor()
+    public void EnterBehaivor(EnemyController monsterController)
     {
         throw new System.NotImplementedException();
     }
 
-    public void ExitBehaivor()
+    public void ExitBehaivor(EnemyController monsterController)
     {
         throw new System.NotImplementedException();
     }
 
-    public void UpdateBehavior()
+    public void UpdateBehavior(EnemyController monsterController)
     {
         throw new System.NotImplementedException();
     }
