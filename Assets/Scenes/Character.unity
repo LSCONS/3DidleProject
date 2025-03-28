@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 1510596915}
   m_Layer: 0
   m_Name: QuaterView Camera
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,7 +849,6 @@ GameObject:
   - component: {fileID: 1635057835}
   - component: {fileID: 1635057840}
   - component: {fileID: 1635057839}
-  - component: {fileID: 1635057838}
   - component: {fileID: 1635057837}
   - component: {fileID: 1635057836}
   - component: {fileID: 1635057841}
@@ -926,18 +925,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1635057838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635057834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf94d9efbc47d249856b5ed2e5b8363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1635057839
 MonoBehaviour:
   m_ObjectHideFlags: 0
