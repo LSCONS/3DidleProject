@@ -14,8 +14,8 @@ public class MapInfo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("�浹");
-        if ((playerLayer & (1 << collision.gameObject.layer)) != 0)
+        Debug.Log("충돌");
+        if (collision.gameObject.CompareTag("Player"))
         {
             controller.playerMapPosition = this.transform.position;
             controller.ChangeMap?.Invoke();
