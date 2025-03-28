@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         inventory.Initialize(slotCount);
-        inventoryUI.Initialize(inventory);
         inventory.AddItem(potionTest, 3);
+        inventoryUI.Initialize(inventory);
     }
 }
