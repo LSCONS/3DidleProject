@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public enum Type
 {
+    Default,
     Sine,
     Cubic
 }
 
-public class BackgroundTest : MonoBehaviour
+public class MovePingPong : MonoBehaviour
 {
     public Type type;
     public Vector3 targetPos;
@@ -21,8 +22,14 @@ public class BackgroundTest : MonoBehaviour
 
     void Start()
     {
+        lastPos = transform.position;
+        targetPos += transform.position;
+
         switch (type)
         {
+            case Type.Default:
+                StartCoroutine(Default());
+                break;
             case Type.Sine:
                 StartCoroutine(Sine());
                 break;
@@ -32,12 +39,25 @@ public class BackgroundTest : MonoBehaviour
         }
     }
 
+    IEnumerator Default()
+    {
+        while (true)
+        {
+            transform.DOMove(targetPos, duration);
+            yield return new WaitForSeconds(duration);
+            transform.DOMove(lastPos, duration);
+            yield return new WaitForSeconds(duration);
+
+            if (isExit) break;
+        }
+        yield return null;
+    }
+
     IEnumerator Sine()
     {
         while (true)
         {
-            lastPos = transform.position;
-            transform.DOMove(transform.position + targetPos, duration).SetEase(Ease.InOutSine);
+            transform.DOMove(targetPos, duration).SetEase(Ease.InOutSine);
             yield return new WaitForSeconds(duration);
             transform.DOMove(lastPos, duration).SetEase(Ease.InOutSine);
             yield return new WaitForSeconds(duration);
@@ -51,8 +71,7 @@ public class BackgroundTest : MonoBehaviour
     {
         while (true)
         {
-            lastPos = transform.position;
-            transform.DOMove(transform.position + targetPos, duration).SetEase(Ease.InOutCubic);
+            transform.DOMove(targetPos, duration).SetEase(Ease.InOutCubic);
             yield return new WaitForSeconds(duration);
             transform.DOMove(lastPos, duration).SetEase(Ease.InOutCubic);
             yield return new WaitForSeconds(duration);
