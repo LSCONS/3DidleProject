@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "e91ac633-fb6a-48ea-849b-b7484dfc3295",
-                    "expectedControlType": "Delta",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "5b426907-8284-4dac-a225-09f4787d99ac",
@@ -76,20 +67,27 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Skill_One",
+                    "type": "Button",
+                    "id": "11db6b4b-f1fa-4f8f-be1e-d15e90d6f1da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill_Two",
+                    "type": "Button",
+                    "id": "481b4f4d-ca79-432a-85e6-245e3fd89ad9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "52cfb68e-a357-408d-a8c1-ed56a1824c97",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "21451f93-3a34-445e-a3e6-74850adecbce",
@@ -208,6 +206,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3010a01e-578f-4432-801e-58fdc5ac4e29",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill_One",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3183a563-d66e-4beb-9aaf-b88a2929c9bc",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill_Two",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
