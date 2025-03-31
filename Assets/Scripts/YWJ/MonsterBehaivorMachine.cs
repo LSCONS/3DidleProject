@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterBehaivorMachine<T>
 {
     private T monsterController;
-
+    
     public IMonsterBehaivor<T> currentBehavior;
 
     public MonsterBehaivorMachine(T _monsterController, IMonsterBehaivor<T> currentBehavior)

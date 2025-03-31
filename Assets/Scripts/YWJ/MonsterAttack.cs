@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
 {
+    private EnemyController enemyController;
     public void EnterBehaivor(EnemyController monsterController)
     {
-        throw new System.NotImplementedException();
+        enemyController = monsterController;
     }
 
     public void ExitBehaivor(EnemyController monsterController)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void UpdateBehavior(EnemyController monsterController)
     {
-        throw new System.NotImplementedException();
+        enemyController.agent.isStopped = true;
+        if (Time.time - enemyController.lastAttackTime > enemyController.attackRate)
+        {
+            enemyController.lastAttackTime = Time.time;
+            // 플레이어가 공격받는 로직
+            enemyController.animator.SetTrigger("Attack");
+        }
     }
 }
