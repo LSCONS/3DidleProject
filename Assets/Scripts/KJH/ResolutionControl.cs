@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResolutionControl : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class ResolutionControl : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex = 0;
         resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.GetComponent<Image>().color = new Color32(27, 34, 54, 255);
         SetResolution(currentResolutionIndex);
     }
 
