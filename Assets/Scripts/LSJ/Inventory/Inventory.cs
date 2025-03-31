@@ -26,9 +26,11 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            var temp = slots[toIndex];
-            slots[toIndex] = slots[fromIndex];
-            slots[fromIndex] = temp;
+            ItemData tempItem = slots[toIndex].item;
+            int tempQty = slots[toIndex].quantity;
+
+            slots[toIndex].Assign(slots[fromIndex].item, slots[fromIndex].quantity);
+            slots[fromIndex].Assign(tempItem, tempQty);
         }
     }
     public bool AddItem(ItemData item, int amount)
