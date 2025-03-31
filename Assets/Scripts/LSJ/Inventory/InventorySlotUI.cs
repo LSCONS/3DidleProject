@@ -56,25 +56,23 @@ public class InventorySlotUI : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent;
-        transform.SetParent(canvas.transform);
-        rectTransform.SetAsLastSibling(); // 맨 위로
-
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
+        // 슬롯은 그대로 두고 아이콘 복사만 보여줌
+        if (!slot.IsEmpty)
+        {
+            DragIcon.Show(icon.sprite, canvas.transform);
+            canvasGroup.alpha = 0.6f;
+            canvasGroup.blocksRaycasts = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.position = eventData.position;
+        DragIcon.Move(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(originalParent);
-        transform.SetSiblingIndex(slotIndex); // 위치 복구
-
-        rectTransform.localPosition = Vector3.zero;
+        DragIcon.Hide();
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
