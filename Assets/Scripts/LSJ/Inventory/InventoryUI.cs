@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
 
     public Inventory inventory;
 
-    private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>(); // 🔥 추가
+    private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
 
     private void Awake()
     {

@@ -47,7 +47,7 @@ public class InventorySlotUI : MonoBehaviour,
         }
         else
         {
-            // icon.sprite = slot.item.icon;  
+            icon.sprite = slot.item.Icon;  
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
         }
@@ -72,8 +72,9 @@ public class InventorySlotUI : MonoBehaviour,
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(originalParent);
-        rectTransform.localPosition = Vector3.zero;
+        transform.SetSiblingIndex(slotIndex); // 위치 복구
 
+        rectTransform.localPosition = Vector3.zero;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
