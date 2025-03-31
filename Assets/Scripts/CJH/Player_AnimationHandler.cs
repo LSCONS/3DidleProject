@@ -29,4 +29,10 @@ public class Player_AnimationHandler : MonoBehaviour
         Debug.Log($"[애니메이션] IsMove: {speed}");
     }
 
+    public void SetRunState(bool _isRun)
+    {
+        animator.SetBool(IsRun, _isRun);
+    }
+
+
 }

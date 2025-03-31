@@ -46,7 +46,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnRun(InputAction.CallbackContext context)
     {
-
+        if (context.started)
+        {
+            isRunning = true;
+            animationHandler?.SetRunState(true);
+        }
+        else if (context.canceled)
+        {
+            isRunning = false;
+            animationHandler?.SetRunState(false);
+        }
     }
 
 
@@ -73,14 +82,15 @@ public class PlayerController : MonoBehaviour
         }
         // 수평 속도 계산
         Vector3 currentVelocity = rb.velocity;
-        Vector3 horizontalVelocity = desireMoveDir * moveSpeed;
+        Vector3 horizontalVelocity = desireMoveDir * (isRunning ? moveSpeed * 1.5f : moveSpeed);
         rb.velocity = new Vector3(horizontalVelocity.x, currentVelocity.y, horizontalVelocity.z);
 
 
         // 플레이어 회전
-        if (desireMoveDir.sqrMagnitude > 0.1f)
+        Vector3 moveDir = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        if (moveDir.magnitude > 0.1f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(desireMoveDir);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
         }
 
@@ -90,7 +100,6 @@ public class PlayerController : MonoBehaviour
         }
 
         float speed = moveInput.sqrMagnitude;
-        //bool isMoving = speed > 0.04f;
         animationHandler?.SetMoveState(speed);
 
         jumpInput = false;

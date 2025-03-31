@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "fb49d248-d70e-4acb-8181-d91005593f7d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "5b426907-8284-4dac-a225-09f4787d99ac",
@@ -54,15 +63,6 @@
                     "name": "LeftClick",
                     "type": "Button",
                     "id": "d6834e2c-f780-406e-a316-3d26c1ef125c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Run",
-                    "type": "Button",
-                    "id": "fb49d248-d70e-4acb-8181-d91005593f7d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -200,17 +200,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d368697b-bd05-489d-a961-578f66d7570b",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3010a01e-578f-4432-801e-58fdc5ac4e29",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -228,6 +217,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skill_Two",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d368697b-bd05-489d-a961-578f66d7570b",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
