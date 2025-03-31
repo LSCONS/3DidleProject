@@ -13,20 +13,25 @@ public class PlayerController : MonoBehaviour
     [Header("Refernces")]
     public Transform cameraTransform;
 
+    private Player_AnimationHandler animationHandler;
     private Rigidbody rb;
     private Vector2 moveInput;  // 입력받은 이동값
     private bool jumpInput;     //  점프 입력이 됐는지
+    private bool isRunning;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();        
+        animationHandler = GetComponent<Player_AnimationHandler>();
     }
 
 
 
     public void OnMove(InputAction.CallbackContext context)
     {
+
         moveInput = context.ReadValue<Vector2>();
+ 
 
     }
 
@@ -36,6 +41,12 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = true;
         }
+        
+    }
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+
     }
 
 
@@ -65,8 +76,9 @@ public class PlayerController : MonoBehaviour
         Vector3 horizontalVelocity = desireMoveDir * moveSpeed;
         rb.velocity = new Vector3(horizontalVelocity.x, currentVelocity.y, horizontalVelocity.z);
 
+
         // 플레이어 회전
-        if (desireMoveDir.sqrMagnitude > 0.001f)
+        if (desireMoveDir.sqrMagnitude > 0.1f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(desireMoveDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
@@ -76,6 +88,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
         }
+
+        float speed = moveInput.sqrMagnitude;
+        //bool isMoving = speed > 0.04f;
+        animationHandler?.SetMoveState(speed);
 
         jumpInput = false;
 

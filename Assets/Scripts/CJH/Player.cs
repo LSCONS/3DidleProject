@@ -4,7 +4,7 @@ using UnityEditor.Playables;
 using UnityEngine;
 
 [System.Serializable]
-public class Character
+public class Player : MonoBehaviour
 {
     public string PlayerName { get; private set; }
     public int Level { get; private set; } = 1;
@@ -25,7 +25,12 @@ public class Character
     public bool isHelmetEquip { get; private set; } = false;
     public int helmetIndex { get; private set; } = -1;
 
-    public Character(string playerName, float maxHp, float damage, float defence)
+    private void Awake()
+    {
+        PlayerManager.Instance.Player = this;
+    }
+
+    public void Init(string playerName, float maxHp, float damage, float defence)
     {
         PlayerName = playerName;
         MaxHp = maxHp;
