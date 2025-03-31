@@ -8,7 +8,7 @@ public class ItemTooltip : MonoBehaviour
     public GameObject tooltipPanel;
     public TMP_Text nameText;
     public TMP_Text descriptionText;
-
+    private Vector3 offset = new Vector3(20f, -20f, 0f);
     private void Awake()
     {
         Instance = this;
@@ -31,7 +31,7 @@ public class ItemTooltip : MonoBehaviour
     {
         if (tooltipPanel.activeSelf)
         {
-            transform.position = Input.mousePosition;
+            tooltipPanel.transform.position = Input.mousePosition + offset;
         }
     }
 }

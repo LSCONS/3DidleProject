@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     public InventoryUI inventoryUI;
     public ItemData potionTest;
     public ItemData armorTest;
+    public ItemData shoeTest;
     public int slotCount = 20;
 
     private void Start()
@@ -13,6 +14,7 @@ public class InventoryManager : MonoBehaviour
         inventory.Initialize(slotCount);
         inventory.AddItem(potionTest, 3);
         inventory.AddItem(armorTest, 1);
+        inventory.AddItem(shoeTest, 1);
         inventoryUI.Initialize(inventory);
     }
 }

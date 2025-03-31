@@ -7,20 +7,22 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed = 5f;       // ÀÌµ¿¼Óµµ  
-    public float jumpForce = 5f;        // Á¡ÇÁ·Â
+    public float moveSpeed = 5f;       // ì´ë™ì†ë„  
+    public float jumpForce = 5f;        // ì í”„ë ¥
 
     [Header("Refernces")]
     public Transform cameraTransform;
 
     private Rigidbody rb;
-    private Vector2 moveInput;  // ÀÔ·Â¹ŞÀº ÀÌµ¿°ª
-    private bool jumpInput;     //  Á¡ÇÁ ÀÔ·ÂÀÌ µÆ´ÂÁö
+    private Vector2 moveInput;  // ì…ë ¥ë°›ì€ ì´ë™ê°’
+    private bool jumpInput;     //  ì í”„ ì…ë ¥ì´ ëëŠ”ì§€
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();        
     }
+
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -58,12 +60,12 @@ public class PlayerController : MonoBehaviour
         {
             desireMoveDir = new Vector3(moveInput.x, 0, moveInput.y);
         }
-        // ¼öÆò ¼Óµµ °è»ê
+        // ìˆ˜í‰ ì†ë„ ê³„ì‚°
         Vector3 currentVelocity = rb.velocity;
         Vector3 horizontalVelocity = desireMoveDir * moveSpeed;
         rb.velocity = new Vector3(horizontalVelocity.x, currentVelocity.y, horizontalVelocity.z);
 
-        // ÇÃ·¹ÀÌ¾î È¸Àü
+        // í”Œë ˆì´ì–´ íšŒì „
         if (desireMoveDir.sqrMagnitude > 0.001f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(desireMoveDir);

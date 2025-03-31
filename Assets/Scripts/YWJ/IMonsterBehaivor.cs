@@ -1,9 +1,9 @@
 using Unity.VisualScripting;
 
-public interface IMonsterBehaivor 
+public interface IMonsterBehaivor<T>
 {
-    void EnterBehaivor();
-    void UpdateBehavior();
-    void ExitBehaivor();
+    void EnterBehaivor(T monsterController);
+    void UpdateBehavior(T monsterController);
+    void ExitBehaivor(T monsterController);
         
 }

@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d0d52fa0474448b06c7dcd7b5f1db, type: 3}
   m_Name: Helmet_4Adamantium
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 1004
   Icon: {fileID: 21300000, guid: 9dc9778580f5d2b49bf3240ff9a7feec, type: 3}
   Name: "\uC544\uB2E4\uB9CC\uD2F0\uC6C0 \uAC11\uC637"
   Description: "\uC544\uB2E4\uB9CC\uD2F0\uC6C0\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4."
-  Price: 500
+  GradeCount: 0
+  SellPrice: 100
   Type: 1
+  Rarity: 4
   useItemDatas: []
   equipItemData:
   - EquipType: 0
-    ArmorValue: 25
+    UpgradePrice: 300
+    AttackValue: 0
+    DefenceValue: 30
+    UpgradeAttackValue: 0
+    DefenceAttackValue: 5
   IsStack: 0
   MaxStack: 0

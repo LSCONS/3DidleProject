@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class MapController : MonoBehaviour
@@ -11,9 +12,12 @@ public class MapController : MonoBehaviour
     private List<Vector3> currentMapPos; 
     public Action ChangeMap;
     public Vector3 playerMapPosition = Vector3.zero;
+    public NavMeshSurface meshSurface;
+
 
     private void Init()
     {
+        meshSurface = GetComponent<NavMeshSurface>();
         currentMapPos = new List<Vector3>()
         {
             playerMapPosition,
@@ -29,9 +33,11 @@ public class MapController : MonoBehaviour
 
         foreach (var map in currentMapPos)
         {
-            currentMaps.Add(Instantiate(MapPrefab, map, Quaternion.identity));
+            currentMaps.Add(Instantiate(MapPrefab, map, Quaternion.identity,this.transform));
         }
         ChangeMap += ChangeMaps;
+        meshSurface.BuildNavMesh();
+
     }
     private void Start()
     {
@@ -62,8 +68,4 @@ public class MapController : MonoBehaviour
                 changeMap[i].transform.position = changePos[i];
         }
     }
-
-
-
-
 }
