@@ -7,10 +7,13 @@ public class MapInfo : MonoBehaviour
 {
     public MapController controller;
     public LayerMask playerLayer;
+    public Transform[] spawners;
 
-    private void Awake()
+    public void Init()
     {
         controller = FindObjectOfType<MapController>();
+        controller.spawners.Add(spawners[0]);
+        controller.spawners.Add(spawners[1]);
     }
 
 
