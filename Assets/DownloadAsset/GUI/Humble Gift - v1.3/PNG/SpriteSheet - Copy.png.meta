@@ -1,0 +1,2859 @@
+fileFormatVersion: 2
+guid: acd13554555563743b2bb782c3a11ce1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_0
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 6186
+        width: 478
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3060c274b7f84674e9cc06baecbec36d
+      internalID: 695338436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_1
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 6141
+        width: 247
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f489f19bd1f76a47aa31a45b3764f00
+      internalID: 233526719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_2
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 6141
+        width: 247
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe651dffda5ef154aa2d2f100cffcd64
+      internalID: -2013441876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_3
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 6347
+        width: 171
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e944fee1476b44298501982e65098c
+      internalID: -1698926663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_4
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 6347
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c14bd5479ba7f458c02ba9350e1eda
+      internalID: 1839051631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_5
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6347
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f931aefc1abac346821ff06f1844704
+      internalID: -380647844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_6
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6347
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed2a3e0e83f26244a6617695f30acde
+      internalID: 2146122393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_7
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 6300
+        width: 171
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613812f7364e0ce49ac7dab7fd3d9933
+      internalID: 935753839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_8
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 6300
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7004b32483fef7b4e89bb5616c431706
+      internalID: -253798221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_9
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6300
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff4a3f697d3fa5489caa6ac8a9ad6b7
+      internalID: -2074771515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_10
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6300
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd65c2e86f1cac74f80ce6b95b347122
+      internalID: 1770947113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_11
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 6252
+        width: 171
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb9fd6718f81684f825b44ed4becb6e
+      internalID: 77512065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_12
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 6252
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4bfc176e203cf5488a88ff1363bee1c
+      internalID: 1737394478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_13
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6252
+        width: 66
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f22759dc118f44a83595ab62572a48
+      internalID: 580074836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_14
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6252
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec3e50f77a521e448b25c218a381943
+      internalID: 33110627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_15
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 6205
+        width: 171
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79b7a7555fa31c43aa7d66a84a0c2e1
+      internalID: -319243643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_16
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 6205
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95d144bd100dec44b4232e8359e80ee
+      internalID: 217793176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_17
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6205
+        width: 66
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e7e3a7807fe634caf940c5cb9bff3b
+      internalID: -511120502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_18
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6205
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8356c9751c7a2f54ab7e9fd5bc254f81
+      internalID: -1998867656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_19
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 6157
+        width: 171
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d89903f09532745882b6abfe72b136
+      internalID: -602855985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_20
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 6157
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec621576d65837468310435a6270ce8
+      internalID: -1398867816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_21
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6170
+        width: 63
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d5223f1e34c6b4e80780203e9f89f0
+      internalID: 158570892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_22
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6157
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cc29c799a98cb4585365ef36f76dd6
+      internalID: 1513378672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_23
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 6157
+        width: 63
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527b0d9734c87354486f086851b5de76
+      internalID: -963110605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_24
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 5898
+        width: 478
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb35b33e61f3c1428e1802dff4bc556
+      internalID: -1070581832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_25
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 5806
+        width: 247
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966d19128e927cb40b34767f961efa0a
+      internalID: -1129951492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_26
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 5996
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe67d90fa637dd4db23bf134ad7f37c
+      internalID: 1196739314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_27
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 5996
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f616ddb4681c6da4ba00bed6c87091db
+      internalID: 602176078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_28
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 6002
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6ea8b84af67f845b443505aca26058
+      internalID: -12761378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_29
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 5996
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7a7bf2d2f1c484b91188148532df55
+      internalID: -1734556435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_30
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 5996
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0f46479ab4b974db33b1d20f53393b
+      internalID: -1640766630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_31
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 5996
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf10d990bc1f0de4c84a5943f619662b
+      internalID: 2068076967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_32
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 5901
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbb62dd402265a45ba6d05363373d01
+      internalID: 548448811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_33
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 5901
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fe346f86022294aafe204140b7e5ef
+      internalID: 343650714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_34
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 5901
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1b9165c60a43d40a761ca1245516e2
+      internalID: 746136300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_35
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 5901
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9c60e6e0113234bbcd9fbe8ee89aa2
+      internalID: 1240654789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_36
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 5901
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e08a429d32d80b47a2e1eb34e1c5f4e
+      internalID: -1175310927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_37
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 5904
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1f7a9cacc62b0439e7e737c3a9cd3e
+      internalID: 32707842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_38
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 5828
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a448fa672501b041af2003758547858
+      internalID: -457342369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_39
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 5841
+        width: 76
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5afad259b3970a43a351d2cd9b80fb0
+      internalID: 1680332916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_40
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 5828
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5562f10780fda94408665fc6c8c96c85
+      internalID: -1600660659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_41
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 5610
+        width: 478
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0853c944480c474f94f7c5b0d23785d
+      internalID: 1275935083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_42
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 5714
+        width: 76
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6145ccd9ee51245889a74993cd68fb
+      internalID: 1926301791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_43
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 5733
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052ee8c6f7c775a4e954c54a48b4c739
+      internalID: 581361565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_44
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 5733
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82552b8a89b3f93498a43681f1f31aed
+      internalID: -293389670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_45
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 5749
+        width: 9
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658a0e91f9f304e4c9d4e4556b857eed
+      internalID: -1920367445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_46
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 5749
+        width: 9
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6099f5ac3c29a448570ebd81d32852
+      internalID: 1768543981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_47
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 5714
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e1e8adc62efb94eb770b7e64baa7d0
+      internalID: 285134150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_48
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 5717
+        width: 76
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3c7fb1b448992469334b083b8f2f2b
+      internalID: 859716585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_49
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 5714
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bf9dba63506d546bb4fa2f2cd05edd
+      internalID: -2061568921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_50
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 5581
+        width: 152
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778c23ada677026419f5689b23ab21f2
+      internalID: 959054462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_51
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 5312
+        width: 1051
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc418a05b7103d4d84bed9096653b9d
+      internalID: 362855841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_52
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 5344
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb837c65bd1ff1641bf396c5d9eb9004
+      internalID: -678664177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_53
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 5436
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e61c66393e0ad440b07c5952081d2d1
+      internalID: 179016426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_54
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 5436
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c0067258da3a34a91b2e687301fe35
+      internalID: -240632023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_55
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 5436
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cba4537f42b7e14789736082eb2bf92
+      internalID: 580342739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_56
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 5436
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257747e0ac062884aa4bb526bd83f563
+      internalID: 2118719129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_57
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 5455
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9675a72c26e9c46966239e11713b98
+      internalID: 1849851914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_58
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 5455
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61218b9aec2f78940a3b391fc1cef656
+      internalID: -71154324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_59
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 5433
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ea236d3cf0f1642bb3ca6b7912aee6
+      internalID: -749009829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_60
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 5433
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44503654a7c47f42a75688f66afd8be
+      internalID: 54484366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_61
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 5097
+        width: 161
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c082499591b653448d833183584cfcf
+      internalID: 464195078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_62
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 5091
+        width: 73
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9dd001d3951e340bb80bbec109d517
+      internalID: -1859853028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_63
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 5091
+        width: 69
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e08eb3f3b989134ca3a63096e4b8f07
+      internalID: 1242264466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_64
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 4895
+        width: 456
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfee8f6c004b7594ea16f14560624d71
+      internalID: 2065825356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_65
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 4721
+        width: 105
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50157faab3857d449bbc023de952f814
+      internalID: 1971642513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_66
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 4721
+        width: 108
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da7023a23d95f64cbdb4283907ac5dd
+      internalID: 415202678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_67
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 4192
+        width: 1238
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8811e0698293ca4da8a9b97ef08debf
+      internalID: -970696233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_68
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 4050
+        width: 760
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acca2ac78bc7470478c8b92d4d13301a
+      internalID: 1055524837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_69
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 4003
+        width: 688
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cbeeecbaea5654d848bea94bd0d218
+      internalID: 1335289807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_70
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3667
+        width: 203
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1759028335b1df4b8135d624d7093f4
+      internalID: 941187167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_71
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 3863
+        width: 212
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7dbb83f5bb27546b94de540afb3f57
+      internalID: -961746669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_72
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 3882
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637363e027a351b4287699cbc2df0afc
+      internalID: -152789398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_73
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3882
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1777ebf4141b9e438d341c7de9699ca
+      internalID: 614627183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_74
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 3734
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca16e1d38b62104f9b29789ec60caf2
+      internalID: -656889891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_75
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 3708
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab46dadff475f2c4380654204ac2c95a
+      internalID: -196590090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_76
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 3708
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec77cdb9c1afed418a0418102a08538
+      internalID: -223775957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_77
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 3427
+        width: 332
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4582cccad8de21e46a176546fa7724b2
+      internalID: -514640936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_78
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2278
+        width: 557
+        height: 845
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a40142cf59e3542b4e102181e37690
+      internalID: 572365361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_79
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 2326
+        width: 481
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76aaacde73d169243b0efbe74b032f6d
+      internalID: -1541177129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_80
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 3019
+        width: 79
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cb7b0545cb30d46a0453cc0ec972f9
+      internalID: 179841279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_81
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 2826
+        width: 120
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ab69cf3bcb0df4a8c143bd0ca7524f
+      internalID: 1035823664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_82
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 2636
+        width: 152
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79793948e3150364cbe40f96b166c6f7
+      internalID: -46845486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_83
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 2443
+        width: 171
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e26b9db18ad35544a42ccaa2092f881
+      internalID: -680325665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_84
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 2250
+        width: 178
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818a2426a2c66be448cc16313e279cc6
+      internalID: 933334133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_85
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 2079
+        width: 101
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5b237be29783042872b862793e8820
+      internalID: -1226736533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_86
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2079
+        width: 184
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35aac0df86e7fda439ec5dd5948a3012
+      internalID: 17734153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_87
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1943
+        width: 526
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a08997e2d410544aa429c356e267f6
+      internalID: -375520416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_88
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1895
+        width: 57
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2201d0f3b90e5c46abb9c95508a2117
+      internalID: 1670667172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_89
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1895
+        width: 54
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9342db62b3edaf145b5cc9bcbd5610d3
+      internalID: -266314356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_90
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1917
+        width: 124
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d179d01fe881e64c9e8c86ee27775e3
+      internalID: -1349689277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_91
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1917
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd1fda2666454c4ba3a9ad664f62569
+      internalID: 217378986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_92
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 1879
+        width: 76
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a254033620396f34094efa9873402479
+      internalID: 1124329543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_93
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1889
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd7bb394cb70914bad7aeb094bd7233
+      internalID: 844279280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_94
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1740
+        width: 177
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92186029d8c9d0e469191e2c9467201c
+      internalID: 1039832991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_95
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1747
+        width: 177
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541f0810373674b47ad293670515f2f4
+      internalID: -1589575079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_96
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 1721
+        width: 503
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e365a075dec5f6458c2599fe1ad43e6
+      internalID: 1185946877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_97
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1804
+        width: 108
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d18aeddc3d6a0a4999d2fcbc54a84b0
+      internalID: -1149911914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_98
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1775
+        width: 276
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4cb470e0edff74f8e36cc7c87ce8e8
+      internalID: 1734272923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_99
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1753
+        width: 260
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6baa90f86cf41e47acdb59411cfd568
+      internalID: 1185319763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_100
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 639
+        width: 750
+        height: 845
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73eaf5e4e7602d40b66a749e11f837c
+      internalID: -1072824383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_101
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 687
+        width: 678
+        height: 759
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebedb34bdc2029419c23d498cb5da96
+      internalID: -599841246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_102
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 414
+        width: 105
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa853817aa7c52a48abca73beafd2b0d
+      internalID: -1863953554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_103
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 414
+        width: 117
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f4182039ed6e645bb3cdfeff5e2dc1
+      internalID: 503927103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_104
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 414
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2d0778fb9ce954e814a9b880c83444
+      internalID: -1851086947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_105
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 414
+        width: 82
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9840bf10238ab6540a14621874763f18
+      internalID: -695319624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_106
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 414
+        width: 111
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb7f3cda6527cf4da3181a83eb13be5
+      internalID: 755366803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_107
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 414
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820d728880044774f86310edb3af3b3a
+      internalID: 2028152824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_108
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 414
+        width: 117
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4764e10c91b2c514e8f231ce5099418e
+      internalID: 1443190638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_109
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 414
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c08999fb81b1f34895a4d9bd5f2a0f5
+      internalID: 408558331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_110
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 414
+        width: 164
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb98f4db49565904aa33c07d1017d16e
+      internalID: -1995596032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_111
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 414
+        width: 111
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a74ee8bf4538d4780a19417c2e14a6
+      internalID: -30874718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_112
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 291
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf50df98f031bc41a4b20faf1389450
+      internalID: -522656061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_113
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 297
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59eafb427b05fd743b511c2901772c69
+      internalID: 1476435625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_114
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 294
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fa81ed1346bcb44bfe790435ad68e9
+      internalID: 1148414101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_115
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 291
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee763f2899820ad49a288015cd48aaad
+      internalID: 1514479550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_116
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 250
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6e6a22446edaf4f93ba26f607e224c
+      internalID: -1486329728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_117
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 244
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00bb284f215ded46b2a34f87b03dc79
+      internalID: 91030773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_118
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 244
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc2bdccc91f5e54e85144130ada7b6d
+      internalID: 1452946800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_119
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 155
+        width: 73
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8aa9f815c343344bba69ebd4e78bd0
+      internalID: -1995549757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_120
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 155
+        width: 73
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b908abad9f8820a48bb9a2a7694809ef
+      internalID: -1481187000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_121
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 108
+        width: 73
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b427427b5b780ae44abdf32ade3a36fe
+      internalID: 1540889331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet - Copy_122
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 108
+        width: 73
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f53876f42e8cf45963044f284580bb
+      internalID: -119877129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 99e70679167543f4c89530d64ead513e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SpriteSheet - Copy_0: 695338436
+      SpriteSheet - Copy_1: 233526719
+      SpriteSheet - Copy_10: 1770947113
+      SpriteSheet - Copy_100: -1072824383
+      SpriteSheet - Copy_101: -599841246
+      SpriteSheet - Copy_102: -1863953554
+      SpriteSheet - Copy_103: 503927103
+      SpriteSheet - Copy_104: -1851086947
+      SpriteSheet - Copy_105: -695319624
+      SpriteSheet - Copy_106: 755366803
+      SpriteSheet - Copy_107: 2028152824
+      SpriteSheet - Copy_108: 1443190638
+      SpriteSheet - Copy_109: 408558331
+      SpriteSheet - Copy_11: 77512065
+      SpriteSheet - Copy_110: -1995596032
+      SpriteSheet - Copy_111: -30874718
+      SpriteSheet - Copy_112: -522656061
+      SpriteSheet - Copy_113: 1476435625
+      SpriteSheet - Copy_114: 1148414101
+      SpriteSheet - Copy_115: 1514479550
+      SpriteSheet - Copy_116: -1486329728
+      SpriteSheet - Copy_117: 91030773
+      SpriteSheet - Copy_118: 1452946800
+      SpriteSheet - Copy_119: -1995549757
+      SpriteSheet - Copy_12: 1737394478
+      SpriteSheet - Copy_120: -1481187000
+      SpriteSheet - Copy_121: 1540889331
+      SpriteSheet - Copy_122: -119877129
+      SpriteSheet - Copy_13: 580074836
+      SpriteSheet - Copy_14: 33110627
+      SpriteSheet - Copy_15: -319243643
+      SpriteSheet - Copy_16: 217793176
+      SpriteSheet - Copy_17: -511120502
+      SpriteSheet - Copy_18: -1998867656
+      SpriteSheet - Copy_19: -602855985
+      SpriteSheet - Copy_2: -2013441876
+      SpriteSheet - Copy_20: -1398867816
+      SpriteSheet - Copy_21: 158570892
+      SpriteSheet - Copy_22: 1513378672
+      SpriteSheet - Copy_23: -963110605
+      SpriteSheet - Copy_24: -1070581832
+      SpriteSheet - Copy_25: -1129951492
+      SpriteSheet - Copy_26: 1196739314
+      SpriteSheet - Copy_27: 602176078
+      SpriteSheet - Copy_28: -12761378
+      SpriteSheet - Copy_29: -1734556435
+      SpriteSheet - Copy_3: -1698926663
+      SpriteSheet - Copy_30: -1640766630
+      SpriteSheet - Copy_31: 2068076967
+      SpriteSheet - Copy_32: 548448811
+      SpriteSheet - Copy_33: 343650714
+      SpriteSheet - Copy_34: 746136300
+      SpriteSheet - Copy_35: 1240654789
+      SpriteSheet - Copy_36: -1175310927
+      SpriteSheet - Copy_37: 32707842
+      SpriteSheet - Copy_38: -457342369
+      SpriteSheet - Copy_39: 1680332916
+      SpriteSheet - Copy_4: 1839051631
+      SpriteSheet - Copy_40: -1600660659
+      SpriteSheet - Copy_41: 1275935083
+      SpriteSheet - Copy_42: 1926301791
+      SpriteSheet - Copy_43: 581361565
+      SpriteSheet - Copy_44: -293389670
+      SpriteSheet - Copy_45: -1920367445
+      SpriteSheet - Copy_46: 1768543981
+      SpriteSheet - Copy_47: 285134150
+      SpriteSheet - Copy_48: 859716585
+      SpriteSheet - Copy_49: -2061568921
+      SpriteSheet - Copy_5: -380647844
+      SpriteSheet - Copy_50: 959054462
+      SpriteSheet - Copy_51: 362855841
+      SpriteSheet - Copy_52: -678664177
+      SpriteSheet - Copy_53: 179016426
+      SpriteSheet - Copy_54: -240632023
+      SpriteSheet - Copy_55: 580342739
+      SpriteSheet - Copy_56: 2118719129
+      SpriteSheet - Copy_57: 1849851914
+      SpriteSheet - Copy_58: -71154324
+      SpriteSheet - Copy_59: -749009829
+      SpriteSheet - Copy_6: 2146122393
+      SpriteSheet - Copy_60: 54484366
+      SpriteSheet - Copy_61: 464195078
+      SpriteSheet - Copy_62: -1859853028
+      SpriteSheet - Copy_63: 1242264466
+      SpriteSheet - Copy_64: 2065825356
+      SpriteSheet - Copy_65: 1971642513
+      SpriteSheet - Copy_66: 415202678
+      SpriteSheet - Copy_67: -970696233
+      SpriteSheet - Copy_68: 1055524837
+      SpriteSheet - Copy_69: 1335289807
+      SpriteSheet - Copy_7: 935753839
+      SpriteSheet - Copy_70: 941187167
+      SpriteSheet - Copy_71: -961746669
+      SpriteSheet - Copy_72: -152789398
+      SpriteSheet - Copy_73: 614627183
+      SpriteSheet - Copy_74: -656889891
+      SpriteSheet - Copy_75: -196590090
+      SpriteSheet - Copy_76: -223775957
+      SpriteSheet - Copy_77: -514640936
+      SpriteSheet - Copy_78: 572365361
+      SpriteSheet - Copy_79: -1541177129
+      SpriteSheet - Copy_8: -253798221
+      SpriteSheet - Copy_80: 179841279
+      SpriteSheet - Copy_81: 1035823664
+      SpriteSheet - Copy_82: -46845486
+      SpriteSheet - Copy_83: -680325665
+      SpriteSheet - Copy_84: 933334133
+      SpriteSheet - Copy_85: -1226736533
+      SpriteSheet - Copy_86: 17734153
+      SpriteSheet - Copy_87: -375520416
+      SpriteSheet - Copy_88: 1670667172
+      SpriteSheet - Copy_89: -266314356
+      SpriteSheet - Copy_9: -2074771515
+      SpriteSheet - Copy_90: -1349689277
+      SpriteSheet - Copy_91: 217378986
+      SpriteSheet - Copy_92: 1124329543
+      SpriteSheet - Copy_93: 844279280
+      SpriteSheet - Copy_94: 1039832991
+      SpriteSheet - Copy_95: -1589575079
+      SpriteSheet - Copy_96: 1185946877
+      SpriteSheet - Copy_97: -1149911914
+      SpriteSheet - Copy_98: 1734272923
+      SpriteSheet - Copy_99: 1185319763
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
