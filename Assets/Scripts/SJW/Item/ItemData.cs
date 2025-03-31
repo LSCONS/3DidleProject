@@ -20,6 +20,15 @@ public enum EquipItemType
     Weapon,       //무기
 }
 
+public enum ItemRarity
+{
+    Common,         //보통
+    Rare,           //희귀
+    SuperRare,      //엄청난희귀
+    Epic,           //서사적인
+    Legend,         //전설
+}
+
 public enum UseItemType
 {
     HP,     //체력
@@ -29,32 +38,37 @@ public enum UseItemType
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class ItemData : ScriptableObject
 {
-    public int ID;
-    public Sprite Icon;
-    public string Name;
-    public string Description;
-    public int Price;
-    public ItemType Type;
-    public UseItemData[] useItemDatas;
-    public EquipItemData[] equipItemData;
+    public int ID;                          //아이디
+    public Sprite Icon;                     //아이콘
+    public string Name;                     //이름
+    public string Description;              //설명
+    public int GradeCount;                  //업그레이드 횟수
+    public int SellPrice;                   //판매 가격
+    public ItemType Type;                   //타입
+    public ItemRarity Rarity;               //희귀도
+    public UseItemData[] useItemDatas;      //사용아이템 데이터
+    public EquipItemData[] equipItemData;   //장비아이템 데이터
 
-    public bool IsStack;
-    public int MaxStack;
+    public bool IsStack;                    //겹치는 아이템 가능
+    public int MaxStack;                    //최대 겹칠 수 있는 수
 }
 
 
 [Serializable]
 public class UseItemData
 {
-    public UseItemType UseType;
-    public int HealthValue;
+    public UseItemType UseType;     //사용 타입
+    public int HealthValue;         //회복할 양
 }
 
 
 [Serializable]
 public class EquipItemData
 {
-    public EquipItemType EquipType;
-    public int AttackValue;
-    public int ArmorValue;
+    public EquipItemType EquipType;     //장비 아이템 타입
+    public int UpgradePrice;            //장비 업그레이드 가격
+    public int AttackValue;             //장비 공격력
+    public int DefenceValue;            //장비 방어력
+    public int UpgradeAttackValue;      //업그레이드 공격력 증가 수치
+    public int DefenceAttackValue;      //업그레이드 방어력 증가 수치
 }
