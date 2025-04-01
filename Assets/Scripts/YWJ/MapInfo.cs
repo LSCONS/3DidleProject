@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class MapInfo : MonoBehaviour
@@ -12,6 +13,7 @@ public class MapInfo : MonoBehaviour
         controller = FindObjectOfType<MapController>();
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("충돌");
@@ -19,6 +21,7 @@ public class MapInfo : MonoBehaviour
         {
             controller.playerMapPosition = this.transform.position;
             controller.ChangeMap?.Invoke();
+            controller.meshSurface.BuildNavMesh();
         }
     }
 }

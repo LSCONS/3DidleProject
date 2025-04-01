@@ -19,7 +19,7 @@ public class InventorySlotUI : MonoBehaviour,
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private InventorySlot slot;
+    public InventorySlot slot;
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -47,7 +47,7 @@ public class InventorySlotUI : MonoBehaviour,
         }
         else
         {
-            // icon.sprite = slot.item.icon;  
+            icon.sprite = slot.item.Icon;  
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
         }
@@ -56,26 +56,37 @@ public class InventorySlotUI : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent;
-        transform.SetParent(canvas.transform);
-        rectTransform.SetAsLastSibling(); // 맨 위로
-
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
+        // 슬롯은 그대로 두고 아이콘 복사만 보여줌
+        if (!slot.IsEmpty)
+        {
+            DragIcon.Show(icon.sprite, canvas.transform);
+            canvasGroup.alpha = 0.6f;
+            canvasGroup.blocksRaycasts = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.position = eventData.position;
+        DragIcon.Move(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(originalParent);
-        rectTransform.localPosition = Vector3.zero;
-
+        DragIcon.Hide();
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        //인벤토리 그리드 밖이면 버리기 확인창 띄우기
+        if (!RectTransformUtility.RectangleContainsScreenPoint(
+            InventoryUI.Instance.slotParent.GetComponent<RectTransform>(),
+            eventData.position,
+            canvas.worldCamera))
+        {
+            DropConfirmPanel.Instance.Show(this); 
+        }
+        else
+        {
+            InventoryUI.Instance.Refresh(); // 정상 슬롯 이동 시
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
