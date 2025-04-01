@@ -897,7 +897,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!65 &8376870221398082183
 BoxCollider:
   m_ObjectHideFlags: 0
