@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
 
     Vector3 lastPos;
     bool isMove;
+    Coroutine coroutine;
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class MenuController : MonoBehaviour
     {
         if (!isMove)
         {
+            if (coroutine != null) StopCoroutine(coroutine);
+
             gameObject.SetActive(true);
 
             switch (type)
@@ -53,7 +56,7 @@ public class MenuController : MonoBehaviour
                     break;
             }
 
-            StartCoroutine(WaitForClose(duration));
+            coroutine = StartCoroutine(WaitForClose(duration));
         }
 
         isMove = !isMove;
