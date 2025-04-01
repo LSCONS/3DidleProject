@@ -28,9 +28,9 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        
-        IMonsterBehaivor<EnemyController> move = new MonsterMove();
-        IMonsterBehaivor<EnemyController> attack = new MonsterAttack();
+
+        IMonsterBehaivor<EnemyController> move = GetComponent<MonsterMove>();
+        IMonsterBehaivor<EnemyController> attack = GetComponent <MonsterAttack>();
         agent.speed = enemySpeed;
 
         curState.Add(MonsterBehavior.Move, move);
