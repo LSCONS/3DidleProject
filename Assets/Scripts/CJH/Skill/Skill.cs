@@ -11,7 +11,7 @@ public enum SkillState
     Cooldown
 }
 
-public abstract class Skill : MonoBehaviour
+public abstract class Skill 
 {
     public string Name { get; protected set; }
     public float Duration { get; protected set; }
@@ -20,13 +20,6 @@ public abstract class Skill : MonoBehaviour
 
     public float elapsedTime = 0f;      //경과 시간
     public SkillState state = SkillState.Ready;
-
-    public Skill(string name, float duration, float cooltime)
-    {
-        Name = name;
-        Duration = duration;
-        Cooltime = cooltime;
-    }
 
     // 스킬 실행
     public virtual void UseSkill()
@@ -66,11 +59,7 @@ public abstract class Skill : MonoBehaviour
 
     public float GetCooldown()
     {
-        if (state == SkillState.Cooldown)
-        {
-            return Cooltime - elapsedTime;
-        }
-        return 0f;
+        return state == SkillState.Cooldown ? Cooltime - elapsedTime : 0f;
     }
 
 }

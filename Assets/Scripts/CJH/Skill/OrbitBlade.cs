@@ -10,9 +10,9 @@ public class OrbitBlade : MonoBehaviour
     private float orbitSpeed;
     private float selfSpinSpeed;
     private float angle;
-    private float yOffset = 1.0f;
+    private float yOffset = 0.5f;
 
-    public void Init(Transform target, float radius, float orbitSpeed, float selfSpineSpeed, float StartAngel, int totalBlade)
+    public void Init(Transform target, float radius, float orbitSpeed, float selfSpineSpeed, float StartAngel)
     {
         this.target = target;
         this.orbitRadius = radius;
