@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] MenuController pauseMenu;
+    [SerializeField] MenuController settingsMenu;
+    bool isSettings;
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isSettings)
+                MoveSettingsMenu();
+            else
+                MovePauseMenu();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MovePauseMenu()
     {
-        
+        if (!isSettings)
+        pauseMenu.MoveToTarget();
+    }
+
+    public void MoveSettingsMenu()
+    {
+        isSettings = !isSettings;
+        settingsMenu.MoveToTarget();
     }
 }
