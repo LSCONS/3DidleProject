@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d0d52fa0474448b06c7dcd7b5f1db, type: 3}
   m_Name: Shoes_0Iron
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 3000
   Icon: {fileID: 21300000, guid: e36f9b61b0331a7488119574bb600965, type: 3}
   Name: "\uCCA0 \uC2E0\uBC1C"
   Description: "\uCCA0\uB85C \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4."
-  Price: 100
+  GradeCount: 0
+  SellPrice: 10
   Type: 1
+  Rarity: 0
   useItemDatas: []
   equipItemData:
   - EquipType: 2
-    ArmorValue: 3
+    UpgradePrice: 20
+    AttackValue: 0
+    DefenceValue: 3
+    UpgradeAttackValue: 0
+    DefenceAttackValue: 1
   IsStack: 0
   MaxStack: 0

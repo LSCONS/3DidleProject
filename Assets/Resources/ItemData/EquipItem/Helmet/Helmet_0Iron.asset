@@ -16,11 +16,17 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 393e215018bede243b0f17633f0e214d, type: 3}
   Name: "\uCCA0 \uD5EC\uBA67"
   Description: "\uCCA0\uB85C \uB9CC\uB4E0 \uD5EC\uBA67\uC774\uB2E4."
-  Price: 100
+  GradeCount: 0
+  SellPrice: 10
   Type: 1
+  Rarity: 0
   useItemDatas: []
   equipItemData:
   - EquipType: 0
-    ArmorValue: 5
+    UpgradePrice: 20
+    AttackValue: 0
+    DefenceValue: 5
+    UpgradeAttackValue: 0
+    DefenceAttackValue: 1
   IsStack: 0
   MaxStack: 0

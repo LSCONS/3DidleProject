@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d0d52fa0474448b06c7dcd7b5f1db, type: 3}
   m_Name: Helmet_1Bronze
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 1001
   Icon: {fileID: 21300000, guid: 28182ccd234f5bd42a1df60a802dd452, type: 3}
   Name: "\uCCAD\uB3D9 \uD5EC\uBA67"
   Description: "\uCCAD\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uD5EC\uBA67\uC774\uB2E4."
-  Price: 200
+  GradeCount: 0
+  SellPrice: 20
   Type: 1
+  Rarity: 1
   useItemDatas: []
   equipItemData:
   - EquipType: 0
-    ArmorValue: 10
+    UpgradePrice: 50
+    AttackValue: 0
+    DefenceValue: 7
+    UpgradeAttackValue: 0
+    DefenceAttackValue: 2
   IsStack: 0
   MaxStack: 0

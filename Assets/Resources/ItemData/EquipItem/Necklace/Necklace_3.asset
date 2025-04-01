@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d0d52fa0474448b06c7dcd7b5f1db, type: 3}
   m_Name: Necklace_3
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 6000
   Icon: {fileID: 21300000, guid: 7e8b5e1bfc893b44a8748fc78a7d4eb5, type: 3}
   Name: "\uC804\uC124 \uBAA9\uAC78\uC774"
   Description: "\uBC29\uC5B4\uB825\uC774 \uD06C\uAC8C \uC0C1\uC2B9\uD558\uB294 \uBAA9\uAC78\uC774\uB2E4."
-  Price: 400
+  GradeCount: 0
+  SellPrice: 50
   Type: 1
+  Rarity: 3
   useItemDatas: []
   equipItemData:
   - EquipType: 3
-    ArmorValue: 30
+    UpgradePrice: 200
+    AttackValue: 10
+    DefenceValue: 8
+    UpgradeAttackValue: 5
+    DefenceAttackValue: 4
   IsStack: 0
   MaxStack: 0

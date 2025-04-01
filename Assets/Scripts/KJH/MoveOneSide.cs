@@ -18,7 +18,7 @@ public class MoveOneSide : MonoBehaviour
         targetPos += transform.position;
     }
 
-    public void OnClickSetting()
+    public void OnClickEnter()
     {
         if (!isShow)
         {
