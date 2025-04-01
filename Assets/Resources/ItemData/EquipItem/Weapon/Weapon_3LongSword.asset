@@ -12,16 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d0d52fa0474448b06c7dcd7b5f1db, type: 3}
   m_Name: Weapon_3LongSword
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 4003
   Icon: {fileID: 21300000, guid: a7be3b55e84697a4787eb95bc3a9f6b9, type: 3}
   Name: "\uC804\uC124\uC758 \uB871\uC18C\uB4DC"
   Description: "\uC804\uC124\uC758 \uAC80\uC774\uB2E4"
-  Price: 500
+  GradeCount: 0
+  SellPrice: 50
   Type: 1
+  Rarity: 3
   useItemDatas: []
   equipItemData:
   - EquipType: 5
+    UpgradePrice: 200
     AttackValue: 40
-    ArmorValue: 0
+    DefenceValue: 0
+    UpgradeAttackValue: 15
+    DefenceAttackValue: 0
   IsStack: 0
   MaxStack: 0
