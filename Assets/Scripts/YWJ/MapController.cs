@@ -13,6 +13,8 @@ public class MapController : MonoBehaviour
     public Action ChangeMap;
     public Vector3 playerMapPosition = Vector3.zero;
     public NavMeshSurface meshSurface;
+    public List<Transform> spawners = new List<Transform>();
+    public MonsterManager monsterManager;
 
 
     private void Init()
@@ -33,10 +35,14 @@ public class MapController : MonoBehaviour
 
         foreach (var map in currentMapPos)
         {
-            currentMaps.Add(Instantiate(MapPrefab, map, Quaternion.identity,this.transform));
+            GameObject newMap = Instantiate(MapPrefab, map, Quaternion.identity, this.transform);
+            currentMaps.Add(newMap);
+            MapInfo mapInfo = newMap.GetComponent<MapInfo>();
+            mapInfo.Init();
         }
         ChangeMap += ChangeMaps;
         meshSurface.BuildNavMesh();
+        monsterManager.spawners = spawners;
 
     }
     private void Start()
