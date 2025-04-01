@@ -16,12 +16,14 @@ public class ResolutionControl : MonoBehaviour
 
     void Start()
     {
+        // 현재 모니터에서 지원하는 모든 해상도를 Resolution 배열로 반환한다.
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
         resolutionDropdown.ClearOptions();
         currentRefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
 
+        // 화면 재생률(주사율) 비교 후 리스트에 추가
         for (int i = 0; i < resolutions.Length; i++)
         {
             if ((float)resolutions[i].refreshRateRatio.value == currentRefreshRate)
@@ -30,6 +32,7 @@ public class ResolutionControl : MonoBehaviour
             }
         }
 
+        // 리스트 정렬
         filteredResolutions.Sort((a, b) => {
             if (a.width != b.width)
                 return b.width.CompareTo(a.width);
@@ -37,6 +40,7 @@ public class ResolutionControl : MonoBehaviour
                 return b.height.CompareTo(a.height);
         });
 
+        // string 으로 options 리스트 정리
         List<string> options = new List<string>();
         for (int i = 0; i < filteredResolutions.Count; i++)
         {
@@ -48,13 +52,14 @@ public class ResolutionControl : MonoBehaviour
             }
         }
 
+        // 옵션 추가, 업데이트
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex = 0;
         resolutionDropdown.RefreshShownValue();
-        resolutionDropdown.GetComponent<Image>().color = new Color32(27, 34, 54, 255);
         SetResolution(currentResolutionIndex);
     }
 
+    // 해상도 설정 함수
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
