@@ -12,12 +12,20 @@ public class MenuController : MonoBehaviour
     Vector3 lastPos;
     bool isMove;
     Coroutine coroutine;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         lastPos = transform.position;
         targetPos += transform.position;
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        if (animator != null)
+            animator.Play("ButtonAnim", 0);
     }
 
     public void MoveToTarget()

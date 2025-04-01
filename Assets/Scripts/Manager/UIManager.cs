@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] MenuController pauseMenu;
     [SerializeField] MenuController settingsMenu;
+    [SerializeField] Image fade;
     bool isSettings;
 
     private void Update()
@@ -22,7 +24,10 @@ public class UIManager : MonoBehaviour
     public void MovePauseMenu()
     {
         if (!isSettings)
-        pauseMenu.MoveToTarget();
+        {
+            fade.gameObject.SetActive(true);
+            pauseMenu.MoveToTarget();
+        }
     }
 
     public void MoveSettingsMenu()
