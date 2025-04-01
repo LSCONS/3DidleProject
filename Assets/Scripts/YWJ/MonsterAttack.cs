@@ -5,9 +5,11 @@ using UnityEngine;
 public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
 {
     private EnemyController enemyController;
+    private Enemy enemy;
     public void EnterBehaivor(EnemyController monsterController)
     {
         enemyController = monsterController;
+        enemy = GetComponent<Enemy>();
     }
 
     public void ExitBehaivor(EnemyController monsterController)
@@ -21,8 +23,24 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
         if (Time.time - enemyController.lastAttackTime > enemyController.attackRate)
         {
             enemyController.lastAttackTime = Time.time;
-            // 플레이어가 공격받는 로직
             enemyController.animator.SetTrigger("Attack");
         }
+    }
+
+
+    /// <summary>
+    /// 애니메이션이벤트에 추가
+    /// </summary>
+    public void OnAttack()
+    {
+        if (PlayerManager.Instance.player == null)
+        {
+            Debug.Log("플레이어는 null입니다.");
+        }
+        if (enemy == null)
+        {
+            Debug.Log("enemy는 null입니다.");
+        }
+        PlayerManager.Instance.player.TakeDamage(enemy.Power);
     }
 }

@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     public float MaxHp { get; private set; }
     public float CurrentHP { get; private set; }
     public float Damage { get; private set; }
-    public float AttackRange { get; private set; }
     public float Defence { get; private set; }
 
     public float CriticalChance { get; private set; }
@@ -26,14 +25,11 @@ public class Player : MonoBehaviour
     public int helmetIndex { get; private set; } = -1;
 
     public PlayerCondition condition;
-    public PlayerController controller;
-    
 
     private void Awake()
     {
         PlayerManager.Instance.Player = this;
         condition = GetComponent<PlayerCondition>(); 
-        controller = GetComponent<PlayerController>();
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)

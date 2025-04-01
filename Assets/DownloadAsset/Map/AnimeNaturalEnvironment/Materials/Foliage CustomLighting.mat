@@ -164,14 +164,14 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.48684746, g: 0.754717, b: 0.06051977, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color0: {r: 1, g: 1, b: 1, a: 0}
-    - _Color1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color0: {r: 0, g: 1, b: 0.004989147, a: 0}
+    - _Color1: {r: 0.05678178, g: 0.41509432, b: 0.15003897, a: 1}
     - _EmissionColor: {r: 0.06780411, g: 0.21698111, b: 0, a: 1}
     - _EmissionMapChannelMask: {r: 1, g: 1, b: 1, a: 0}
     - _IndirectLightMinColor: {r: 0.09999997, g: 0.09999997, b: 0.09999997, a: 1}
     - _OcclusionMapChannelMask: {r: 1, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 0.8109739, b: 0, a: 1}
-    - _SSScolor: {r: 1, g: 1, b: 1, a: 0}
+    - _SSScolor: {r: 0.21542363, g: 0.9716981, b: 0.23931794, a: 0}
     - _ShadowMapColor: {r: 0.3301887, g: 0.20434757, b: 0.007787468, a: 1}
     - _SpecColor: {r: 0.6399291, g: 1, b: 0.15686166, a: 0.2}
     - _Tint: {r: 0.6145782, g: 0.8156863, b: 0.33333334, a: 1}

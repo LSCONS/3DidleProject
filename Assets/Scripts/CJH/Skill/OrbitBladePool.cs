@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class OrbitBladePool : MonoBehaviour
 {
-    private static OrbitBladePool instance;
-    public static OrbitBladePool Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameObject("OrbitBladePool").AddComponent<OrbitBladePool>();
-            }
-            return instance;
-        }
-    }
+    public static OrbitBladePool Instance { get; private set; }
 
 
     public GameObject bladePrefab;
@@ -25,18 +14,18 @@ public class OrbitBladePool : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
 
         for (int i = 0; i < initalPoolSize; i++)
         {
-            GameObject blade = Instantiate(bladePrefab, this.transform);
+            GameObject blade = Instantiate(bladePrefab);
             blade.SetActive(false);
             pool.Enqueue(blade);
         }
