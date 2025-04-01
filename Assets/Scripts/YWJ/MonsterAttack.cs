@@ -41,6 +41,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
         {
             Debug.Log("enemy는 null입니다.");
         }
+        Debug.Log("플레이어 공격");
         PlayerManager.Instance.player.TakeDamage(enemy.Power);
     }
 }
