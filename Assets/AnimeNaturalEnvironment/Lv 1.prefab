@@ -961,7 +961,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   spawners:
   - {fileID: 4881826848746002276}
   - {fileID: 6735486934791160035}
