@@ -3,25 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveOneSide : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     public Type type;
     public Vector3 targetPos;
     public float duration;
 
     Vector3 lastPos;
-    bool isShow;
+    bool isMove;
+    Coroutine coroutine;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         lastPos = transform.position;
         targetPos += transform.position;
+        gameObject.SetActive(false);
     }
 
-    public void OnClickEnter()
+    private void OnEnable()
     {
-        if (!isShow)
+        if (animator != null)
+            animator.Play("ButtonAnim", 0);
+    }
+
+    public void MoveToTarget()
+    {
+        if (!isMove)
         {
+            if (coroutine != null) StopCoroutine(coroutine);
+
+            gameObject.SetActive(true);
+
             switch (type)
             {
                 case Type.Default:
@@ -49,8 +63,16 @@ public class MoveOneSide : MonoBehaviour
                     transform.DOMove(lastPos, duration).SetEase(Ease.InOutCubic);
                     break;
             }
+
+            coroutine = StartCoroutine(WaitForClose(duration));
         }
 
-        isShow = !isShow;
+        isMove = !isMove;
+    }
+
+    IEnumerator WaitForClose(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        gameObject.SetActive(false);
     }
 }

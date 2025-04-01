@@ -11,7 +11,7 @@ public enum Type
     Cubic
 }
 
-public class MovePingPong : MonoBehaviour
+public class BackgroundController : MonoBehaviour
 {
     public Type type;
     public Vector3 targetPos;
