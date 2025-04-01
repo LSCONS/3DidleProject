@@ -6,38 +6,24 @@ using UnityEngine;
 public class Skill_Player_OrbitBlades : Skill
 {
     [Header("스킬 세팅")]
-    public int bladeCount = 3;      // 생성될 프리팹의 갯수
-    public float orbitRadius = 2f;  // 플레이어부터의 거리
+    public int bladeCount = 5;      // 생성될 프리팹의 갯수
+    public float orbitRadius = 3f;  // 플레이어부터의 거리
     public float rotateSpeed = 180f;    //회전 속도
-    public float selfSpineSpeed = 360f; // 무기 자체의 회전 속도
+    public float selfSpineSpeed = 720f; // 무기 자체의 회전 속도
     public float damageInterval = 0.5f; //적에게 피해를 주는 주기
     public float baseDamage = 5f;
 
     public float damageTimer = 0f;      
     private List<GameObject> blades = new List<GameObject>();
 
-
-
-
-    public Skill_Player_OrbitBlades(string name, float duration, float cooltime) : base("OrbitBlades", duration, cooltime)
+    public Skill_Player_OrbitBlades()
     {
-        Name = name;
-        Duration = duration;
-        Cooltime = cooltime;
+        Name = "OrbitBlades";
+        Duration = 5f;
+        Cooltime = 2f;
     }
 
-    public override void RemoveSkill()
-    {
-        base.RemoveSkill();
-        foreach (GameObject blade in blades)
-        {
-            if (blade != null)
-            {
-                OrbitBladePool.Instance.ReturnBlade(blade);
-            }
-            blades.Clear();
-        }
-    }
+    
 
 
     public override void UseSkill()
@@ -52,12 +38,34 @@ public class Skill_Player_OrbitBlades : Skill
             float angle = (360f / bladeCount) * i;
 
             GameObject blade = OrbitBladePool.Instance.GetBlade();
+
+            if (blade == null || blade.GetComponent<OrbitBlade>() == null)
+            {
+                Debug.LogError("OribitBlade 프리팹에 문재발생");
+                continue;
+            }
+
             blade.GetComponent<OrbitBlade>().Init(PlayerManager.Instance.PlayerTransform,
-                orbitRadius, rotateSpeed, selfSpineSpeed, angle, bladeCount);
+                orbitRadius, rotateSpeed, selfSpineSpeed, angle);
+
             blades.Add(blade);
         }
 
+
         // 플레이어 주변을 지속시간동안 돌아다니는 스킬
+    }
+
+    public override void RemoveSkill()
+    {
+        base.RemoveSkill();
+        foreach (GameObject blade in blades)
+        {
+            if (blade != null)
+            {
+                OrbitBladePool.Instance.ReturnBlade(blade);
+            }
+        }
+        blades.Clear();
     }
 
     public override void UpdateSkillDuration()
@@ -78,7 +86,7 @@ public class Skill_Player_OrbitBlades : Skill
 
     private void DealDamage()
     {
-        float damage= baseDamage + PlayerManager.Instance.Player.Damage;
+        float damage = baseDamage + PlayerManager.Instance.Player.Damage;
         float range = 1f;
 
         foreach (var blade in blades)
@@ -97,7 +105,7 @@ public class Skill_Player_OrbitBlades : Skill
 
     private int GetBladeCountByLevel()
     {
-        return 3 + Mathf.FloorToInt(Level / 5);
+        return bladeCount + Mathf.FloorToInt(Level / 5);
     }
 
     public override void LevelUp()

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class OrbitBladePool : MonoBehaviour
 {
-    public static OrbitBladePool Instance;
+    public static OrbitBladePool Instance { get; private set; }
+
 
     public GameObject bladePrefab;
     public int initalPoolSize = 10;
@@ -13,7 +14,14 @@ public class OrbitBladePool : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
 
         for (int i = 0; i < initalPoolSize; i++)
         {

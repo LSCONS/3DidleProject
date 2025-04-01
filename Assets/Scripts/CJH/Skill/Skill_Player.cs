@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class Skill_Player_ShockwaveCrush : Skill
 {
-    public Skill_Player_ShockwaveCrush(string name, float duration, float cooltime) : base(name, duration, cooltime)
-    {
-
-    }
 
     public override void RemoveSkill()
     {
