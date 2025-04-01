@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
-public class EquipSlotUI : MonoBehaviour, IDropHandler
+using UnityEngine.EventSystems;
+public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     public EquipItemType slotType; // 이 슬롯의 타입 (Helmet, Weapon 등)
     public Image icon;
@@ -35,14 +35,28 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler
 
     public void Set(ItemData item)
     {
+        if (icon == null) return;
+
         if (item == null)
         {
-            icon.enabled = false;
+            icon.sprite = null;
+            
         }
         else
         {
             icon.sprite = item.Icon;
-            icon.enabled = true;
+            icon.color = Color.white;
         }
     }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            EquipmentManager.Instance.Unequip(slotType);
+            EquipmentUI.Instance.Refresh();
+            InventoryUI.Instance.Refresh();
+        }
+    }
+
+
 }
