@@ -18,8 +18,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public Character player;
-    public Character Player
+    public Player player;
+    public Player Player
     {
         get { return player; }
         set { player = value; }
@@ -29,26 +29,21 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
         {
-            if (instance = this)
-            {
                 Destroy(gameObject);
-            }
         }
 
-        GameObject playerObj = GameObject.FindWithTag("Player");
-        if (playerObj != null)
-        {
-            PlayerTransform = playerObj.transform;
-            Player = playerObj.GetComponent<Character>();
-        }
+    }
 
+    private void Start()
+    {
+        PlayerTransform = Player.gameObject.transform;
     }
 
 }

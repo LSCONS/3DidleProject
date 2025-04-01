@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        
         IMonsterBehaivor<EnemyController> move = new MonsterMove();
         IMonsterBehaivor<EnemyController> attack = new MonsterAttack();
         agent.speed = enemySpeed;
@@ -41,11 +42,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, character.transform.position) <= 0.5f)
+        if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 1.5f)
         {
             stateMachine.SetState(curState[MonsterBehavior.Attack]);
         }
-        if(Vector3.Distance(this.gameObject.transform.position, character.transform.position) > 0.5f)
+        if(Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 1.5f)
         {
             stateMachine.SetState(curState[MonsterBehavior.Move]);
         }

@@ -22,9 +22,9 @@ public class MonsterMove : MonoBehaviour, IMonsterBehaivor<EnemyController>
     {
         enemyController.agent.isStopped = false;
         NavMeshPath path = new NavMeshPath();
-        if (enemyController.agent.CalculatePath(enemyController.character.transform.position,path))//enemyController.agent.CalculatePath(GameManager.Instance.Player.transform.position, path)
+        if (enemyController.agent.CalculatePath(PlayerManager.Instance.PlayerTransform.position,path))//enemyController.agent.CalculatePath(GameManager.Instance.Player.transform.position, path)
         {
-            enemyController.agent.SetDestination(enemyController.character.transform.position);
+            enemyController.agent.SetDestination(PlayerManager.Instance.PlayerTransform.position);
             //enemyController.agent.SetDestination(GameManager.Instance.Player.transform.position);
         }
     }

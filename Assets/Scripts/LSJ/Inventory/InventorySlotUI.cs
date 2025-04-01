@@ -19,7 +19,7 @@ public class InventorySlotUI : MonoBehaviour,
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private InventorySlot slot;
+    public InventorySlot slot;
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -75,6 +75,18 @@ public class InventorySlotUI : MonoBehaviour,
         DragIcon.Hide();
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        //인벤토리 그리드 밖이면 버리기 확인창 띄우기
+        if (!RectTransformUtility.RectangleContainsScreenPoint(
+            InventoryUI.Instance.slotParent.GetComponent<RectTransform>(),
+            eventData.position,
+            canvas.worldCamera))
+        {
+            DropConfirmPanel.Instance.Show(this); 
+        }
+        else
+        {
+            InventoryUI.Instance.Refresh(); // 정상 슬롯 이동 시
+        }
     }
 
     public void OnDrop(PointerEventData eventData)

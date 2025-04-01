@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Playables;
 using UnityEngine;
 
-[System.Serializable]
-public class Character
+public class Player : MonoBehaviour
 {
     public string PlayerName { get; private set; }
     public int Level { get; private set; } = 1;
@@ -25,7 +24,15 @@ public class Character
     public bool isHelmetEquip { get; private set; } = false;
     public int helmetIndex { get; private set; } = -1;
 
-    public Character(string playerName, float maxHp, float damage, float defence)
+    public PlayerCondition condition;
+
+    private void Awake()
+    {
+        PlayerManager.Instance.Player = this;
+        condition = GetComponent<PlayerCondition>(); 
+    }
+
+    public void Init(string playerName, float maxHp, float damage, float defence)
     {
         PlayerName = playerName;
         MaxHp = maxHp;
@@ -34,6 +41,22 @@ public class Character
         Defence = defence;
         CriticalChance = 10;
         CriticalDamage = 150;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        SubstractHelath(damage);
+        // 피해 받는 이벤트 추가하기
+    }
+
+    public void AddHealth(float value)
+    {
+        CurrentHP = Mathf.Min(CurrentHP + value, MaxHp);
+    }
+
+    public void SubstractHelath(float value)
+    {
+        CurrentHP = Mathf.Max(CurrentHP - value, 0);
     }
 
 }

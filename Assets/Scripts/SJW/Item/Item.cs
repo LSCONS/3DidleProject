@@ -13,6 +13,34 @@ public class Item
     }
 
 
+    //업그레이드 성공 시 실행할 메서드
+    private void UpgradeItem()
+    {
+        if (Data.Type == ItemType.EquipItem ||
+            Data.equipItemData != null)
+        {
+            EquipItemData data = Data.equipItemData[0];
+
+            if(data.UpgradePrice > 100)//TODO: 100 대신 플레이어 소지 머니로 바꿔야 함.
+            {
+                //TODO: 골드 부족으로 강화 불가능 메시지 필요
+                return;
+            }
+            //TODO: 플레이어의 골드를 빼는 명령어 필요
+            Data.GradeCount++;
+            AddEquipItemValue(data, data.UpgradeAttackValue, data.DefenceAttackValue);
+        }
+    }
+
+
+    //장비 데이터에 공격력, 방어력을 올리는 메서드
+    private void AddEquipItemValue(EquipItemData data, int attackValue, int defenceValue)
+    {
+        data.AttackValue += attackValue;
+        data.DefenceValue += defenceValue;
+    }
+
+
     /// <summary>
     /// 업그레이드를 시도할 메서드
     /// </summary>
@@ -39,29 +67,24 @@ public class Item
     }
 
 
-    //업그레이드 성공 시 실행할 메서드
-    private void UpgradeItem()
+    /// <summary>
+    /// 아이템을 사용할 메서드
+    /// </summary>
+    public void UseUsableItem()
     {
-        if (Data.Type == ItemType.EquipItem ||
-            Data.equipItemData != null)
+        for(int i = 0; i < Data.useItemDatas.Length; i++)
         {
-            EquipItemData data = Data.equipItemData[0];
-
-            if(data.UpgradePrice > 100)//TODO: 100 대신 플레이어 소지 머니로 바꿔야 함.
+            UseItemData useItemData = Data.useItemDatas[i];
+            switch (useItemData.UseType)
             {
-                //TODO: 골드 부족으로 강화 불가능 메시지 필요
-                return;
+                case UseItemType.HP:
+                    //TODO: 플레이어 HP회복 로직 필요. useItemData.HealthValue만큼 회복
+                    break;
+
+                case UseItemType.MP:
+                    //TODO: 플레이어 MP회복 로직 필요. useItemData.HealthValue만큼 회복
+                    break;
             }
-            //TODO: 플레이어의 골드를 빼는 명령어 필요
-            Data.GradeCount++;
-            AddEquipItemValue(data, data.UpgradeAttackValue, data.DefenceAttackValue);
         }
-    }
-
-
-    public void AddEquipItemValue(EquipItemData data, int attackValue, int defenceValue)
-    {
-        data.AttackValue += attackValue;
-        data.DefenceValue += defenceValue;
     }
 }

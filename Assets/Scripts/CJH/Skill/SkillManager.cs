@@ -20,11 +20,18 @@ public class SkillManager : MonoBehaviour
 
     public bool isAutoMode = false;     // 자동사냥 모드
 
+    private void Awake()
+    {
+        skills = new Dictionary<SkillType, Skill>()
+        {
+            {SkillType.OrbitBlade, new Skill_Player_OrbitBlades() }
+        };
+    }
+
     private void Update()
     {
-        foreach (var pair in skills)
+        foreach (var skill in skills.Values)
         {
-            Skill skill = pair.Value;
             skill.UpdateSkillDuration();
 
             // if문으로 쿨타임을 표시
