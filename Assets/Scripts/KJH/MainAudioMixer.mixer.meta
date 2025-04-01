@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/KJH/MainAudioMixer.mixer.meta
 guid: 8095861b2c11c0c4aae13b3db6dad01f
 NativeFormatImporter:
+========
+guid: 23eda9bd3c41daa419bf3ac7c7dbaec7
+DefaultImporter:
+>>>>>>>> Map_YWJ:Assets/Scenes/Stage2.unity.meta
   externalObjects: {}
   mainObjectFileID: 24100000
   userData: 
