@@ -97,7 +97,9 @@ public class Skill_Player_OrbitBlades : Skill
                 if (enemy.CompareTag("Enemy"))
                 {
                     // 적에게 대미지를 주도록 설정
+                    return;
                 }
+                
             }
         }
 
