@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         PlayerManager.Instance.Player = this;
         condition = GetComponent<PlayerCondition>(); 
         controller = GetComponent<PlayerController>();
+        Damage = 20f;
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)

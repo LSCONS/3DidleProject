@@ -48,7 +48,17 @@ public class OrbitBlade : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, range);
         foreach (var enemy in enemies)
         {
-            // 적정보를 가져오고 적에게 피해를 입히기
+            
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            // 적에게 피해를 입히기
+            other.GetComponent<Enemy>().TakeDamage(PlayerManager.Instance.player.Damage);
+            Debug.Log("적에게 스킬공격");
         }
     }
 

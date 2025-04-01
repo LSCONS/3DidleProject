@@ -42,11 +42,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 1.5f)
+        if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 2f)
         {
             stateMachine.SetState(curState[MonsterBehavior.Attack]);
         }
-        if(Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 1.5f)
+        if(Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 2f)
         {
             stateMachine.SetState(curState[MonsterBehavior.Move]);
         }
