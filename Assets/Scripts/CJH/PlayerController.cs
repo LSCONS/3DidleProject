@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -14,17 +13,16 @@ public class PlayerController : MonoBehaviour
     [Header("Refernces")]
     public Transform cameraTransform;
 
-    private PlayerAnimationHandler animationHandler;
+    private Player_AnimationHandler animationHandler;
     private Rigidbody rb;
     private Vector2 moveInput;  // 입력받은 이동값
     private bool jumpInput;     //  점프 입력이 됐는지
     private bool isRunning;
-    private bool isAttacking;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();        
-        animationHandler = GetComponent<PlayerAnimationHandler>();
+        animationHandler = GetComponent<Player_AnimationHandler>();
     }
 
 
@@ -58,20 +56,6 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
             animationHandler?.SetRunState(false);
         }
-    }
-
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed || !isAttacking)
-        {
-            isAttacking = true;
-            animationHandler?.PlayAttack();
-        }
-    }
-
-    public void ResetAttackState()
-    {
-        isAttacking = false;
     }
 
 
