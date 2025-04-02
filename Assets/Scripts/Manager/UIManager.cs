@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [Header("Stat")]
     [SerializeField] Player player;
     [SerializeField] TextMeshProUGUI level;
-    [SerializeField] TextMeshProUGUI name;
+    [SerializeField] TextMeshProUGUI playerName;
     [SerializeField] TextMeshProUGUI atk;
     [SerializeField] TextMeshProUGUI def;
 
@@ -22,6 +22,9 @@ public class UIManager : MonoBehaviour
     [Header("Condition")]
     [SerializeField] Slider hpSlider;
     [SerializeField] Slider expSlider;
+    [SerializeField] Button activeButton;
+    [SerializeField] Button autoButton;
+    Coroutine glowCoroutine;
 
     [Header("Skill")]
 
@@ -52,7 +55,7 @@ public class UIManager : MonoBehaviour
     void UpdateStat()
     {
         level.text = $"Lv.{player.Level}";
-        name.text = player.name;
+        playerName.text = player.PlayerName;
         atk.text = player.Damage.ToString();
         def.text = player.Defence.ToString();
 
@@ -107,4 +110,64 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void AutoButton(bool isAutoMode)
+    {
+        activeButton.gameObject.SetActive(!isAutoMode);
+        autoButton.gameObject.SetActive(isAutoMode);
+
+        if (glowCoroutine != null)
+        {
+            StopCoroutine(glowCoroutine);
+            glowCoroutine = null;
+        }
+
+        if (isAutoMode)
+        {
+            glowCoroutine = StartCoroutine(GlowEffectCoroutine(autoButton));
+        }
+        else if (glowCoroutine != null)
+        {
+            SetAlpha(autoButton, 1f);
+        }
+
+    }
+
+    private IEnumerator GlowEffectCoroutine(Button target)
+    {
+        float duration = 1f;
+        float timer = 0f;
+
+
+        CanvasGroup canvasGroup = target.gameObject.AddComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+        {
+            canvasGroup = target.gameObject.AddComponent<CanvasGroup>();
+        }
+
+        while (true)
+        {
+            if (canvasGroup == null)
+            {
+                Debug.LogWarning("CanvasGroup이 존재하지 않음");
+                yield break;
+            }
+
+            timer += Time.deltaTime;
+            float alpha = Mathf.PingPong(timer, duration) / duration;
+            canvasGroup.alpha = Mathf.Lerp(0.5f, 1f, alpha);
+            yield return null;
+        }
+    }
+
+    private void SetAlpha(Button button, float alpha)
+    {
+        CanvasGroup canvasGroup = button.gameObject.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = alpha;
+        }
+    }
+
 }

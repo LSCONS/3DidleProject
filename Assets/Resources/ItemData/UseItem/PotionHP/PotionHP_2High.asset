@@ -26,3 +26,5 @@ MonoBehaviour:
   equipItemData: []
   IsStack: 1
   MaxStack: 5
+  AvailableInShop: 1
+  ShopPrice: 100

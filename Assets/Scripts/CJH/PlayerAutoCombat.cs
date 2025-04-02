@@ -11,6 +11,8 @@ public class PlayerAutoCombat : MonoBehaviour
     private NavMeshAgent agent;
     private Transform targetEnemy;
 
+    public UIManager uimanager;
+
 
     private float attackTimer;
 
@@ -18,6 +20,7 @@ public class PlayerAutoCombat : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
+        uimanager.AutoButton(false);
     }
 
     private void Update()
@@ -91,11 +94,13 @@ public class PlayerAutoCombat : MonoBehaviour
         PlayerManager.Instance.Player.controller.isAutoMode = enable;
         PlayerManager.Instance.Player.controller.playerInputEnabled(!enable);
 
+
         if (!enable && agent.isOnNavMesh)
         {
 
             agent.ResetPath();
         }
+        uimanager.AutoButton(enable);
 
         if (enable)
         {
