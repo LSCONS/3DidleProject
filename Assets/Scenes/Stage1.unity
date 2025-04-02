@@ -2095,6 +2095,11 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 738123653}
+    - target: {fileID: 522252297541784145, guid: c8840aa62ba40ba448e0b68854de3399,
+        type: 3}
+      propertyPath: retryUI
+      value: 
+      objectReference: {fileID: 494269172}
     - target: {fileID: 572159685817711976, guid: c8840aa62ba40ba448e0b68854de3399,
         type: 3}
       propertyPath: m_Layer
@@ -8592,8 +8597,8 @@ MonoBehaviour:
   informationUI: {fileID: 4440757}
   btnExitInformation: {fileID: 1028708320}
   shadowUI: {fileID: 691912529}
-  Yes: {fileID: 0}
-  No: {fileID: 0}
+  Yes: {fileID: 551831799}
+  No: {fileID: 379211201}
   masterVolume: {fileID: 2117516115}
   sfxVolume: {fileID: 996648754}
   bgmVolume: {fileID: 771275233}

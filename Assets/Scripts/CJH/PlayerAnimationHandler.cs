@@ -15,6 +15,7 @@ public class PlayerAnimationHandler : MonoBehaviour
 
 
     protected Animator animator;
+    public GameObject retryUI;
 
     protected virtual void Awake()
     {
@@ -72,6 +73,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void PlayDead()
     {
         animator.SetTrigger(DeadTrigger);
+        retryUI.SetActive(true);
     }
 
     public void PlayerHit()
