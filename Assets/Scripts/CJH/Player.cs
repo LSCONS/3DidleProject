@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -121,6 +120,26 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    public void  SetGold(int amount)
+    {
+        Gold = Mathf.Max(0, amount);
+    }
+
+    public bool TrySpendGold(int amount)
+    {
+        if (Gold >= amount)
+        {
+            Gold -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public void AddGold(int amount)
+    {
+        Gold += amount;
+    }
     public void PlayerDeath()
     {
         if (CurrentHP <= 0 && !isDead)
@@ -139,6 +158,19 @@ public class Player : MonoBehaviour
             controller.animationHandler?.PlayDead();
 
         }
+
+    }
+    //장착적용
+    public void AddEquipStats(int atk, int def)
+    {
+        Damage += atk;
+        Defence += def;
+    }
+    //장착해제
+    public void RemoveEquipStats(int atk, int def)
+    {
+        Damage -= atk;
+        Defence -= def;
     }
 
 }

@@ -347,6 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4929961039709493716}
+  - component: {fileID: 7921137320071001386}
   m_Layer: 7
   m_Name: Rocks
   m_TagString: Untagged
@@ -371,6 +372,22 @@ Transform:
   - {fileID: 6797393948672198162}
   m_Father: {fileID: 8437094951059574089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &7921137320071001386
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650529555679150138}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.965, y: 0.5, z: 0.73}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.19, y: 0, z: 0.81}
+  m_TimeToStationary: 0.5
 --- !u!1 &3533375499513637630
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +399,7 @@ GameObject:
   - component: {fileID: 2961181471836688209}
   - component: {fileID: 7613788551550437448}
   - component: {fileID: 8232473525131442140}
+  - component: {fileID: 8711121284249016720}
   m_Layer: 7
   m_Name: Tree_05
   m_TagString: Untagged
@@ -461,6 +479,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7483874544753282106, guid: 32de6ad52c19ed04aa867693feacdbf8, type: 3}
+--- !u!208 &8711121284249016720
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533375499513637630}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.3, y: 1, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3577648672552101149
 GameObject:
   m_ObjectHideFlags: 0
