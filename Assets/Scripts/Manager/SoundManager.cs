@@ -18,8 +18,10 @@ public class SoundManager : Singleton<SoundManager>
     public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
     public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
 
-    Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();
-    Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();
+    public AudioSource CurrentBGMSource;     //현재 재생되고 있는 BGM소스
+
+    Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();     //SFX오디오 소스를 저장할 Dictionary
+    Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();           //BGM오디오 소스를 저장할 Dictionary
 
     public AudioMixer audioMixer;
     public AudioMixerGroup bgmGroup;
@@ -103,6 +105,7 @@ public class SoundManager : Singleton<SoundManager>
         audioSource.playOnAwake = false;
         audioSource.clip = clip;
         audioSource.Play();
+        CurrentBGMSource = audioSource;
         return audioSource;
     }
 
@@ -178,11 +181,7 @@ public class SoundManager : Singleton<SoundManager>
         ///특정 AudioSource를 가지고 있는 GameObject의 위치를 BGM을 관리하는 오브젝트의 0번째로 올림.
         ///이후 해당 AudioSource를 활성화 시켜둠.
 
-        if(BGM_SoundPool.transform.childCount > 0)
-        {
-            AudioSource nowPlayAudio = BGM_SoundPool.transform?.GetChild(0)?.GetComponent<AudioSource>();
-            if (nowPlayAudio != null) nowPlayAudio.Stop();
-        }
+        StopCurrentBGMSource();
 
         AudioSource tempAudio;
         if (audioPoolsBGM.ContainsKey(clip))
@@ -198,7 +197,7 @@ public class SoundManager : Singleton<SoundManager>
 
         if (tempAudio != null)
         {
-            tempAudio.transform.SetSiblingIndex(0);
+            CurrentBGMSource = tempAudio;
             SetAudioPositionForPlayer(tempAudio);
         }
     }
@@ -242,7 +241,17 @@ public class SoundManager : Singleton<SoundManager>
     #endregion
 
 
-    //TODO: BGM 출력 멈춤 메서드 필요할지도?
+    /// <summary>
+    /// 현재 실행되고 있는 BGM소스를 멈추고 싶을 때 실행하는 메서드
+    /// </summary>
+    public void StopCurrentBGMSource()
+    {
+        if(CurrentBGMSource != null)
+        {
+            CurrentBGMSource.Stop();
+            CurrentBGMSource = null;
+        }
+    }
 
 
     #region SFX 출력 관련
