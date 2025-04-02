@@ -54,10 +54,12 @@ public class Item
             {
                 UpgradeItem();
                 UIManager.Instance.SetOpenInformationUI("강화 성공");
+                SoundManager.Instance.StartAudioBGM_Battle();
             }
             else
             {
                 UIManager.Instance.SetOpenInformationUI("강화 실패");
+                //TODO: 나중에 강화 실패 오디오 추가해야함
             }
         }
         else

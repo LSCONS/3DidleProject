@@ -48,6 +48,11 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject Yes;
     [SerializeField] GameObject No;
 
+    [Header("OptionSliderBar")]
+    [SerializeField] public RectTransform masterVolume;
+    [SerializeField] public RectTransform sfxVolume;
+    [SerializeField] public RectTransform bgmVolume;
+
     bool isFade;
     bool isSettings;
 
