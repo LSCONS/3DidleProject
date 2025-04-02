@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    //TODO: 환경설정에서 조절한 볼륨 조절 부분과 연결 필요.
-    public float bgmVolume = 0.2f;
-    public float seVolme = 0.1f;
-
     public readonly string MasterGroupName = "Master";  //오디오 믹서 마스터 그룹 이름
     public readonly string SFXGroupName = "SFX";        //오디오 믹서 SFX 그룹 이름
     public readonly string BGMGroupName = "BGM";        //오디오 믹서 BGM 그룹 이름
@@ -17,11 +14,14 @@ public class SoundManager : Singleton<SoundManager>
 
     public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
     public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
+    public GameObject SFX_MoveRun_SoundPool;//걷거나 뛰는 SFX소리 오브젝트를 풀링할 오브젝트
 
     public AudioSource CurrentBGMSource;     //현재 재생되고 있는 BGM소스
+    public AudioSource CurrentSFXMoveRunSource; //현재 재생되고 있는 SFX MoveRun소스
 
     Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();     //SFX오디오 소스를 저장할 Dictionary
     Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();           //BGM오디오 소스를 저장할 Dictionary
+    Dictionary<AudioClip, AudioSource> audioPoolsSFXMoveRun = new();    //SFX MoveRun오디오 소스를 저장할 Dictionary
 
     public AudioMixer audioMixer;
     public AudioMixerGroup bgmGroup;
@@ -51,6 +51,7 @@ public class SoundManager : Singleton<SoundManager>
         CreatePoolObject();                 //풀링하는 오브젝트를 한꺼번에 저장할 오브젝트 생성
         initAudioClip();                    //Clip들의 Resource경로 설정
         initAudioMixer();                   //오디오 믹서들을 초기화
+        initAudioEvent();                   //오디오 볼륨조절 이벤트 추가
     }
 
 
@@ -59,8 +60,10 @@ public class SoundManager : Singleton<SoundManager>
     {
         BGM_SoundPool = new GameObject("SoundPoolBGM");
         SFX_SoundPool = new GameObject("SoundPoolSFX");
+        SFX_MoveRun_SoundPool = new GameObject("SoundPoolSFXMoveRun");
         BGM_SoundPool.transform.parent = transform;
         SFX_SoundPool.transform.parent = transform;
+        SFX_MoveRun_SoundPool.transform.parent = transform;
     }
 
 
@@ -91,6 +94,15 @@ public class SoundManager : Singleton<SoundManager>
         AudioMixerGroup[] sfxGruips = audioMixer.FindMatchingGroups($"{MasterGroupName}/{SFXGroupName}");
         bgmGroup = bgmGroups[0];
         sfxGroup = sfxGruips[0];
+    }
+
+
+    //오디오 볼륨 조절 이벤트 등록
+    private void initAudioEvent()
+    {
+        UIManager.Instance.masterVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetMasterVolume;
+        UIManager.Instance.sfxVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetSFXVolume;
+        UIManager.Instance.bgmVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetBGMVolume;
     }
 
 
@@ -203,6 +215,34 @@ public class SoundManager : Singleton<SoundManager>
     }
 
 
+    /// <summary>
+    /// SFX MoveRun을 재생할 때 사용하는 메서드
+    /// </summary>
+    /// <param name="clip">재생할 클립을 선언</param>
+    private void StartAudioSFXMoveRun(AudioClip clip)
+    {
+        StopCurrentSFXMoveRunSource();
+
+        AudioSource tempAudio;
+        if (audioPoolsBGM.ContainsKey(clip))
+        {
+            tempAudio = audioPoolsSFXMoveRun[clip];
+            tempAudio.Play();
+        }
+        else
+        {
+            tempAudio = AddAudioBGMObject(clip);
+            audioPoolsSFXMoveRun.Add(clip, tempAudio);
+        }
+
+        if (tempAudio != null)
+        {
+            CurrentSFXMoveRunSource = tempAudio;
+            SetAudioPositionForPlayer(tempAudio);
+        }
+    }
+
+
     //딜레이로 소리를 출력할 때 실행할 코루틴
     private IEnumerator DelayStartAudio(Action action, float delayTime)
     {
@@ -250,6 +290,19 @@ public class SoundManager : Singleton<SoundManager>
         {
             CurrentBGMSource.Stop();
             CurrentBGMSource = null;
+        }
+    }
+
+
+    /// <summary>
+    /// 플레이어가 움직임을 멈췄을 때 소리 출력을 멈출 메서드
+    /// </summary>
+    public void StopCurrentSFXMoveRunSource()
+    {
+        if (CurrentSFXMoveRunSource != null)
+        {
+            CurrentSFXMoveRunSource.Stop();
+            CurrentSFXMoveRunSource = null;
         }
     }
 
@@ -384,14 +437,28 @@ public class SoundManager : Singleton<SoundManager>
     /// <summary>
     /// SFX PlayerWalk을 실행할 메서드
     /// </summary>
-    public void StartAudioSFX_PlayerWalk()
+    public void StartAudioSFXMoveRun_PlayerWalk()
     {
-        StartAudioSFX(playerWalkSFX);
+        StartAudioSFXMoveRun(playerWalkSFX);
     }
     /// <param name="delayTime">스타트에 지연을 주고 싶은 시간을 입력</param>
-    public void StartAudioSFX_PlayerWalk(float delayTime)
+    public void StartAudioSFXMoveRun_PlayerWalk(float delayTime)
     {
-        StartCoroutine(DelayStartAudio(StartAudioSFX_PlayerWalk, delayTime));
+        StartCoroutine(DelayStartAudio(StartAudioSFXMoveRun_PlayerWalk, delayTime));
+    }
+
+
+    /// <summary>
+    /// SFX PlayerRun을 실행할 메서드
+    /// </summary>
+    public void StartAudioSFXMoveRun_PlayerRun()
+    {
+        StartAudioSFXMoveRun(playerRunSFX);
+    }
+    /// <param name="delayTime">스타트에 지연을 주고 싶은 시간을 입력</param>
+    public void StartAudioSFXMoveRun_PlayerRun(float delayTime)
+    {
+        StartCoroutine(DelayStartAudio(StartAudioSFXMoveRun_PlayerRun, delayTime));
     }
     #endregion
 
@@ -403,8 +470,15 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetMasterVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(MasterGroupName, volume);
+        if (sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(MasterGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(MasterGroupName, volume);
+        }
     }
 
 
@@ -414,8 +488,16 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetBGMVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(BGMGroupName, volume);
+        if(sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(BGMGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(BGMGroupName, volume);
+        }
+
     }
 
 
@@ -425,8 +507,15 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetSFXVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(SFXGroupName, volume);
+        if (sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(SFXGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(SFXGroupName, volume);
+        }
     }
     #endregion
 

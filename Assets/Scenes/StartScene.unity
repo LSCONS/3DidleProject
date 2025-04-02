@@ -924,7 +924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Project Knight
+  m_text: "\uC5B4\uCA4C\uB2E4 \uB85C\uADF8\uB77C\uC774\uD06C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bbafb937811806a4a992378e2fc565c1, type: 2}
   m_sharedMaterial: {fileID: 8672535442072171221, guid: bbafb937811806a4a992378e2fc565c1,
@@ -952,8 +952,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -16,7 +16,10 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
     {
         
     }
-
+    /// <summary>
+    /// 공격 모션
+    /// </summary>
+    /// <param name="monsterController"></param>
     public void UpdateBehavior(EnemyController monsterController)
     {
         enemyController.agent.isStopped = true;

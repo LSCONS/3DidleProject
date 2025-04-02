@@ -26,7 +26,7 @@ public class Item
                 UIManager.Instance.SetOpenInformationUI("강화 실패\n플레이어 골드 부족");
                 return;
             }
-            //TODO: 플레이어의 골드를 빼는 명령어 필요
+            PlayerManager.Instance.player.AddGold(-data.UpgradePrice);
             Data.GradeCount++;
             AddEquipItemValue(data, data.UpgradeAttackValue, data.DefenceAttackValue);
         }
@@ -49,6 +49,7 @@ public class Item
         int GradeCount = Data.GradeCount;
         if (GradeCount < GradeMax)
         {
+            SoundManager.Instance.StartAudioSFX_ItemUpgrade();
             float Probability = 100 - ((100 - ProbabilityMin) / GradeMax) * GradeCount;
             if (Util.ComputeProbability(Probability))
             {

@@ -5955,6 +5955,7 @@ GameObject:
   - component: {fileID: 771275233}
   - component: {fileID: 771275235}
   - component: {fileID: 771275234}
+  - component: {fileID: 771275236}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -6019,6 +6020,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771275232}
   m_CullTransparentMesh: 1
+--- !u!114 &771275236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771275232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3452ab8b716db40a7dc67e989626b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsName: BGMVolume
 --- !u!1 &780890110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7195,6 +7209,7 @@ GameObject:
   - component: {fileID: 996648754}
   - component: {fileID: 996648756}
   - component: {fileID: 996648755}
+  - component: {fileID: 996648757}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -7259,6 +7274,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996648753}
   m_CullTransparentMesh: 1
+--- !u!114 &996648757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996648753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3452ab8b716db40a7dc67e989626b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsName: SFXVolume
 --- !u!1 &1012073411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8566,6 +8594,9 @@ MonoBehaviour:
   shadowUI: {fileID: 691912529}
   Yes: {fileID: 0}
   No: {fileID: 0}
+  masterVolume: {fileID: 2117516115}
+  sfxVolume: {fileID: 996648754}
+  bgmVolume: {fileID: 771275233}
 --- !u!4 &1296043787
 Transform:
   m_ObjectHideFlags: 0
@@ -12589,6 +12620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 120160927951951649, guid: 3f62b9f974f31664f9a9a695237d9b40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9119101778269302376, guid: 3f62b9f974f31664f9a9a695237d9b40,
         type: 3}
       propertyPath: m_Pivot.x
@@ -14112,6 +14148,7 @@ GameObject:
   - component: {fileID: 2117516115}
   - component: {fileID: 2117516117}
   - component: {fileID: 2117516116}
+  - component: {fileID: 2117516118}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -14176,6 +14213,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117516114}
   m_CullTransparentMesh: 1
+--- !u!114 &2117516118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117516114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3452ab8b716db40a7dc67e989626b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsName: MasterVolume
 --- !u!1 &2136467096
 GameObject:
   m_ObjectHideFlags: 0

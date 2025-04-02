@@ -14,16 +14,18 @@ public class MonsterBehaivorMachine<T>
         SetState(currentBehavior);
     }
 
+    /// <summary>
+    /// 상태 설정
+    /// </summary>
+    /// <param name="behavior"></param>
     public void SetState(IMonsterBehaivor<T> behavior)
     {
         if (monsterController == null)
         {
-            Debug.Log("monsterContoller가 없습니다.");
             return;
         }
         if (currentBehavior == behavior)
         {
-            Debug.Log("monster행동이 일치합니다.");
             return;
         }
         if (currentBehavior != null)
@@ -36,7 +38,10 @@ public class MonsterBehaivorMachine<T>
         if (currentBehavior != null)
             currentBehavior.EnterBehaivor(monsterController);
     }
-
+    
+    /// <summary>
+    /// 상태 업데이트 
+    /// </summary>
     public void UpdateState()
     {
         if (monsterController == null)

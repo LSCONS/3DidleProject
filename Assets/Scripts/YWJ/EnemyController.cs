@@ -44,12 +44,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();
-        Collider myCollider = GetComponent<Collider>();
+        Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();  // 플레이어의 콜라이더 가져오기
+        Collider myCollider = GetComponent<Collider>();                                             // my(적)의 콜라이더 가져오기
         if (playerCollider == null || myCollider == null) return;
-        Vector3 closetPoint = playerCollider.ClosestPoint(transform.position);
-        Vector3 myColset = myCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);
-        if (!isBoss)
+        Vector3 closetPoint = playerCollider.ClosestPoint(transform.position);                      // 내(적) 위치에서 플레이어 콜라이더의 가장 가까운 지점을 계산
+        Vector3 myColset = myCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);    // 플레이어 위치에서 나(적)의 콜라이더 표면의 가장 가까운 지점
+        if (!isBoss) // 보스가 아니라 그냥 몬스터의 사거리
         {
             if (Vector3.Distance(myColset, closetPoint) <= 2f)
             {
@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
                 stateMachine.SetState(curState[MonsterBehavior.Move]);
             }
         }
-        else
+        else // 보스몬스터의 사거리
         {
             if (Vector3.Distance(myColset, closetPoint) <= 6f)
             {
