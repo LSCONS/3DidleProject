@@ -69,5 +69,17 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    public void AutoUesSkill()
+    {
+        foreach (var pair in skills)
+        {
+            Skill skill = pair.Value;
+            if (skill.state == SkillState.Ready)
+            {
+                skill.UseSkill();
+            }
+        }
+    }
+
 
 }

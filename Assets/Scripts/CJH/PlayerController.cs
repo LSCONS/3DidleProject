@@ -7,24 +7,33 @@ using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("이동")]
     public float moveSpeed = 5f;       // 이동속도  
     public float jumpForce = 5f;        // 점프력
 
-    [Header("Refernces")]
+    [Header("카메라")]
     public Transform cameraTransform;
 
-    private PlayerAnimationHandler animationHandler;
-    private Rigidbody rb;
+    public PlayerAnimationHandler animationHandler;
+    public Rigidbody rb;
     private Vector2 moveInput;  // 입력받은 이동값
     private bool jumpInput;     //  점프 입력이 됐는지
     private bool isRunning;
     private bool isAttacking;
 
+    [SerializeField]
+    private PlayerInput playerInput;  //플레이어 입력 시스템
+    public SkillManager skillManager;
+
+    [HideInInspector]
+    public bool isAutoMode = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();        
         animationHandler = GetComponent<PlayerAnimationHandler>();
+        playerInput = GetComponent<PlayerInput>();
+        skillManager = GetComponent<SkillManager>();
     }
 
 
@@ -77,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isAutoMode) return;
 
         Vector3 desireMoveDir = Vector3.zero;
         if (cameraTransform != null)
@@ -126,6 +136,11 @@ public class PlayerController : MonoBehaviour
     {
         float rayDistance = 1.1f;
         return Physics.Raycast(transform.position, Vector3.down, rayDistance);
+    }
+
+    public void playerInputEnabled(bool isActive)
+    {
+        playerInput.enabled = isActive;
     }
 
 

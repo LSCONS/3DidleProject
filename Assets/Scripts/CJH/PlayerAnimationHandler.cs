@@ -7,7 +7,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsRun = Animator.StringToHash("IsRun");
     private static readonly int JumpTrigger = Animator.StringToHash("JumpTrigger");
-    private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
+    //private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
     private static readonly int Attack = Animator.StringToHash("Attack");
 
 

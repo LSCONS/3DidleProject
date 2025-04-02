@@ -48,18 +48,25 @@ public class OrbitBlade : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, range);
         foreach (var enemy in enemies)
         {
-            
+            if (enemy.CompareTag("Enemy"))
+            {
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(damage);
+                }
+            }
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnDrawGizmos()
     {
-        if (other.CompareTag("Enemy"))
-        {
-            // 적에게 피해를 입히기
-            other.GetComponent<Enemy>().TakeDamage(PlayerManager.Instance.player.Damage);
-            Debug.Log("적에게 스킬공격");
-        }
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, 1f);
     }
+
+
+
 
 }
