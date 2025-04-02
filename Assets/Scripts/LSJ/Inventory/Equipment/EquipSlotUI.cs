@@ -40,7 +40,6 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (item == null)
         {
             icon.sprite = null;
-            
         }
         else
         {
