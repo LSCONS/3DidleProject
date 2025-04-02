@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private float power;
     [SerializeField] private float defence;
+    public bool isDead = false;
 
     public float Power 
     {
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         health -= (damage-defence);
         if (health <= 0)
         {
+            isDead = true;
             Destroy(this.gameObject);
             monsterManager.curMonsters.Remove(this.gameObject);
         }

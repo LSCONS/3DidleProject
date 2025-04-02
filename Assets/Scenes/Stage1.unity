@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,6 +159,12 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &20040851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8897738569951613150, guid: c8840aa62ba40ba448e0b68854de3399,
+    type: 3}
+  m_PrefabInstance: {fileID: 346461951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &24112966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,10 +2241,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5291036468939900820, guid: c8840aa62ba40ba448e0b68854de3399, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8897738569951613150, guid: c8840aa62ba40ba448e0b68854de3399,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1112352936}
   m_SourcePrefab: {fileID: 100100000, guid: c8840aa62ba40ba448e0b68854de3399, type: 3}
 --- !u!114 &346461952 stripped
 MonoBehaviour:
@@ -2246,7 +2257,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 346461951}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 20040851}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbf94d9efbc47d249856b5ed2e5b8363, type: 3}
@@ -2543,7 +2554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 378976245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1112352936}
+        m_TargetAssemblyTypeName: PlayerAutoCombat, Assembly-CSharp
+        m_MethodName: SetAutoMode
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &378976245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6432,6 +6455,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 346461951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1112352936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20040851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a466ab0d1c2874587212efea52f376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackInterval: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1134638499
 GameObject:
   m_ObjectHideFlags: 0

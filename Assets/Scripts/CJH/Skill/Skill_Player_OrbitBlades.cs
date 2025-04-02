@@ -11,7 +11,7 @@ public class Skill_Player_OrbitBlades : Skill
     public float rotateSpeed = 180f;    //회전 속도
     public float selfSpineSpeed = 720f; // 무기 자체의 회전 속도
     public float damageInterval = 0.5f; //적에게 피해를 주는 주기
-    public float baseDamage = 5f;
+    public float baseDamage = 0.6f;
 
     public float damageTimer = 0f;      
     private List<GameObject> blades = new List<GameObject>();
@@ -86,20 +86,15 @@ public class Skill_Player_OrbitBlades : Skill
 
     private void DealDamage()
     {
-        float damage = baseDamage + PlayerManager.Instance.Player.Damage;
+        float damage = PlayerManager.Instance.Player.Damage * baseDamage;
         float range = 1f;
 
         foreach (var blade in blades)
         {
-            Collider[] enemies = Physics.OverlapSphere(blade.transform.position, range);
-            foreach (var enemy in enemies)
+            OrbitBlade orbitBlade = blade.GetComponent<OrbitBlade>();
+            if (orbitBlade != null)
             {
-                if (enemy.CompareTag("Enemy"))
-                {
-                    // 적에게 대미지를 주도록 설정
-                    return;
-                }
-                
+                orbitBlade.TriggerHit(damage);
             }
         }
 
