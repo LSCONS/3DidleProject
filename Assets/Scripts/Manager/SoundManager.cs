@@ -224,7 +224,7 @@ public class SoundManager : Singleton<SoundManager>
         StopCurrentSFXMoveRunSource();
 
         AudioSource tempAudio;
-        if (audioPoolsBGM.ContainsKey(clip))
+        if (audioPoolsSFXMoveRun.ContainsKey(clip))
         {
             tempAudio = audioPoolsSFXMoveRun[clip];
             tempAudio.Play();
