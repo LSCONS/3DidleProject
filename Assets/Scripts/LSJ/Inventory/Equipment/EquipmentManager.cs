@@ -31,7 +31,8 @@ public class EquipmentManager : MonoBehaviour
         // 새 장비 능력치 적용
         var newEquipData = newItem.Data.equipItemData[0];
         PlayerManager.Instance.Player.AddEquipStats(newEquipData.AttackValue, newEquipData.DefenceValue);
-
+        //소리재생
+        SoundManager.Instance.StartAudioSFX_ItemEquipped();
         // UI 갱신
         EquipmentUI.Instance.Refresh();
     }

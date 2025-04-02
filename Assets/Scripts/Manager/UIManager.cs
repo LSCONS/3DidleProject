@@ -21,6 +21,7 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Condition")]
     [SerializeField] Slider hpSlider;
+    [SerializeField] Slider mpSlider;
     [SerializeField] Slider expSlider;
     [SerializeField] Button activeButton;
     [SerializeField] Button autoButton;
@@ -55,6 +56,7 @@ public class UIManager : Singleton<UIManager>
 
     bool isFade;
     bool isSettings;
+    bool isStopNow = false;
 
     protected override void Awake()
     {
@@ -86,13 +88,14 @@ public class UIManager : Singleton<UIManager>
         atk.text = player.Damage.ToString();
         def.text = player.Defence.ToString();
 
-        stage.text = $"Stage 1";
+        stage.text = $"Stage{MonsterManager.Instance.curStage}";
         money.text = player.Gold.ToString();
     }
 
     void UpdateCondition()
     {
         hpSlider.value = player.CurrentHP / player.MaxHp;
+        mpSlider.value = player.CurrentMp / player.MaxMp;
         expSlider.value = (float)player.CurrentExp / (float)player.MaxExp;
     }
 
@@ -199,21 +202,45 @@ public class UIManager : Singleton<UIManager>
 
     public void SetStore()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(store);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            store.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetInventory()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(inventory);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            inventory.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetUpgrade()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(upgrade);
-        SetActiveConversion(inventory);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            upgrade.SetActive(true);
+            inventory.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetOpenInformationUI(string text)
@@ -227,9 +254,12 @@ public class UIManager : Singleton<UIManager>
         informationUI.SetActive(false);
     }
 
-    private void SetActiveConversion(GameObject obj)
+    private void SetActiveAllFalse()
     {
-        obj.SetActive(!obj.activeSelf);
+        store.SetActive(false);
+        shadowUI.SetActive(false);
+        upgrade.SetActive(false);
+        inventory.SetActive(false);
     }
 
     public void YesButton()

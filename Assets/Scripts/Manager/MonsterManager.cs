@@ -58,7 +58,16 @@ public class MonsterManager : MonoBehaviour
     private void Start()
     {
         stages.Add(1, 10);
-        stages.Add(2, 20);
+        stages.Add(2, 10);
+        stages.Add(3, 10);
+        stages.Add(4, 10);
+        stages.Add(5, 10);
+        stages.Add(6, 10);
+        stages.Add(7, 10);
+        stages.Add(8, 10);
+        stages.Add(9, 10);
+        stages.Add(10, 10);
+
 
         dicMonsters.Add(Monsters.Skeleton, monstersPrefabs[0]);
         dicMonsters.Add(Monsters.Slime1, monstersPrefabs[1]);
