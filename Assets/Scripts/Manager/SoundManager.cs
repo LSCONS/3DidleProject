@@ -13,6 +13,7 @@ public class SoundManager : Singleton<SoundManager>
     public readonly string MasterGroupName = "Master";  //오디오 믹서 마스터 그룹 이름
     public readonly string SFXGroupName = "SFX";        //오디오 믹서 SFX 그룹 이름
     public readonly string BGMGroupName = "BGM";        //오디오 믹서 BGM 그룹 이름
+    public readonly string SoundDataName = "SoundData"; //오디오 폴더 이름
 
     public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
     public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
@@ -64,19 +65,19 @@ public class SoundManager : Singleton<SoundManager>
     //오디오 클립을 초기화
     private void initAudioClip()
     {
-        menuBGM = Resources.Load<AudioClip>("SoundData/MenuBGM");
-        battleBGM = Resources.Load<AudioClip>("SoundData/BattleBGM");
-        playerOnDamageSFX = Resources.Load<AudioClip>("SoundData/PlayerOnDamage");
-        playerWalkSFX = Resources.Load<AudioClip>("SoundData/Walk");
-        playerJumpSFX = Resources.Load<AudioClip>("SoundData/Jump");
-        playerRunSFX = Resources.Load<AudioClip>("SoundData/Run");
-        playerDieSFX = Resources.Load<AudioClip>("SoundData/PlayerDie");
-        playerLevelUpSFX = Resources.Load<AudioClip>("SoundData/PlayerLevelUp");
-        enemyOnDamageSFX = Resources.Load<AudioClip>("SoundData/EnemyOnDamage");
-        itemEquippedSFX = Resources.Load<AudioClip>("SoundData/ItemEquipped");
-        itemUpgradeSFX = Resources.Load<AudioClip>("SoundData/ItemUpgrade");
-        useItemUseSFX = Resources.Load<AudioClip>("SoundData/PlayerUseUseItem");
-        dungeonClearSFX = Resources.Load<AudioClip>("SondData/DungeonClear");
+        menuBGM = Resources.Load<AudioClip>($"{SoundDataName}/MenuBGM");
+        battleBGM = Resources.Load<AudioClip>($"{SoundDataName}/BattleBGM");
+        playerOnDamageSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerOnDamage");
+        playerWalkSFX = Resources.Load<AudioClip>($"{SoundDataName}/Walk");
+        playerJumpSFX = Resources.Load<AudioClip>($"{SoundDataName}/Jump");
+        playerRunSFX = Resources.Load<AudioClip>($"{SoundDataName}/Run");
+        playerDieSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerDie");
+        playerLevelUpSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerLevelUp");
+        enemyOnDamageSFX = Resources.Load<AudioClip>($"{SoundDataName}/EnemyOnDamage");
+        itemEquippedSFX = Resources.Load<AudioClip>($"{SoundDataName}/ItemEquipped");
+        itemUpgradeSFX = Resources.Load<AudioClip>($"{SoundDataName}/ItemUpgrade");
+        useItemUseSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerUseUseItem");
+        dungeonClearSFX = Resources.Load<AudioClip>($"{SoundDataName}/DungeonClear");
     }
 
 
@@ -131,26 +132,33 @@ public class SoundManager : Singleton<SoundManager>
         ///isPlay중이 아니라면 해당 오디오를 다시 재생시키고 리스트의 맨 뒤로 이동시킴.
         ///만일 맨 앞에 있는 AudioSource가 재생중이라면 다른 모든 AudioSource도 재생 중이라는 뜻이니
         ///해당 오디오 소스를 하나 새로 추가해서 재생 시킨 후 맨 뒤에 추가함.
+
+        AudioSource tempAudio;
         if (audioPoolsSFX.ContainsKey(clip))
         {
             List<AudioSource> tempList = audioPoolsSFX[clip];
             if (tempList != null &&
               !(tempList[0].isPlaying))
             {
-                tempList[0].Play();
+                tempAudio = tempList[0];
+                tempAudio.Play();
                 tempList.MoveFirstToLastList();
             }
             else
             {
-                tempList.Add(AddAudioSFXObject(clip));
+                tempAudio = AddAudioSFXObject(clip);
+                tempList.Add(tempAudio);
             }
         }
         else
         {
             List<AudioSource> tempList = new List<AudioSource>();
-            tempList.Add(AddAudioSFXObject(clip));
+            tempAudio = AddAudioSFXObject(clip);
+            tempList.Add(tempAudio);
             audioPoolsSFX.Add(clip, tempList);
         }
+
+        if(tempAudio != null) SetAudioPositionForPlayer(tempAudio);
     }
 
 
@@ -169,25 +177,29 @@ public class SoundManager : Singleton<SoundManager>
         ///있다면 0번째에 있는 오브젝트의 AudioSource를 가져와서 멈춰줌.
         ///특정 AudioSource를 가지고 있는 GameObject의 위치를 BGM을 관리하는 오브젝트의 0번째로 올림.
         ///이후 해당 AudioSource를 활성화 시켜둠.
-        
+
         if(BGM_SoundPool.transform.childCount > 0)
         {
             AudioSource nowPlayAudio = BGM_SoundPool.transform?.GetChild(0)?.GetComponent<AudioSource>();
             if (nowPlayAudio != null) nowPlayAudio.Stop();
         }
 
+        AudioSource tempAudio;
         if (audioPoolsBGM.ContainsKey(clip))
         {
-            AudioSource tempAudioSource = audioPoolsBGM[clip];
-            //0번째의 요소가 재생이 끝난 상태라면 해당 오디오를 실행시키고 맨 앞으로 옮김.
-            tempAudioSource.Play();
-            tempAudioSource.transform.SetSiblingIndex(0);
+            tempAudio = audioPoolsBGM[clip];
+            tempAudio.Play();
         }
         else
         {
-            AudioSource tempAudio = AddAudioBGMObject(clip);
+            tempAudio = AddAudioBGMObject(clip);
             audioPoolsBGM.Add(clip, tempAudio);
+        }
+
+        if (tempAudio != null)
+        {
             tempAudio.transform.SetSiblingIndex(0);
+            SetAudioPositionForPlayer(tempAudio);
         }
     }
 
@@ -414,7 +426,19 @@ public class SoundManager : Singleton<SoundManager>
 
     //TODO: 실행되고 있는 모든 코루틴도 종료시켜야함.
 
-    //TODO: 실행되는 오디오의 Transform의 값을 플레이어 근처로 초기화시켜야함.
+    //실행되는 오디오의 Transform의 값을 플레이어 근처로 초기화시켜주는 메서드.
+    private void SetAudioPositionForPlayer(AudioSource audioSource)
+    {
+        Transform playerTransform = PlayerManager.Instance.player?.transform;
+        if(playerTransform != null)
+        {
+            audioSource.transform.position = playerTransform.position;
+        }
+        else
+        {
+            audioSource.transform.position = Vector3.zero;
+        }
+    }
 
 
     ///README
