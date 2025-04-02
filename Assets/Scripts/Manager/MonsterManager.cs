@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -61,13 +62,15 @@ public class MonsterManager : MonoBehaviour
         dicMonsters.Add(Monsters.Mushroom, monstersPrefabs[3]);
         dicMonsters.Add(Monsters.Cactus, monstersPrefabs[4]);
 
+        SpawnMonster(1);
+
     }
 
     private void Update()
     {
-        if (curMonsters.Count < 1)
+        if (!CheckMonsterActive())
         {
-            SpawnMonster(2);
+            MonsterActive();
         }
         if (Time.time - lastTime > lastRate)
         {
@@ -92,7 +95,7 @@ public class MonsterManager : MonoBehaviour
     {
         for (int i = 0; i < curMonsters.Count; i++)
         {
-            if (Vector3.Distance(curMonsters[i].transform.position, PlayerManager.Instance.PlayerTransform.position) > 20f)
+            if (Vector3.Distance(curMonsters[i].transform.position, PlayerManager.Instance.PlayerTransform.position) > 30f)
             {
                 curMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
                 curMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
@@ -100,4 +103,30 @@ public class MonsterManager : MonoBehaviour
             }
         }
     }
+
+    private bool CheckMonsterActive()
+    {
+        for (int i = 0; i < curMonsters.Count; i++)
+        {
+            if (curMonsters[i].activeSelf == true)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void MonsterActive()
+    {
+        for (int i = 0; i < curMonsters.Count; i++)
+        {
+            curMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
+            curMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
+            curMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
+            curMonsters[i].GetComponent<Enemy>().isDead = false;
+            curMonsters[i].GetComponent<Enemy>().Init();
+            curMonsters[i].SetActive(true);
+        }
+    }
+
 }

@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 1169827774108849424}
   m_Layer: 0
   m_Name: Lv 2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   spawners:
   - {fileID: 8500455273282496698}
   - {fileID: 2772746884282384441}
