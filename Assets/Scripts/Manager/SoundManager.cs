@@ -6,9 +6,6 @@ using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    public float bgmVolume = 0.2f;
-    public float seVolme = 0.1f;
-
     public readonly string MasterGroupName = "Master";  //오디오 믹서 마스터 그룹 이름
     public readonly string SFXGroupName = "SFX";        //오디오 믹서 SFX 그룹 이름
     public readonly string BGMGroupName = "BGM";        //오디오 믹서 BGM 그룹 이름
@@ -16,11 +13,14 @@ public class SoundManager : Singleton<SoundManager>
 
     public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
     public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
+    public GameObject SFX_MoveRun_SoundPool;//걷거나 뛰는 SFX소리 오브젝트를 풀링할 오브젝트
 
     public AudioSource CurrentBGMSource;     //현재 재생되고 있는 BGM소스
+    public AudioSource CurrentSFXMoveRunSource; //현재 재생되고 있는 SFX MoveRun소스
 
     Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();     //SFX오디오 소스를 저장할 Dictionary
     Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();           //BGM오디오 소스를 저장할 Dictionary
+    Dictionary<AudioClip, AudioSource> audioPoolsSFXMoveRun = new();    //SFX MoveRun오디오 소스를 저장할 Dictionary
 
     public AudioMixer audioMixer;
     public AudioMixerGroup bgmGroup;
@@ -59,8 +59,10 @@ public class SoundManager : Singleton<SoundManager>
     {
         BGM_SoundPool = new GameObject("SoundPoolBGM");
         SFX_SoundPool = new GameObject("SoundPoolSFX");
+        SFX_MoveRun_SoundPool = new GameObject("SoundPoolSFXMoveRun");
         BGM_SoundPool.transform.parent = transform;
         SFX_SoundPool.transform.parent = transform;
+        SFX_MoveRun_SoundPool.transform.parent = transform;
     }
 
 
@@ -212,6 +214,34 @@ public class SoundManager : Singleton<SoundManager>
     }
 
 
+    /// <summary>
+    /// SFX MoveRun을 재생할 때 사용하는 메서드
+    /// </summary>
+    /// <param name="clip">재생할 클립을 선언</param>
+    private void StartAudioSFXMoveRun(AudioClip clip)
+    {
+        StopCurrentSFXMoveRunSource();
+
+        AudioSource tempAudio;
+        if (audioPoolsBGM.ContainsKey(clip))
+        {
+            tempAudio = audioPoolsSFXMoveRun[clip];
+            tempAudio.Play();
+        }
+        else
+        {
+            tempAudio = AddAudioBGMObject(clip);
+            audioPoolsSFXMoveRun.Add(clip, tempAudio);
+        }
+
+        if (tempAudio != null)
+        {
+            CurrentSFXMoveRunSource = tempAudio;
+            SetAudioPositionForPlayer(tempAudio);
+        }
+    }
+
+
     //딜레이로 소리를 출력할 때 실행할 코루틴
     private IEnumerator DelayStartAudio(Action action, float delayTime)
     {
@@ -259,6 +289,19 @@ public class SoundManager : Singleton<SoundManager>
         {
             CurrentBGMSource.Stop();
             CurrentBGMSource = null;
+        }
+    }
+
+
+    /// <summary>
+    /// 플레이어가 움직임을 멈췄을 때 소리 출력을 멈출 메서드
+    /// </summary>
+    public void StopCurrentSFXMoveRunSource()
+    {
+        if (CurrentSFXMoveRunSource != null)
+        {
+            CurrentSFXMoveRunSource.Stop();
+            CurrentSFXMoveRunSource = null;
         }
     }
 
@@ -401,6 +444,20 @@ public class SoundManager : Singleton<SoundManager>
     public void StartAudioSFX_PlayerWalk(float delayTime)
     {
         StartCoroutine(DelayStartAudio(StartAudioSFX_PlayerWalk, delayTime));
+    }
+
+
+    /// <summary>
+    /// SFX PlayerRun을 실행할 메서드
+    /// </summary>
+    public void StartAudioSFX_PlayerRun()
+    {
+        StartAudioSFXMoveRun(playerRunSFX);
+    }
+    /// <param name="delayTime">스타트에 지연을 주고 싶은 시간을 입력</param>
+    public void StartAudioSFX_PlayerRun(float delayTime)
+    {
+        StartCoroutine(DelayStartAudio(StartAudioSFX_PlayerRun, delayTime));
     }
     #endregion
 

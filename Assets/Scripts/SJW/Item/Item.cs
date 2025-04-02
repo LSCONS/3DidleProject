@@ -49,17 +49,16 @@ public class Item
         int GradeCount = Data.GradeCount;
         if (GradeCount < GradeMax)
         {
+            SoundManager.Instance.StartAudioSFX_ItemUpgrade();
             float Probability = 100 - ((100 - ProbabilityMin) / GradeMax) * GradeCount;
             if (Util.ComputeProbability(Probability))
             {
                 UpgradeItem();
                 UIManager.Instance.SetOpenInformationUI("강화 성공");
-                SoundManager.Instance.StartAudioBGM_Battle();
             }
             else
             {
                 UIManager.Instance.SetOpenInformationUI("강화 실패");
-                //TODO: 나중에 강화 실패 오디오 추가해야함
             }
         }
         else
