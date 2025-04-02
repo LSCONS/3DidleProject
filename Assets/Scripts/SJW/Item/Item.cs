@@ -26,7 +26,7 @@ public class Item
                 UIManager.Instance.SetOpenInformationUI("강화 실패\n플레이어 골드 부족");
                 return;
             }
-            //TODO: 플레이어의 골드를 빼는 명령어 필요
+            PlayerManager.Instance.player.AddGold(-data.UpgradePrice);
             Data.GradeCount++;
             AddEquipItemValue(data, data.UpgradeAttackValue, data.DefenceAttackValue);
         }
@@ -54,10 +54,12 @@ public class Item
             {
                 UpgradeItem();
                 UIManager.Instance.SetOpenInformationUI("강화 성공");
+                SoundManager.Instance.StartAudioBGM_Battle();
             }
             else
             {
                 UIManager.Instance.SetOpenInformationUI("강화 실패");
+                //TODO: 나중에 강화 실패 오디오 추가해야함
             }
         }
         else

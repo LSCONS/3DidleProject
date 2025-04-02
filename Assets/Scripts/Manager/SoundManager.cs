@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    //TODO: 환경설정에서 조절한 볼륨 조절 부분과 연결 필요.
     public float bgmVolume = 0.2f;
     public float seVolme = 0.1f;
 
@@ -51,6 +50,7 @@ public class SoundManager : Singleton<SoundManager>
         CreatePoolObject();                 //풀링하는 오브젝트를 한꺼번에 저장할 오브젝트 생성
         initAudioClip();                    //Clip들의 Resource경로 설정
         initAudioMixer();                   //오디오 믹서들을 초기화
+        initAudioEvent();                   //오디오 볼륨조절 이벤트 추가
     }
 
 
@@ -91,6 +91,15 @@ public class SoundManager : Singleton<SoundManager>
         AudioMixerGroup[] sfxGruips = audioMixer.FindMatchingGroups($"{MasterGroupName}/{SFXGroupName}");
         bgmGroup = bgmGroups[0];
         sfxGroup = sfxGruips[0];
+    }
+
+
+    //오디오 볼륨 조절 이벤트 등록
+    private void initAudioEvent()
+    {
+        UIManager.Instance.masterVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetMasterVolume;
+        UIManager.Instance.sfxVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetSFXVolume;
+        UIManager.Instance.bgmVolume.GetComponent<CallbackSliderCostomEvent>().UpdateMixerVolume += SetBGMVolume;
     }
 
 
