@@ -62,8 +62,8 @@ public class UIManager : MonoBehaviour
 
     void UpdateCondition()
     {
-        hpSlider.value = player.MaxHp / player.CurrentHP;
-        expSlider.value = player.MaxExp / player.CurrentExp;
+        hpSlider.value = player.CurrentHP / player.MaxHp;
+        expSlider.value = player.CurrentExp / player.MaxExp;
     }
 
     public void MovePauseMenu()
