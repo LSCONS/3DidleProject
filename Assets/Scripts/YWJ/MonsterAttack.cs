@@ -23,7 +23,8 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
         if (Time.time - enemyController.lastAttackTime > enemyController.attackRate)
         {
             enemyController.lastAttackTime = Time.time;
-            enemyController.animator.SetTrigger("Attack");
+            if(PlayerManager.Instance.player.CurrentHP > 0)
+                enemyController.animator.SetTrigger("Attack");
         }
     }
 
