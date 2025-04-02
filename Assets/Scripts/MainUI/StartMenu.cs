@@ -6,7 +6,7 @@ public class StartMenu : MonoBehaviour
 {
     void Start()
     {
-        //SoundManager.Instance.StartAudioBGM_Mainmenu();
+        SoundManager.Instance.StartAudioBGM_Mainmenu();
     }
     void Update()
     {
