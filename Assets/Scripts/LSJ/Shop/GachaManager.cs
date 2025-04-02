@@ -8,7 +8,7 @@ public class GachaManager : MonoBehaviour
 
     public List<ItemData> gachaPool;
     public int gachaCost = 300;
-
+    public GameObject panel;
     public Image rollingImage;         // 아이콘 보여줄 이미지
     public float rollingTime = 3f;     // 롤링 시간
     public float interval = 0.05f;     // 바뀌는 속도
@@ -70,5 +70,9 @@ public class GachaManager : MonoBehaviour
         InventoryUI.Instance.Refresh();
         // 결과창 띄우기
         GachaResultUI.Instance.Show(lastShown);
+    }
+    public void Close()
+    {
+        panel.SetActive(false);
     }
 }
