@@ -23,6 +23,7 @@ public class PlayerAutoCombat : MonoBehaviour
         uimanager.AutoButton(false);
     }
 
+    // 플레이어의 AutoMode가 켜져있으면 실행하며 적을 자동으로 탐색해 다가가서 적을 타격합니다.
     private void Update()
     {
          if (!PlayerManager.Instance.Player.controller.isAutoMode) return;
@@ -66,6 +67,7 @@ public class PlayerAutoCombat : MonoBehaviour
 
     }
 
+    // 플레이어의 위치에서 가장 가까운 적의 위치를 찾습니다.
     private void FindEnemy()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, 50f, enemyLayer);
@@ -91,6 +93,7 @@ public class PlayerAutoCombat : MonoBehaviour
 
     }
 
+    // 공격 함수
     private void Attack()
     {
         if (targetEnemy == null) return;
@@ -98,6 +101,7 @@ public class PlayerAutoCombat : MonoBehaviour
         transform.LookAt(targetEnemy);
     }
 
+    // 자동공격 모드 설정
     public void SetAutoMode(bool enable)
     {
         PlayerManager.Instance.Player.controller.isAutoMode = enable;

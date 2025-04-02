@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         Damage = damage;
         Defence = defence;
         MaxMp = 100;
-        CurrentMp = maxHp;
+        CurrentMp = MaxMp;
         CriticalChance = 10;
         CriticalDamage = 150;
         AttackRange = 2;

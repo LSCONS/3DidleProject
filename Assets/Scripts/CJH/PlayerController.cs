@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    // 이동 입력
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 점프 입력
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 이동 입력
     public void OnRun(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 공격 입력
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed || !isAttacking)
@@ -83,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 공격 상태 초기화
     public void ResetAttackState()
     {
         isAttacking = false;
@@ -150,6 +154,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // 플레이어가 땅에 닿았는지
     private bool IsGrounded()
     {
         float rayDistance = 1.1f;
@@ -157,6 +162,7 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, rayDistance);
     }
 
+    // 플레이어가 땅에 닿을건지 착지 애니메이션을 미리 불러오기 위한 함수
     private bool IsLadingSoon()
     {
         float detectDistance = 1.8f;
@@ -165,6 +171,7 @@ public class PlayerController : MonoBehaviour
         return willLandSoon;
     }
 
+    // 플레이어 입력시스템 설정
     public void playerInputEnabled(bool isActive)
     {
         playerInput.enabled = isActive;
