@@ -115,4 +115,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void  SetGold(int amount)
+    {
+        Gold = Mathf.Max(0, amount);
+    }
+
+    public bool TrySpendGold(int amount)
+    {
+        if (Gold >= amount)
+        {
+            Gold -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public void AddGold(int amount)
+    {
+        Gold += amount;
+    }
+
 }
