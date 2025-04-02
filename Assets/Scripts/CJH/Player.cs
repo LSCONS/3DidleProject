@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
 
         hitCoroutine = StartCoroutine(HitCorourtine());
 
-
+        SoundManager.Instance.StartAudioSFX_PlayerOnDamage();
         // 피해 받는 이벤트 추가하기
         
     }
@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
         MaxMp += 1f;
         AddHealth(MaxHp);
         AddMana(MaxMp);
+        SoundManager.Instance.StartAudioSFX_PlayerLevelUp();
     }
 
     public void AddExp(int value)
@@ -185,6 +186,7 @@ public class Player : MonoBehaviour
             GetComponent<NavMeshAgent>().enabled = false;
 
             controller.animationHandler?.PlayDead();
+            SoundManager.Instance.StartAudioSFX_PlayerDie();
 
         }
 

@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
             animationHandler?.TriggerJump();
+            SoundManager.Instance.StartAudioSFX_PlayerJump();
         }
 
         if (!IsGrounded())
