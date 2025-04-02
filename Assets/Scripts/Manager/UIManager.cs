@@ -32,6 +32,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] MenuController pauseMenu;
     [SerializeField] MenuController settingsMenu;
     [SerializeField] Image fade;
+
+    [Header("InventoryTap")]
+    [SerializeField] GameObject store;
+    [SerializeField] GameObject inventory;
+    [SerializeField] GameObject upgrade;
+
     bool isFade;
     bool isSettings;
 
@@ -168,6 +174,21 @@ public class UIManager : MonoBehaviour
         {
             canvasGroup.alpha = alpha;
         }
+    }
+
+    public void SetStore()
+    {
+        store.SetActive(true);
+    }
+
+    public void SetInventory()
+    {
+        inventory.SetActive(true);
+    }
+
+    public void SetUpgrade()
+    {
+        upgrade.SetActive(true);
     }
 
 }

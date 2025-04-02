@@ -21,7 +21,7 @@ public class Item
         {
             EquipItemData data = Data.equipItemData[0];
 
-            if(data.UpgradePrice > 100)//TODO: 100 대신 플레이어 소지 머니로 바꿔야 함.
+            if(data.UpgradePrice > PlayerManager.Instance.player.Gold)
             {
                 //TODO: 골드 부족으로 강화 불가능 메시지 필요
                 return;
@@ -78,11 +78,11 @@ public class Item
             switch (useItemData.UseType)
             {
                 case UseItemType.HP:
-                    //TODO: 플레이어 HP회복 로직 필요. useItemData.HealthValue만큼 회복
+                    PlayerManager.Instance.player.AddHealth(useItemData.HealthValue);
                     break;
 
                 case UseItemType.MP:
-                    //TODO: 플레이어 MP회복 로직 필요. useItemData.HealthValue만큼 회복
+                    PlayerManager.Instance.player.AddMana(useItemData.HealthValue);
                     break;
             }
         }

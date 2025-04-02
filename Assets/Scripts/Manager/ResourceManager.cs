@@ -143,11 +143,11 @@ public class ResourceManager : Singleton<ResourceManager>
     {
         GradeProbabilities = new List<GradeProbability>
         {
-            new GradeProbability{Rarity = ItemRarity.Common, Weight = probabilityCommon},
-            new GradeProbability{Rarity = ItemRarity.Rare, Weight = probabilityRare},
+            new GradeProbability{Rarity = ItemRarity.Common,    Weight = probabilityCommon},
+            new GradeProbability{Rarity = ItemRarity.Rare,      Weight = probabilityRare},
             new GradeProbability{Rarity = ItemRarity.SuperRare, Weight = probabilitySuperRare},
-            new GradeProbability{Rarity = ItemRarity.Epic, Weight = probabilityEpic},
-            new GradeProbability{Rarity = ItemRarity.Legend, Weight = probabilityLegend}
+            new GradeProbability{Rarity = ItemRarity.Epic,      Weight = probabilityEpic},
+            new GradeProbability{Rarity = ItemRarity.Legend,    Weight = probabilityLegend}
         };
     }
 
