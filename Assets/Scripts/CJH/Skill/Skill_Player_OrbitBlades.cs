@@ -12,6 +12,7 @@ public class Skill_Player_OrbitBlades : Skill
     public float selfSpineSpeed = 720f; // 무기 자체의 회전 속도
     public float damageInterval = 0.5f; //적에게 피해를 주는 주기
     public float baseDamage = 0.6f;
+    public float manaCost = 7f;
 
     public float damageTimer = 0f;      
     private List<GameObject> blades = new List<GameObject>();
@@ -25,11 +26,14 @@ public class Skill_Player_OrbitBlades : Skill
 
     
 
-
+    // 비어있는 오브젝트를 가져와서 balde를 baldeCount 만큼 배치하고 플레이어 주변을 회전하게 합니다.
     public override void UseSkill()
     {
         if (state != SkillState.Ready) return;
+        if (PlayerManager.Instance.Player.CurrentMp < manaCost) return;
         base.UseSkill();
+
+        PlayerManager.Instance.Player.SubstractMana(manaCost);
 
         int bladeCount = GetBladeCountByLevel();
 
@@ -55,6 +59,7 @@ public class Skill_Player_OrbitBlades : Skill
         // 플레이어 주변을 지속시간동안 돌아다니는 스킬
     }
 
+    // 지속시간이 지나면 스킬들을 없애줍니다.
     public override void RemoveSkill()
     {
         base.RemoveSkill();
@@ -68,6 +73,7 @@ public class Skill_Player_OrbitBlades : Skill
         blades.Clear();
     }
 
+    // 스킬이 사용중이라면 지속시간을 계산
     public override void UpdateSkillDuration()
     {
         base.UpdateSkillDuration();

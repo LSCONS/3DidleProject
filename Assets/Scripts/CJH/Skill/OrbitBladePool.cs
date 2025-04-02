@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// OrbitBlade 풀링 비어있는 blade에 프리팹을 넣고 비활성화 시 다시 Queue에 등록 만약 blade프리팹이 모자르다면 새로 만들고 오브젝트가 모자르다면 생성시킵니다.
 public class OrbitBladePool : MonoBehaviour
 {
     private static OrbitBladePool instance;
@@ -42,6 +44,7 @@ public class OrbitBladePool : MonoBehaviour
         }
     }
 
+    // Queue에서 오브젝트를 하나 Dequeue를 한 후 반환합니다.
     public GameObject GetBlade()
     {
         if (pool.Count > 0)

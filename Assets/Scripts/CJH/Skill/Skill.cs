@@ -52,11 +52,13 @@ public abstract class Skill
         }
     }
 
+    // 스킬 레벨업
     public virtual void LevelUp()
     {
         Level++;
     }
 
+    // 스킬의 쿨다운을 가져옵니다.
     public float GetCooldown()
     {
         return state == SkillState.Cooldown ? Cooltime - elapsedTime : 0f;

@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
         Init("기사", 10f, 20f, 15f);
     }
 
+    // 플레이어 기본설정
     public void Init(string playerName, float maxHp, float damage, float defence)
     {
         PlayerName = playerName;
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
         CurrentHP = maxHp;
         Damage = damage;
         Defence = defence;
+        MaxMp = 100;
+        CurrentMp = maxHp;
         CriticalChance = 10;
         CriticalDamage = 150;
         AttackRange = 2;
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour
         isDead = false;
     }
 
+    // damage만큼의 피해를 입습니다.
     public void TakeDamage(float damage)
     {
         if (CurrentHP <= 0)
@@ -81,10 +85,10 @@ public class Player : MonoBehaviour
         hitCoroutine = StartCoroutine(HitCorourtine());
 
         SoundManager.Instance.StartAudioSFX_PlayerOnDamage();
-        // 피해 받는 이벤트 추가하기
         
     }
 
+    // 플레이어가 피해를 받으면 일정시간동안 무적이 되게 설정
     private IEnumerator HitCorourtine()
     {
         isInvincible = true;
@@ -93,12 +97,12 @@ public class Player : MonoBehaviour
         isInvincible = false;
 
     }
-
+    // 체력 회복
     public void AddHealth(float value)
     {
         CurrentHP = Mathf.Min(CurrentHP + value, MaxHp);
     }
-
+    // 체력 감소
     public void SubstractHelath(float value)
     {
         if (CurrentHP - value >= 0)
@@ -107,13 +111,13 @@ public class Player : MonoBehaviour
         }
         CurrentHP = Mathf.Max(CurrentHP - value, 0);
     }
-
+    // 마나 회복
     public void AddMana(float value)
     {
         CurrentMp = Mathf.Min(CurrentMp + value, MaxMp);
     }
-
-    public void Substract(float value)
+    // 마나 감소
+    public void SubstractMana(float value)
     {
         if (CurrentMp - value >= 0)
         {
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
         }
         CurrentMp = Mathf.Min(CurrentMp - value, 0);
     }
-
+    // 레벨업
     public void LevelUp()
     {
         Level++;
@@ -140,7 +144,7 @@ public class Player : MonoBehaviour
         AddMana(MaxMp);
         SoundManager.Instance.StartAudioSFX_PlayerLevelUp();
     }
-
+    // 경험치 추가
     public void AddExp(int value)
     {
         CurrentExp += value;
@@ -150,12 +154,13 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    // 골드 설정
     public void  SetGold(int amount)
     {
         Gold = Mathf.Max(0, amount);
     }
 
+    // amount만큼의 골드 감소
     public bool TrySpendGold(int amount)
     {
         if (Gold >= amount)
@@ -166,10 +171,13 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    // 골드 증가
     public void AddGold(int amount)
     {
         Gold += amount;
     }
+
+    // 플레이어 사망
     public void PlayerDeath()
     {
         if (CurrentHP <= 0 && !isDead)

@@ -13,10 +13,9 @@ public enum SkillType
 public class SkillManager : MonoBehaviour
 {
     [Header("스킬 슬롯")]
-    public Dictionary<SkillType, Skill> skills = new Dictionary<SkillType, Skill>();
+    public Dictionary<SkillType, Skill> skills = new Dictionary<SkillType, Skill>();        // 확장성을 위해서(이후 스킬들을 만들면 등록)
 
 
-    // 쿨타임 표시해줄 텍스트
 
     public bool isAutoMode = false;     // 자동사냥 모드
 
@@ -45,6 +44,7 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    // SkillTpye의 스킬을 사용
     public void UseSkill(SkillType type)
     {
         if (skills.ContainsKey(type))
@@ -61,6 +61,7 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    // OrbitSkill을 수동으로 사용하기 위한 부분
     public void OnOrbitSkill(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -69,6 +70,7 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    // 모든 스킬들을 자동으로 사용해주는 함수
     public void AutoUesSkill()
     {
         foreach (var pair in skills)
