@@ -43,11 +43,11 @@ public class PlayerAnimationHandler : MonoBehaviour
         Debug.Log($"[애니메이션] IsMove: {speed}");
         if (speed > 0.2f)
         {
-            //TODO: 걷기사운드 시작
+            SoundManager.Instance.StartAudioSFXMoveRun_PlayerWalk();
         }
         else
         {
-            //TODO: 걷기 사운드 종료
+            SoundManager.Instance.StopCurrentSFXMoveRunSource();
         }
     }
 
@@ -56,11 +56,11 @@ public class PlayerAnimationHandler : MonoBehaviour
         animator.SetBool(IsRun, _isRun);
         if (_isRun)
         {
-            //TODO: 뛰기 사운드 시작
+            SoundManager.Instance.StartAudioSFXMoveRun_PlayerRun();
         }
         else
         {
-            //TODO: 뛰기 사운드 종료
+            SoundManager.Instance.StopCurrentSFXMoveRunSource();
         }
     }
 
@@ -78,6 +78,4 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         animator.SetTrigger(HitTrigger);
     }
-
-
 }
