@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         PlayerManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
-        Init("기사", 1000f, 20f, 15f);
+        Init("기사", 10f, 20f, 15f);
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)

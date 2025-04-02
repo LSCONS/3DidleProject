@@ -9,7 +9,8 @@ public class PlayerAnimationHandler : MonoBehaviour
     private static readonly int JumpTrigger = Animator.StringToHash("JumpTrigger");
     //private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
     private static readonly int Attack = Animator.StringToHash("Attack");
-    private static readonly int IsDead = Animator.StringToHash("IsDead");
+    private static readonly int DeadTrigger = Animator.StringToHash("TriggerDead");
+    private static readonly int HitTrigger = Animator.StringToHash("TriggerHit");
 
 
     protected Animator animator;
@@ -43,7 +44,12 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     public void PlayDead()
     {
-        animator.SetBool(IsDead, true);
+        animator.SetTrigger(DeadTrigger);
+    }
+
+    public void PlayerHit()
+    {
+        animator.SetTrigger(HitTrigger);
     }
 
 
