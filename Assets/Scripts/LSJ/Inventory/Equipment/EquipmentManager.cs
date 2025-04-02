@@ -5,14 +5,14 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
 
-    private Dictionary<EquipItemType, ItemData> equippedItems = new Dictionary<EquipItemType, ItemData>();
+    private Dictionary<EquipItemType, Item> equippedItems = new Dictionary<EquipItemType, Item>();
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void Equip(EquipItemType type, ItemData newItem)
+    public void Equip(EquipItemType type, Item newItem)
     {
         // 기존 장비가 있다면 인벤토리로 되돌리기
         if (equippedItems.TryGetValue(type, out var oldItem))
@@ -28,7 +28,7 @@ public class EquipmentManager : MonoBehaviour
 
     public void Unequip(EquipItemType type)
     {
-        if (equippedItems.TryGetValue(type, out var item))
+        if (equippedItems.TryGetValue(type, out Item item))
         {
             InventoryUI.Instance.inventory.AddItem(item, 1);
             equippedItems.Remove(type);
@@ -37,13 +37,13 @@ public class EquipmentManager : MonoBehaviour
         EquipmentUI.Instance.Refresh();
     }
 
-    public ItemData GetEquipped(EquipItemType type)
+    public Item GetEquipped(EquipItemType type)
     {
-        equippedItems.TryGetValue(type, out var item);
+        equippedItems.TryGetValue(type, out Item item);
         return item;
     }
 
-    public Dictionary<EquipItemType, ItemData> GetAllEquippedItems()
+    public Dictionary<EquipItemType, Item> GetAllEquippedItems()
     {
         return equippedItems;
     }

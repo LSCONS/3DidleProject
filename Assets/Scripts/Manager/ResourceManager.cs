@@ -17,19 +17,19 @@ public class ResourceManager : Singleton<ResourceManager>
     #endregion
 
     #region 타입별 아이템 데이터 리스트 정리
-    public List<ItemData> EquipItemDataList;    //모든 장비 아이템
-    public List<ItemData> UseItemDataList;      //모든 사용 아이템
-    public List<ItemData> AllItemDataList;      //모든 아이템
+    public List<ItemData> EquipItemDataList = new();    //모든 장비 아이템
+    public List<ItemData> UseItemDataList = new();      //모든 사용 아이템
+    public List<ItemData> AllItemDataList = new();      //모든 아이템
     #endregion
 
     #region 등급별 아이템 데이터 리스트 정리
-    public List<ItemData> CommonDataList;       //모든 Common등급 아이템
-    public List<ItemData> RareDataList;         //모든 Rare등급 아이템
-    public List<ItemData> SuperRareDataList;    //모든 SuperRare등급 아이템
-    public List<ItemData> EpicDataList;         //모든 Epic등급 아이템
-    public List<ItemData> LegendDataList;       //모든 Legend등급 아이템
+    public List<ItemData> CommonDataList = new();       //모든 Common등급 아이템
+    public List<ItemData> RareDataList = new();         //모든 Rare등급 아이템
+    public List<ItemData> SuperRareDataList = new();    //모든 SuperRare등급 아이템
+    public List<ItemData> EpicDataList = new();         //모든 Epic등급 아이템
+    public List<ItemData> LegendDataList = new();       //모든 Legend등급 아이템
 
-    public List<GradeProbability> GradeProbabilities;   //등급별 확률을 저장할 리스트
+    public List<GradeProbability> GradeProbabilities = new();   //등급별 확률을 저장할 리스트
     #endregion
 
     #region 등급별 확률 정리

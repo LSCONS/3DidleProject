@@ -18,21 +18,21 @@ public class GachaResultUI : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void Show(ItemData item)
+    public void Show(Item item)
     {
-        icon.sprite = item.Icon;
-        nameText.text = item.Name;
-        descriptionText.text = item.Description;
+        icon.sprite = item.Data.Icon;
+        nameText.text = item.Data.Name;
+        descriptionText.text = item.Data.Description;
 
         // 스펙 출력 예시
-        if (item.Type == ItemType.EquipItem && item.equipItemData.Length > 0)
+        if (item.Data.Type == ItemType.EquipItem && item.Data.equipItemData.Length > 0)
         {
-            var data = item.equipItemData[0];
+            var data = item.Data.equipItemData[0];
             specText.text = $"공격력: {data.AttackValue}\n방어력: {data.DefenceValue}";
         }
-        else if (item.Type == ItemType.UseItem && item.useItemDatas.Length > 0)
+        else if (item.Data.Type == ItemType.UseItem && item.Data.useItemDatas.Length > 0)
         {
-            var data = item.useItemDatas[0];
+            var data = item.Data.useItemDatas[0];
             specText.text = $"회복량: {data.HealthValue}";
         }
         else

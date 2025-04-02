@@ -47,7 +47,7 @@ public class InventorySlotUI : MonoBehaviour,
         }
         else
         {
-            icon.sprite = slot.item.Icon;  
+            icon.sprite = slot.item.Data.Icon;  
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
         }
@@ -114,7 +114,7 @@ public class InventorySlotUI : MonoBehaviour,
     {
         if (!slot.IsEmpty)
         {
-            ItemTooltip.Instance.Show(slot.item);
+            ItemTooltip.Instance.Show(slot.item.Data);
         }
     }
 
@@ -126,7 +126,7 @@ public class InventorySlotUI : MonoBehaviour,
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!slot.IsEmpty && slot.item.Type == ItemType.UseItem)
+            if (!slot.IsEmpty && slot.item.Data.Type == ItemType.UseItem)
             {
                 UseItem();
             }
@@ -134,7 +134,7 @@ public class InventorySlotUI : MonoBehaviour,
     }
     private void UseItem()
     {
-        foreach (var use in slot.item.useItemDatas)
+        foreach (var use in slot.item.Data.useItemDatas)
         {
             if (use.UseType == UseItemType.HP)
             {
