@@ -91,7 +91,7 @@ public class PlayerAutoCombat : MonoBehaviour
         PlayerManager.Instance.Player.controller.isAutoMode = enable;
         PlayerManager.Instance.Player.controller.playerInputEnabled(!enable);
 
-        if (!enable)
+        if (!enable && agent.isOnNavMesh)
         {
 
             agent.ResetPath();
