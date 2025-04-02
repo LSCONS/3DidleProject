@@ -164,35 +164,19 @@ public class InventorySlotUI : MonoBehaviour,
     }
     private void AutoEquip()
     {
-        ItemData data = slot.item.Data;
+        Item item = slot.item;
 
-        foreach (var equip in data.equipItemData)
+        if (item == null || item.Data.Type != ItemType.EquipItem) return;
+
+        foreach (var equip in item.Data.equipItemData)
         {
-            EquipItemType type = equip.EquipType;
-
-            // 기존 장비 회수 및 능력치 제거
-            var oldItemData = EquipmentManager.Instance.GetEquipped(type)?.Data;
-            if (oldItemData != null && oldItemData.equipItemData.Length > 0)
-            {
-                var oldStats = oldItemData.equipItemData[0];
-                PlayerManager.Instance.Player.RemoveEquipStats(oldStats.AttackValue, oldStats.DefenceValue);
-
-                Item oldItem = new Item(oldItemData);
-                InventoryUI.Instance.inventory.AddItem(oldItem, 1);
-            }
-
-            // 새 장비 등록 및 능력치 적용
-            EquipmentManager.Instance.Equip(type, new Item(data));
-            PlayerManager.Instance.Player.AddEquipStats(equip.AttackValue, equip.DefenceValue);
-
+            EquipmentManager.Instance.Equip(equip.EquipType, item);
             slot.Clear();
-
             InventoryUI.Instance.Refresh();
-            EquipmentUI.Instance.Refresh();
-
             break; // 하나만 처리
         }
     }
+
 
 
     private void UseItem()
