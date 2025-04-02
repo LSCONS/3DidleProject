@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 71684955}
   - component: {fileID: 71684956}
   - component: {fileID: 71684957}
+  - component: {fileID: 71684958}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 71684952}
-  inventoryUI: {fileID: 616981953}
+  inventoryUI: {fileID: 0}
   potionTest: {fileID: 11400000, guid: 52d3328c79ce3524493f010276e18dad, type: 2}
   armorTest: {fileID: 11400000, guid: f78e32e7d19a22440bf62b81ae3436b6, type: 2}
   shoeTest: {fileID: 11400000, guid: 80d8d0264fb67b84d8f1a07618624052, type: 2}
@@ -232,6 +233,22 @@ MonoBehaviour:
   tooltipPanel: {fileID: 1557486852}
   nameText: {fileID: 1277212778}
   descriptionText: {fileID: 2077672835}
+--- !u!114 &71684958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71684950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7545c0e0be35347bdbaf12f2c967b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 9206732576265361610, guid: 29c9bf98c25a27845b95ee32bab5285a,
+    type: 3}
+  slotParent: {fileID: 238274639}
+  inventory: {fileID: 0}
 --- !u!1 &218222000
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,14 +564,13 @@ GameObject:
   - component: {fileID: 616981952}
   - component: {fileID: 616981951}
   - component: {fileID: 616981954}
-  - component: {fileID: 616981953}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &616981950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -614,22 +630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616981949}
   m_CullTransparentMesh: 1
---- !u!114 &616981953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616981949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7545c0e0be35347bdbaf12f2c967b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 9206732576265361610, guid: 29c9bf98c25a27845b95ee32bab5285a,
-    type: 3}
-  slotParent: {fileID: 238274639}
-  inventory: {fileID: 0}
 --- !u!225 &616981954
 CanvasGroup:
   m_ObjectHideFlags: 0

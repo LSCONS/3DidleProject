@@ -19,5 +19,6 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(ItemData item, int count)
     {
         inventory.AddItem(item, count);
+        InventoryUI.Instance.Refresh();
     }
 }

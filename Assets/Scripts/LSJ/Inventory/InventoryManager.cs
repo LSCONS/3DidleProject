@@ -8,7 +8,14 @@ public class InventoryManager : MonoBehaviour
     public ItemData armorTest;
     public ItemData shoeTest;
     public int slotCount = 20;
+    private void Awake()
+    {
+        if (inventory == null)
+            inventory = GetComponent<Inventory>();
 
+        if (inventoryUI == null)
+            inventoryUI = FindObjectOfType<InventoryUI>();
+    }
     private void Start()
     {
         inventory.Initialize(slotCount);
