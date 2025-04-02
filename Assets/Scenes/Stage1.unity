@@ -4098,7 +4098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &494269173
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12551,26 +12551,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InventoryUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 120160927951951649, guid: 3f62b9f974f31664f9a9a695237d9b40,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 980599491608308734, guid: 3f62b9f974f31664f9a9a695237d9b40,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759828085570311443, guid: 3f62b9f974f31664f9a9a695237d9b40,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9115665549436349683, guid: 3f62b9f974f31664f9a9a695237d9b40,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9119101778269302376, guid: 3f62b9f974f31664f9a9a695237d9b40,
         type: 3}

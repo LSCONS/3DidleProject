@@ -54,6 +54,18 @@ public class ItemData : ScriptableObject
 
     public bool AvailableInShop = false; // 상점에 등장 가능한 아이템인지 여부
     public int ShopPrice = 100;          // 상점에서 판매되는 가격
+
+    public override bool Equals(object obj)
+    {
+        if (obj is ItemData other)
+            return this.ID == other.ID;
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return ID.GetHashCode();
+    }
 }
 
 
@@ -75,3 +87,5 @@ public class EquipItemData
     public int UpgradeAttackValue;      //업그레이드 공격력 증가 수치
     public int DefenceAttackValue;      //업그레이드 방어력 증가 수치
 }
+
+
