@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class MonsterManager : MonoBehaviour
     public List<GameObject> curMonsters;
     private bool isInit = true;
 
+    private float lastTime = 0f;
+    private float lastRate = 1f;
+
     private void Awake()
     {
         if (instance == null)
@@ -61,10 +65,14 @@ public class MonsterManager : MonoBehaviour
 
     private void Update()
     {
-        if (isInit&& spawners != null)
+        if (curMonsters.Count < 1)
         {
-            SpawnMonster(1);
-            isInit = false;
+            SpawnMonster(2);
+        }
+        if (Time.time - lastTime > lastRate)
+        {
+            lastTime = Time.time;
+            CheckMonsterPosition();
         }
     }
 
@@ -75,8 +83,21 @@ public class MonsterManager : MonoBehaviour
         for (int i = 0; i < stages[stage]; i++)
         {
             // 몬스터 생성시 랜덤위치 스폰
-            GameObject monster = Instantiate(dicMonsters[(Monsters)Random.Range(0,monstersPrefabs.Count)], spawners[Random.Range(2, spawners.Count-1)].position, Quaternion.identity);
+            GameObject monster = Instantiate(dicMonsters[(Monsters)Random.Range(0,monstersPrefabs.Count)], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
             curMonsters.Add(monster);
+        }
+    }
+
+    private void CheckMonsterPosition()
+    {
+        for (int i = 0; i < curMonsters.Count; i++)
+        {
+            if (Vector3.Distance(curMonsters[i].transform.position, PlayerManager.Instance.PlayerTransform.position) > 20f)
+            {
+                curMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
+                curMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
+                curMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
+            }
         }
     }
 }
