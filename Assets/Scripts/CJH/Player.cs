@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public int CurrentExp { get; private set; }
     public float MaxHp { get; private set; }
     public float CurrentHP { get; private set; }
+    public float MaxMp { get; private set; }
+    public float CurrentMp { get; private set; }
     public float Damage { get; private set; }
     public float AttackRange { get; private set; }
     public float Defence { get; private set; }
@@ -65,7 +67,25 @@ public class Player : MonoBehaviour
 
     public void SubstractHelath(float value)
     {
+        if (CurrentHP - value >= 0)
+        {
+            Debug.Log("HP가 없습니다.");
+        }
         CurrentHP = Mathf.Max(CurrentHP - value, 0);
+    }
+
+    public void AddMana(float value)
+    {
+        CurrentMp = Mathf.Min(CurrentMp + value, MaxMp);
+    }
+
+    public void Substract(float value)
+    {
+        if (CurrentMp - value >= 0)
+        {
+            Debug.Log("MP가 없습니다.");
+        }
+        CurrentMp = Mathf.Min(CurrentMp - value, 0);
     }
 
     public void LevelUp()
@@ -77,6 +97,22 @@ public class Player : MonoBehaviour
             expUp++;
         }
         MaxExp = expUp * Level * 50;
+
+        Damage++;
+        Defence += 0.5f;
+        MaxHp += 5f;
+        MaxMp += 1f;
+        AddHealth(MaxHp);
+        AddMana(MaxMp);
+    }
+
+    public void AddExp(int value)
+    {
+        CurrentExp += value;
+        if (CurrentExp > MaxExp)
+        {
+            LevelUp();
+        }
     }
 
 }
