@@ -123,7 +123,19 @@ public class PlayerController : MonoBehaviour
         if (jumpInput && IsGrounded())
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            animationHandler?.TriggerJump();
         }
+
+        if (!IsGrounded())
+        {
+            animationHandler?.SetJumpIdle(true);
+        }
+        else
+        {
+            animationHandler?.SetJumpIdle(false);
+        }
+
+        animationHandler?.SetGrounded(IsGrounded());
 
         float speed = moveInput.sqrMagnitude;
         animationHandler?.SetMoveState(speed);
