@@ -104,14 +104,11 @@ public class PlayerAutoCombat : MonoBehaviour
 
         if (enable)
         {
-            PlayerManager.Instance.Player.controller.rb.isKinematic = true;
             agent.enabled = true;
         }
         else
         {
-            PlayerManager.Instance.Player.controller.rb.isKinematic = false;
             agent.enabled = false;
-            PlayerManager.Instance.Player.controller.rb.velocity = Vector3.zero;
         }
 
         
