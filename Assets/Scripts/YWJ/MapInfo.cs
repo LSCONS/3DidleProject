@@ -16,7 +16,10 @@ public class MapInfo : MonoBehaviour
         controller.spawners.Add(spawners[1]);
     }
 
-
+    /// <summary>
+    /// 플레이어 충돌위치에 따라 위치값 저장 및 변경
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("충돌");

@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         if (playerCollider == null || myCollider == null) return;
         Vector3 closetPoint = playerCollider.ClosestPoint(transform.position);                      // 내(적) 위치에서 플레이어 콜라이더의 가장 가까운 지점을 계산
         Vector3 myColset = myCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);    // 플레이어 위치에서 나(적)의 콜라이더 표면의 가장 가까운 지점
-        if (!isBoss)
+        if (!isBoss) // 보스가 아니라 그냥 몬스터의 사거리
         {
             if (Vector3.Distance(myColset, closetPoint) <= 2f)
             {
@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
                 stateMachine.SetState(curState[MonsterBehavior.Move]);
             }
         }
-        else
+        else // 보스몬스터의 사거리
         {
             if (Vector3.Distance(myColset, closetPoint) <= 6f)
             {

@@ -16,7 +16,9 @@ public class MapController : MonoBehaviour
     public List<Transform> spawners = new List<Transform>();
     public MonsterManager monsterManager;
 
-
+    /// <summary>
+    /// 맵 초기설정
+    /// </summary>
     private void Init()
     {
         meshSurface = GetComponent<NavMeshSurface>();
@@ -50,10 +52,10 @@ public class MapController : MonoBehaviour
         Init();
 
     }
-    private void Start()
-    {
-    }
 
+    /// <summary>
+    /// 캐릭터 이동시 맵 이동로직
+    /// </summary>
     private void ChangeMaps()
     {
         currentMapPos = new List<Vector3>()
