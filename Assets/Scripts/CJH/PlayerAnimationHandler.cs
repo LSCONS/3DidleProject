@@ -7,9 +7,11 @@ public class PlayerAnimationHandler : MonoBehaviour
     private static readonly int IsMove = Animator.StringToHash("IsMove");
     private static readonly int IsRun = Animator.StringToHash("IsRun");
     private static readonly int JumpTrigger = Animator.StringToHash("JumpTrigger");
-    //private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
+    private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
+    private static readonly int JumpIdle = Animator.StringToHash("JumpIdle");
     private static readonly int Attack = Animator.StringToHash("Attack");
-    private static readonly int IsDead = Animator.StringToHash("IsDead");
+    private static readonly int DeadTrigger = Animator.StringToHash("TriggerDead");
+    private static readonly int HitTrigger = Animator.StringToHash("TriggerHit");
 
 
     protected Animator animator;
@@ -22,6 +24,16 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void TriggerJump()
     {
         animator.SetTrigger(JumpTrigger);
+    }
+
+    public void SetGrounded(bool grounded)
+    {
+        animator.SetBool(IsGrounded, grounded);
+    }
+
+    public void SetJumpIdle(bool isAirborne)
+    {
+        animator.SetBool(JumpIdle, isAirborne);
     }
 
     
@@ -43,7 +55,12 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     public void PlayDead()
     {
-        animator.SetBool(IsDead, true);
+        animator.SetTrigger(DeadTrigger);
+    }
+
+    public void PlayerHit()
+    {
+        animator.SetTrigger(HitTrigger);
     }
 
 

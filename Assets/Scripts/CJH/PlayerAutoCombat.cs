@@ -35,10 +35,12 @@ public class PlayerAutoCombat : MonoBehaviour
         {
 
             Collider targetCollider = targetEnemy.GetComponent<Collider>();
+            Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();
             if (targetCollider == null) return;
 
-            Vector3 closetPoint = targetCollider.ClosestPoint(transform.position);
-            float distance = Vector3.Distance(transform.position, closetPoint);
+            Vector3 enemyCloset = targetCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);
+            Vector3 playerCloset = playerCollider.ClosestPoint(transform.position);
+            float distance = Vector3.Distance(playerCloset, enemyCloset);
 
             if (distance > PlayerManager.Instance.Player.AttackRange)
             {

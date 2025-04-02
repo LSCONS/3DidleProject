@@ -24,4 +24,6 @@ public class PlayerAnimationEvent : MonoBehaviour
     public void EnableAttackHitBox() => attackHitBox.SetActive(true);
     public void DisableAttackHitBox() => attackHitBox.SetActive(false);
 
+
+
 }

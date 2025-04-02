@@ -27,8 +27,13 @@ public class Player : MonoBehaviour
     public bool isHelmetEquip { get; private set; } = false;
     public int helmetIndex { get; private set; } = -1;
 
+    public bool isInvincible { get; private set; } = false; //무적판정 
+
     private int expUp = 1;
     private bool isDead = false;
+
+
+    private Coroutine hitCoroutine;
 
     public PlayerController controller;
     
@@ -36,8 +41,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         PlayerManager.Instance.Player = this;
+        PlayerManager.Instance.PlayerTransform = this.transform;
         controller = GetComponent<PlayerController>();
-        Init("기사", 1000f, 20f, 15f);
+        Init("기사", 10f, 20f, 15f);
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)
@@ -53,16 +59,39 @@ public class Player : MonoBehaviour
         Gold = 1000;
         CurrentExp = 0;
         MaxExp = 50;
+        isDead = false;
     }
 
     public void TakeDamage(float damage)
     {
-        SubstractHelath(damage);
-        // 피해 받는 이벤트 추가하기
         if (CurrentHP <= 0)
         {
             PlayerDeath();
+            return;
         }
+        if (isInvincible) return;
+        SubstractHelath(damage);
+        controller.animationHandler?.PlayerHit();
+
+        if (hitCoroutine != null)
+        {
+            StopCoroutine(hitCoroutine);
+        }
+
+        hitCoroutine = StartCoroutine(HitCorourtine());
+
+
+        // 피해 받는 이벤트 추가하기
+        
+    }
+
+    private IEnumerator HitCorourtine()
+    {
+        isInvincible = true;
+
+        yield return new WaitForSeconds(1.2f);
+        isInvincible = false;
+
     }
 
     public void AddHealth(float value)
