@@ -2,18 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    //TODO: 환경설정에서 조절한 소리를 적용할 수 있는 부분 추가해야함.
+    //TODO: 환경설정에서 조절한 볼륨 조절 부분과 연결 필요.
     public float bgmVolume = 0.2f;
     public float seVolme = 0.1f;
+
+    public readonly string MasterGroupName = "Master";  //오디오 믹서 마스터 그룹 이름
+    public readonly string SFXGroupName = "SFX";        //오디오 믹서 SFX 그룹 이름
+    public readonly string BGMGroupName = "BGM";        //오디오 믹서 BGM 그룹 이름
 
     public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
     public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
 
     Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();
     Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();
+
+    public AudioMixer audioMixer;
+    public AudioMixerGroup bgmGroup;
+    public AudioMixerGroup sfxGroup;
 
     #region 음악 경로 지정 관련 
     public AudioClip menuBGM;               //메인 메뉴 BGM
@@ -38,6 +47,7 @@ public class SoundManager : Singleton<SoundManager>
         DontDestroyOnLoad(gameObject);
         CreatePoolObject();                 //풀링하는 오브젝트를 한꺼번에 저장할 오브젝트 생성
         initAudioClip();                    //Clip들의 Resource경로 설정
+        initAudioMixer();                   //오디오 믹서들을 초기화
     }
 
 
@@ -70,12 +80,24 @@ public class SoundManager : Singleton<SoundManager>
     }
 
 
+    //오디오 믹서를 초기화
+    private void initAudioMixer()
+    {
+        audioMixer = Resources.Load<AudioMixer>("AudioMixer/MainAudioMixer");
+        AudioMixerGroup[] bgmGroups = audioMixer.FindMatchingGroups($"{MasterGroupName}/{BGMGroupName}");
+        AudioMixerGroup[] sfxGruips = audioMixer.FindMatchingGroups($"{MasterGroupName}/{SFXGroupName}");
+        bgmGroup = bgmGroups[0];
+        sfxGroup = sfxGruips[0];
+    }
+
+
     // 새로운 BGM오브젝트를 생성하며 AudioSource를 반환하는 메서드
     private AudioSource AddAudioBGMObject(AudioClip clip)
     {
         GameObject audioObject = new GameObject("AudioBGM");
         audioObject.transform.SetParent(BGM_SoundPool.transform);
         AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = bgmGroup;
         audioSource.loop = true;
         audioSource.playOnAwake = false;
         audioSource.clip = clip;
@@ -90,6 +112,7 @@ public class SoundManager : Singleton<SoundManager>
         GameObject audioObject = new GameObject("AudioSFX");
         audioObject.transform.SetParent(SFX_SoundPool.transform);
         AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = sfxGroup;
         audioSource.clip = clip;
         audioSource.playOnAwake = false;
         audioSource.Play();
@@ -178,7 +201,6 @@ public class SoundManager : Singleton<SoundManager>
 
 
     #region BGM 출력 관련
-
     /// <summary>
     /// BGM MainMenu을 실행할 메서드
     /// </summary>
@@ -353,8 +375,46 @@ public class SoundManager : Singleton<SoundManager>
     #endregion
 
 
+    #region 볼륨 조절 관련
+    /// <summary>
+    /// Master 볼륨을 조절할 때 사용할 메서드
+    /// </summary>
+    /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
+    public void SetMasterVolume(float sliderValue)
+    {
+        float volume = Mathf.Log10(sliderValue) * 20f;
+        audioMixer.SetFloat(MasterGroupName, volume);
+    }
+
+
+    /// <summary>
+    /// BGM 볼륨을 조절할 때 사용할 메서드
+    /// </summary>
+    /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
+    public void SetBGMVolume(float sliderValue)
+    {
+        float volume = Mathf.Log10(sliderValue) * 20f;
+        audioMixer.SetFloat(BGMGroupName, volume);
+    }
+
+
+    /// <summary>
+    /// SFX 볼륨을 조절할 때 사용할 메서드
+    /// </summary>
+    /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
+    public void SetSFXVolume(float sliderValue)
+    {
+        float volume = Mathf.Log10(sliderValue) * 20f;
+        audioMixer.SetFloat(SFXGroupName, volume);
+    }
+    #endregion
+
+
     //TODO: 모든 SFX 출력 멈춤. 모든 List<AudioSource>를 0번부터 순회하여 IsPlay가 false인 녀석이 나온다면 빠져나감.
+
     //TODO: 실행되고 있는 모든 코루틴도 종료시켜야함.
+
+    //TODO: 실행되는 오디오의 Transform의 값을 플레이어 근처로 초기화시켜야함.
 
 
     ///README
