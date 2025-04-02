@@ -91,12 +91,24 @@ public class InventorySlotUI : MonoBehaviour,
 
     public void OnDrop(PointerEventData eventData)
     {
-        var draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
-        if (draggedSlot != null && draggedSlot.slotIndex != this.slotIndex)
+        GameObject draggedSlot = eventData.pointerDrag;
+        if (draggedSlot == null) return;
+
+        InventorySlotUI inventorySlotUI = draggedSlot.GetComponent<InventorySlotUI>();
+
+        if (inventorySlotUI != null && inventorySlotUI.slotIndex != this.slotIndex)
         {
-            InventoryUI.Instance.inventory.MoveItem(draggedSlot.slotIndex, this.slotIndex);
+            InventoryUI.Instance.inventory.MoveItem(inventorySlotUI.slotIndex, this.slotIndex);
             InventoryUI.Instance.Refresh();
+            return;
         }
+
+        if(draggedSlot.tag == "ItemUpgrade")
+        {
+
+        }
+
+        
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
