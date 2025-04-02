@@ -727,6 +727,7 @@ MonoBehaviour:
   - {fileID: 5557079053346427154, guid: 86fc534f8169ab54682ed8dafc19537b, type: 3}
   - {fileID: 7206064466083898896, guid: ea385e54359a75c4ab0296df02917b2a, type: 3}
   curMonsters: []
+  Stage: 2
 --- !u!4 &1486215215
 Transform:
   m_ObjectHideFlags: 0
