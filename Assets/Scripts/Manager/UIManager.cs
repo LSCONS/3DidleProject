@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [Header("Stat")]
     [SerializeField] Player player;
@@ -38,8 +38,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject upgrade;
 
+    [Header("InformationUI")]
+    [SerializeField] TextMeshProUGUI textInformation;
+    [SerializeField] GameObject informationUI;
+    [SerializeField] Button btnExitInformation;
+    [SerializeField] GameObject shadowUI;
+
     bool isFade;
     bool isSettings;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        btnExitInformation.onClick.AddListener(SetCloseInformationUI);
+    }
 
     private void Update()
     {
@@ -178,17 +190,36 @@ public class UIManager : MonoBehaviour
 
     public void SetStore()
     {
-        store.SetActive(true);
+        SetActiveConversion(shadowUI);
+        SetActiveConversion(store);
     }
 
     public void SetInventory()
     {
-        inventory.SetActive(true);
+        SetActiveConversion(shadowUI);
+        SetActiveConversion(inventory);
     }
 
     public void SetUpgrade()
     {
-        upgrade.SetActive(true);
+        SetActiveConversion(shadowUI);
+        SetActiveConversion(upgrade);
+        SetActiveConversion(inventory);
     }
 
+    public void SetOpenInformationUI(string text)
+    {
+        textInformation.text = text;
+        informationUI.SetActive(true);
+    }
+
+    private void SetCloseInformationUI()
+    {
+        informationUI.SetActive(false);
+    }
+
+    private void SetActiveConversion(GameObject obj)
+    {
+        obj.SetActive(!obj.activeSelf);
+    }
 }

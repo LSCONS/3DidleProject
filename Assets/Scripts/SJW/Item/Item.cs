@@ -23,7 +23,7 @@ public class Item
 
             if(data.UpgradePrice > PlayerManager.Instance.player.Gold)
             {
-                //TODO: 골드 부족으로 강화 불가능 메시지 필요
+                UIManager.Instance.SetOpenInformationUI("강화 실패\n플레이어 골드 부족");
                 return;
             }
             //TODO: 플레이어의 골드를 빼는 명령어 필요
@@ -53,16 +53,16 @@ public class Item
             if (Util.ComputeProbability(Probability))
             {
                 UpgradeItem();
-                //TODO: 강화 성공. 강화 성공 메시지 필요.
+                UIManager.Instance.SetOpenInformationUI("강화 성공");
             }
             else
             {
-                //TODO: 강화 실패. 강화 실패 메시지 필요.
+                UIManager.Instance.SetOpenInformationUI("강화 실패");
             }
         }
         else
         {
-            //TODO: 강화 최대 횟수 도달. 강화 불가 메시지 필요.
+            UIManager.Instance.SetOpenInformationUI("강화 불가능\n최대 강화 횟수 도달");
         }
     }
 
