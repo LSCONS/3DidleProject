@@ -8,7 +8,7 @@ public class StartMenu : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            LoadingSceneController.LoadScene("MainMenuScene");
+            LoadingSceneController.LoadScene("Stage1");
         }
     }
 }
