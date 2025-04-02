@@ -36,7 +36,11 @@ public class InventoryUI : MonoBehaviour
             slotUIs.Add(slotUI); // 슬롯 UI 따로 저장
         }
     }
-
+    public void SortAndRefresh()
+    {
+        inventory.SortByRarityDescending();
+        Refresh();
+    }
     public void Refresh()
     {
         for (int i = 0; i < slotUIs.Count; i++)

@@ -27,25 +27,27 @@ public class PlayerAutoCombat : MonoBehaviour
     {
          if (!PlayerManager.Instance.Player.controller.isAutoMode) return;
 
-        attackTimer += Time.deltaTime;
+        attackTimer += Time.deltaTime;      // 공격 쿨타임 계산
 
-        FindEnemy();
+        FindEnemy();                        // 가까운 적을 탐색
 
         if (targetEnemy != null)
         {
 
-            Collider targetCollider = targetEnemy.GetComponent<Collider>();
-            Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();
+            Collider targetCollider = targetEnemy.GetComponent<Collider>();                     // 타겟(적)의 콜라이더
+            Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();  // 플레이어의 콜라이더
             if (targetCollider == null) return;
 
-            Vector3 enemyCloset = targetCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);
+            Vector3 enemyCloset = targetCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position); 
             Vector3 playerCloset = playerCollider.ClosestPoint(transform.position);
             float distance = Vector3.Distance(playerCloset, enemyCloset);
+            //플레이어와 적의 거리를 구합니다(중심점이 아닌 콜라이더 외곽 기준으로 가깝게 구합니다)
 
             if (distance > PlayerManager.Instance.Player.AttackRange)
             {
                 agent.SetDestination(targetEnemy.position);
                 PlayerManager.Instance.Player.controller.animationHandler?.SetMoveState(0.5f);
+                // 거리가 공격범위보다 멀다면 이동
             }
             else
             {
@@ -57,6 +59,7 @@ public class PlayerAutoCombat : MonoBehaviour
                     attackTimer = 0;
                     Attack();
                 }
+                // 적이 공격범위 내에 있다면 캐릭터를 멈춘 후 공격쿨타임이 지나면 공격을 실행합니다.
             }
         }
         PlayerManager.Instance.Player.controller.skillManager.AutoUesSkill();

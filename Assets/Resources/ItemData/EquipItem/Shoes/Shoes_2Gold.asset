@@ -19,7 +19,7 @@ MonoBehaviour:
   GradeCount: 0
   SellPrice: 30
   Type: 1
-  Rarity: 0
+  Rarity: 2
   useItemDatas: []
   equipItemData:
   - EquipType: 2
