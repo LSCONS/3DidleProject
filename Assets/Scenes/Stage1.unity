@@ -3560,6 +3560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f813a9cffba649a4b9bb8fb31da23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiType: 1
   type: 0
   targetPos: {x: 200, y: 0, z: 0}
   duration: 0.5
@@ -11751,6 +11752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f813a9cffba649a4b9bb8fb31da23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiType: 0
   type: 0
   targetPos: {x: 580, y: 0, z: 0}
   duration: 0.5
