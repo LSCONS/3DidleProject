@@ -10150,11 +10150,11 @@ RectTransform:
   - {fileID: 678914562}
   - {fileID: 1598879044}
   - {fileID: 1454764191}
-  - {fileID: 378976243}
-  - {fileID: 1361438877}
   - {fileID: 456776910}
   - {fileID: 434151988}
   - {fileID: 1730194993}
+  - {fileID: 1361438877}
+  - {fileID: 378976243}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
