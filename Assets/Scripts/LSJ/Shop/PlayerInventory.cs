@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
     }
     private void Start()
     {
-        inventory.Initialize(20); 
+        inventory.Initialize(20);
         // UI 초기화
         InventoryUI.Instance.Initialize(inventory);
     }
