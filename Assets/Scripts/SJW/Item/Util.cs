@@ -6,6 +6,8 @@ using UnityEngine;
 public static class Util
 {
     private static readonly System.Random rand = new System.Random();
+
+    #region 컴포넌트 관련 명령어
     /// <summary>
     /// 해당 오브젝트의 모든 자식들을 DFS 방식으로 재귀하며 같은 이름의 오브젝트를 반환하는 메서드
     /// </summary>
@@ -153,6 +155,45 @@ public static class Util
             return null;
         }
     }
+    #endregion
+
+
+    /// <summary>
+    /// 리스트를 무작위로 섞는 메서드
+    /// </summary>
+    /// <typeparam name="T">리스트 내부에 넣을 요소</typeparam>
+    /// <param name="list">섞을 리스트</param>
+    public static void ShuffleList<T>(this List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rand.Next(n + 1);
+            (list[n], list[k]) = (list[k], list[n]);
+        }
+    }
+
+
+    /// <summary>
+    /// 리스트의 맨 첫번째 요소를 맨 뒤로 보내는 메서드
+    /// </summary>
+    /// <typeparam name="T">리스트의 요소</typeparam>
+    /// <param name="list">해당 리스트</param>
+    public static void MoveFirstToLastList<T>(this List<T> list)
+    {
+        if (list == null || list.Count <= 1) return;
+
+        T first = list[0];
+        list.RemoveAt(0);
+        list.Add(first);
+    }
+
+
+    public static void MoveToFirstList<T>(this List<T> list)
+    {
+
+    }
 
 
     /// <summary>
@@ -177,23 +218,6 @@ public static class Util
     public static float PlusAndClamp(this float nowValue, float addValue, float max)
     {
         return Mathf.Clamp(nowValue + addValue, 0, max);
-    }
-
-
-    /// <summary>
-    /// 리스트를 무작위로 섞는 메서드
-    /// </summary>
-    /// <typeparam name="T">리스트 내부에 넣을 요소</typeparam>
-    /// <param name="list">섞을 리스트</param>
-    public static void ShuffleList<T>(this List<T> list)
-    {
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = rand.Next(n + 1);
-            (list[n], list[k]) = (list[k], list[n]);
-        }
     }
 
 

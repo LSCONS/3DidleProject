@@ -25,15 +25,16 @@ public class Player : MonoBehaviour
     public bool isHelmetEquip { get; private set; } = false;
     public int helmetIndex { get; private set; } = -1;
 
-    public PlayerCondition condition;
+    private int expUp = 1;
+
     public PlayerController controller;
     
 
     private void Awake()
     {
         PlayerManager.Instance.Player = this;
-        condition = GetComponent<PlayerCondition>(); 
         controller = GetComponent<PlayerController>();
+        Init("기사", 500, 20, 15);
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)
@@ -45,6 +46,10 @@ public class Player : MonoBehaviour
         Defence = defence;
         CriticalChance = 10;
         CriticalDamage = 150;
+        AttackRange = 2;
+        Gold = 1000;
+        CurrentExp = 0;
+        MaxExp = 50;
     }
 
     public void TakeDamage(float damage)
@@ -61,6 +66,17 @@ public class Player : MonoBehaviour
     public void SubstractHelath(float value)
     {
         CurrentHP = Mathf.Max(CurrentHP - value, 0);
+    }
+
+    public void LevelUp()
+    {
+        Level++;
+        CurrentExp -= MaxExp;
+        if (Level % 10 == 0)
+        {
+            expUp++;
+        }
+        MaxExp = expUp * Level * 50;
     }
 
 }

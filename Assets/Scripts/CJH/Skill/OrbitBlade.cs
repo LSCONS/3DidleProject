@@ -48,8 +48,25 @@ public class OrbitBlade : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, range);
         foreach (var enemy in enemies)
         {
-            // 적정보를 가져오고 적에게 피해를 입히기
+            if (enemy.CompareTag("Enemy"))
+            {
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(damage);
+                }
+            }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, 1f);
+    }
+
+
+
 
 }
