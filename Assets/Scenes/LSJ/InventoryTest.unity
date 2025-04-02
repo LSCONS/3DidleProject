@@ -250,6 +250,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &753055875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4759828085570311443, guid: 3f62b9f974f31664f9a9a695237d9b40,
+    type: 3}
+  m_PrefabInstance: {fileID: 2912855909422413758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &965794940 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7559712250569918363, guid: 3f62b9f974f31664f9a9a695237d9b40,
@@ -570,6 +576,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1459657191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2971364163116291911, guid: 5935bed3143a62148856d727237da162,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391751863862941264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7545c0e0be35347bdbaf12f2c967b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557486852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9115665549436349683, guid: 3f62b9f974f31664f9a9a695237d9b40,
@@ -622,6 +640,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2971364163116291911, guid: 5935bed3143a62148856d727237da162,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 753055875}
     - target: {fileID: 2971364163116291911, guid: 5935bed3143a62148856d727237da162,
         type: 3}
       propertyPath: slotParent
@@ -710,6 +733,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7673212609791414030, guid: 3f62b9f974f31664f9a9a695237d9b40,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1459657191}
     - target: {fileID: 9119101778269302376, guid: 3f62b9f974f31664f9a9a695237d9b40,
         type: 3}
       propertyPath: m_Pivot.x
@@ -927,6 +955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851041763712250239, guid: 4805447a9aa6749419168c8e9ed264a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

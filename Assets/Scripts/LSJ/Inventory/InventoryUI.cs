@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
 
     public GameObject slotPrefab;
     public Transform slotParent;
-
+    public GameObject panel;
     public Inventory inventory;
 
     private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
@@ -43,5 +43,9 @@ public class InventoryUI : MonoBehaviour
         {
             slotUIs[i].Set(inventory.slots[i]);
         }
+    }
+    public void Close()
+    {
+        panel.SetActive(false);
     }
 }
