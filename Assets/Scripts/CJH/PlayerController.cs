@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
             animationHandler?.SetJumpIdle(false);
         }
 
-        animationHandler?.SetGrounded(IsGrounded());
+        animationHandler?.SetGrounded(IsLadingSoon());
 
         float speed = moveInput.sqrMagnitude;
         animationHandler?.SetMoveState(speed);
@@ -147,7 +147,16 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         float rayDistance = 1.1f;
+        Debug.Log($"점프 상태는 {Physics.Raycast(transform.position, Vector3.down, rayDistance)} 입니다.");
         return Physics.Raycast(transform.position, Vector3.down, rayDistance);
+    }
+
+    private bool IsLadingSoon()
+    {
+        float detectDistance = 1.8f;
+        bool willLandSoon = Physics.Raycast(transform.position, Vector3.down, detectDistance);
+
+        return willLandSoon;
     }
 
     public void playerInputEnabled(bool isActive)

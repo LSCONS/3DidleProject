@@ -41,8 +41,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         PlayerManager.Instance.Player = this;
+        PlayerManager.Instance.PlayerTransform = this.transform;
         controller = GetComponent<PlayerController>();
-        Init("기사", 1000f, 20f, 15f);
+        Init("기사", 10f, 20f, 15f);
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)
@@ -58,16 +59,17 @@ public class Player : MonoBehaviour
         Gold = 1000;
         CurrentExp = 0;
         MaxExp = 50;
+        isDead = false;
     }
 
     public void TakeDamage(float damage)
     {
-        if (isInvincible) return;
         if (CurrentHP <= 0)
         {
             PlayerDeath();
             return;
         }
+        if (isInvincible) return;
         SubstractHelath(damage);
         controller.animationHandler?.PlayerHit();
 

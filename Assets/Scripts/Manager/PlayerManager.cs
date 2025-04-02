@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
         set { player = value; }
     }
 
-    public Transform PlayerTransform { get; private set; }
+    public Transform PlayerTransform { get;  set; }
 
     private void Awake()
     {
