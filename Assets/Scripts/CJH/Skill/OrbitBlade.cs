@@ -23,6 +23,7 @@ public class OrbitBlade : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    // 플레이어 기준으로 공전을 하며 자전도 합니다.
     private void Update()
     {
         if (target == null)
@@ -42,6 +43,7 @@ public class OrbitBlade : MonoBehaviour
 
     }
 
+    //range범위의 콜라이더를 가져오고 태그가 Enemy라면 피해를 입힙니다.
     public void TriggerHit(float damage)
     {
         float range = 1f;
