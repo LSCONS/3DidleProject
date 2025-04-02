@@ -51,6 +51,9 @@ public class ItemData : ScriptableObject
 
     public bool IsStack;                    //겹치는 아이템 가능
     public int MaxStack;                    //최대 겹칠 수 있는 수
+
+    public bool AvailableInShop = false; // 상점에 등장 가능한 아이템인지 여부
+    public int ShopPrice = 100;          // 상점에서 판매되는 가격
 }
 
 

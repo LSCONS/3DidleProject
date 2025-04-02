@@ -75,7 +75,7 @@ public class InventorySlotUI : MonoBehaviour,
         DragIcon.Hide();
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        //인벤토리 그리드 밖이면 버리기 확인창 띄우기
+        //인벤토리 패널 밖이면 버리기 확인창 띄우기
         if (!RectTransformUtility.RectangleContainsScreenPoint(
             InventoryUI.Instance.slotParent.GetComponent<RectTransform>(),
             eventData.position,

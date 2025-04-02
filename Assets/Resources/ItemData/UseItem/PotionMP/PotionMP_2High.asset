@@ -19,10 +19,12 @@ MonoBehaviour:
   GradeCount: 0
   SellPrice: 50
   Type: 0
-  Rarity: 2
+  Rarity: 0
   useItemDatas:
   - UseType: 1
     HealthValue: 100
   equipItemData: []
   IsStack: 1
   MaxStack: 5
+  AvailableInShop: 1
+  ShopPrice: 100

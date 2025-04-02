@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public float lastAttackTime;
     public float attackRate = 0.5f;
     public Animator animator;
+    public bool isBoss;
 
     // Start is called before the first frame update
     void Start()
@@ -42,13 +43,27 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 2f)
+        if (!isBoss)
         {
-            stateMachine.SetState(curState[MonsterBehavior.Attack]);
+            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 2f)
+            {
+                stateMachine.SetState(curState[MonsterBehavior.Attack]);
+            }
+            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 2f)
+            {
+                stateMachine.SetState(curState[MonsterBehavior.Move]);
+            }
         }
-        if(Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 2f)
+        else
         {
-            stateMachine.SetState(curState[MonsterBehavior.Move]);
+            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 6f)
+            {
+                stateMachine.SetState(curState[MonsterBehavior.Attack]);
+            }
+            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 6f)
+            {
+                stateMachine.SetState(curState[MonsterBehavior.Move]);
+            }
         }
         stateMachine.UpdateState();
     }
