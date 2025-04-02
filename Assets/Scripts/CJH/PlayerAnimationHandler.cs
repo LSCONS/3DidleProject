@@ -41,11 +41,27 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         animator.SetFloat(IsMove, speed);
         Debug.Log($"[애니메이션] IsMove: {speed}");
+        if (speed > 0.2f)
+        {
+            //TODO: 걷기사운드 시작
+        }
+        else
+        {
+            //TODO: 걷기 사운드 종료
+        }
     }
 
     public void SetRunState(bool _isRun)
     {
         animator.SetBool(IsRun, _isRun);
+        if (_isRun)
+        {
+            //TODO: 뛰기 사운드 시작
+        }
+        else
+        {
+            //TODO: 뛰기 사운드 종료
+        }
     }
 
     public void PlayAttack()
