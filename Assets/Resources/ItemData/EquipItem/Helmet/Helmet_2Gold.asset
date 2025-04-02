@@ -30,3 +30,5 @@ MonoBehaviour:
     DefenceAttackValue: 3
   IsStack: 0
   MaxStack: 0
+  AvailableInShop: 1
+  ShopPrice: 100

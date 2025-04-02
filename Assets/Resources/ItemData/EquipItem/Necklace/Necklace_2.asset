@@ -19,7 +19,7 @@ MonoBehaviour:
   GradeCount: 0
   SellPrice: 30
   Type: 1
-  Rarity: 2
+  Rarity: 0
   useItemDatas: []
   equipItemData:
   - EquipType: 3
@@ -30,3 +30,5 @@ MonoBehaviour:
     DefenceAttackValue: 2
   IsStack: 0
   MaxStack: 0
+  AvailableInShop: 1
+  ShopPrice: 100
