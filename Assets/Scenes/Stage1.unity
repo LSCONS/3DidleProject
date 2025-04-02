@@ -11669,6 +11669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2971364163116291911, guid: 5935bed3143a62148856d727237da162,
         type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 2050495031}
+    - target: {fileID: 2971364163116291911, guid: 5935bed3143a62148856d727237da162,
+        type: 3}
       propertyPath: slotParent
       value: 
       objectReference: {fileID: 1829234459}
@@ -13326,6 +13331,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046960481}
   m_CullTransparentMesh: 1
+--- !u!1 &2050495031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4759828085570311443, guid: 3f62b9f974f31664f9a9a695237d9b40,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898455401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092842681
 GameObject:
   m_ObjectHideFlags: 0
