@@ -73,7 +73,8 @@ public class Item
     /// </summary>
     public void UseUsableItem()
     {
-        for(int i = 0; i < Data.useItemDatas.Length; i++)
+        SoundManager.Instance.StartAudioSFX_UseItemUse();
+        for (int i = 0; i < Data.useItemDatas.Length; i++)
         {
             UseItemData useItemData = Data.useItemDatas[i];
             switch (useItemData.UseType)
