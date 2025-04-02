@@ -86,7 +86,7 @@ public class UIManager : Singleton<UIManager>
         atk.text = player.Damage.ToString();
         def.text = player.Defence.ToString();
 
-        stage.text = $"Stage 1";
+        stage.text = $"Stage{MonsterManager.Instance.curStage}";
         money.text = player.Gold.ToString();
     }
 
