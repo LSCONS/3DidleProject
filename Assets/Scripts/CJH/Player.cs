@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         PlayerManager.Instance.Player = this;
         PlayerManager.Instance.PlayerTransform = this.transform;
         controller = GetComponent<PlayerController>();
-        Init("기사", 10f, 20f, 15f);
+        Init("기사", 100f, 20f, 15f);
     }
 
     // 플레이어 기본설정
