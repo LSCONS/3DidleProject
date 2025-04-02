@@ -155,10 +155,29 @@ public class InventorySlotUI : MonoBehaviour,
                 {
                     UseItem();
                 }
-                //자동 장착도 여기 추가 예정
+                else if (slot.item.Data.Type == ItemType.EquipItem)
+                {
+                    AutoEquip();
+                }
             }
         }
     }
+    private void AutoEquip()
+    {
+        Item item = slot.item;
+
+        if (item == null || item.Data.Type != ItemType.EquipItem) return;
+
+        foreach (var equip in item.Data.equipItemData)
+        {
+            EquipmentManager.Instance.Equip(equip.EquipType, item);
+            slot.Clear();
+            InventoryUI.Instance.Refresh();
+            break; // 하나만 처리
+        }
+    }
+
+
 
     private void UseItem()
     {
