@@ -14,7 +14,7 @@ public class InventorySlotUI : MonoBehaviour,
     [Header("UI Components")]
     public Image icon;
     public TMP_Text quantityText;
-
+    public Image background;
     private Transform originalParent;
     private Canvas canvas;
     private RectTransform rectTransform;
@@ -36,20 +36,40 @@ public class InventorySlotUI : MonoBehaviour,
 
     public void Set(InventorySlot slot)
     {
-        this.slot = slot; 
+        this.slot = slot;
 
-        if (icon == null || quantityText == null) return;
+        if (icon == null || quantityText == null || background == null) return;
 
         if (slot.IsEmpty)
         {
             icon.enabled = false;
             quantityText.text = "";
+            background.color = Color.white;
         }
         else
         {
             icon.sprite = slot.item.Data.Icon;  
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
+
+            switch (slot.item.Rarity)
+            {
+                case ItemRarity.Common:
+                    background.color = Color.white;
+                    break;
+                case ItemRarity.Rare:
+                    background.color = Color.cyan;
+                    break;
+                case ItemRarity.SuperRare:
+                    background.color = Color.yellow;
+                    break;
+                case ItemRarity.Epic:
+                    background.color = new Color(0.6f, 0f, 1f); // 보라
+                    break;
+                case ItemRarity.Legend:
+                    background.color = Color.red;
+                    break;
+            }
         }
     }
 
@@ -126,21 +146,21 @@ public class InventorySlotUI : MonoBehaviour,
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (!slot.IsEmpty && slot.item.Data.Type == ItemType.UseItem)
+            if (!slot.IsEmpty)
             {
-                UseItem();
+                if (slot.item.Type == ItemType.UseItem)
+                {
+                    UseItem();
+                }
+                //자동 장착도 여기 추가 예정
             }
         }
     }
+
     private void UseItem()
     {
-        foreach (var use in slot.item.Data.useItemDatas)
-        {
-            if (use.UseType == UseItemType.HP)
-            {
-                Debug.Log($"HP 회복: {use.HealthValue}");
-            }
-        }
+        Item tempItem = new Item(slot.item);
+        tempItem.UseUsableItem();
 
         slot.quantity--;
 

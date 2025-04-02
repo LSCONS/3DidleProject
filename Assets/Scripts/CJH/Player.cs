@@ -160,5 +160,17 @@ public class Player : MonoBehaviour
         }
 
     }
+    //장착적용
+    public void AddEquipStats(int atk, int def)
+    {
+        Damage += atk;
+        Defence += def;
+    }
+    //장착해제
+    public void RemoveEquipStats(int atk, int def)
+    {
+        Damage -= atk;
+        Defence -= def;
+    }
 
 }

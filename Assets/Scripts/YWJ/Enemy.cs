@@ -50,11 +50,13 @@ public class Enemy : MonoBehaviour
             {
                 PlayerManager.Instance.player.AddExp(Random.Range(80, 101));
                 monsterManager.deathCount = 0;
+                PlayerManager.Instance.player.AddGold(Random.Range(100,201));
             }
             else
             {
                 PlayerManager.Instance.player.AddExp(Random.Range(10, 21));
                 monsterManager.deathCount++;
+                PlayerManager.Instance.player.AddGold(Random.Range(10, 51));
             }
         }
     }
