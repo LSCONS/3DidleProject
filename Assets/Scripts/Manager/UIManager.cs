@@ -21,6 +21,7 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Condition")]
     [SerializeField] Slider hpSlider;
+    [SerializeField] Slider mpSlider;
     [SerializeField] Slider expSlider;
     [SerializeField] Button activeButton;
     [SerializeField] Button autoButton;
@@ -93,6 +94,7 @@ public class UIManager : Singleton<UIManager>
     void UpdateCondition()
     {
         hpSlider.value = player.CurrentHP / player.MaxHp;
+        mpSlider.value = player.CurrentMp / player.MaxMp;
         expSlider.value = (float)player.CurrentExp / (float)player.MaxExp;
     }
 
