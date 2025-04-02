@@ -39,7 +39,7 @@ public class GachaManager : MonoBehaviour
             lastShown = ResourceManager.Instance.GetRandomRarityItem();
             rollingImage.sprite = lastShown.Data.Icon;
             timer += interval;
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSecondsRealtime(interval);
         }
 
         // 뽑힌 아이템 지급

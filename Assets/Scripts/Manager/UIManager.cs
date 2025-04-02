@@ -205,6 +205,7 @@ public class UIManager : Singleton<UIManager>
         isStopNow = !isStopNow;
         if (isStopNow)
         {
+            Time.timeScale = 0f;
             shadowUI.SetActive(true);
             store.SetActive(true);
         }
@@ -219,6 +220,7 @@ public class UIManager : Singleton<UIManager>
         isStopNow = !isStopNow;
         if (isStopNow)
         {
+            Time.timeScale = 0f;
             shadowUI.SetActive(true);
             inventory.SetActive(true);
         }
@@ -233,6 +235,7 @@ public class UIManager : Singleton<UIManager>
         isStopNow = !isStopNow;
         if (isStopNow)
         {
+            Time.timeScale = 0f;
             shadowUI.SetActive(true);
             upgrade.SetActive(true);
             inventory.SetActive(true);
@@ -254,12 +257,14 @@ public class UIManager : Singleton<UIManager>
         informationUI.SetActive(false);
     }
 
-    private void SetActiveAllFalse()
+    public void SetActiveAllFalse()
     {
+        isStopNow = false;
         store.SetActive(false);
         shadowUI.SetActive(false);
         upgrade.SetActive(false);
         inventory.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void YesButton()
