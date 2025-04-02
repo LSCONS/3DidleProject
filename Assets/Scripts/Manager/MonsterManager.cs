@@ -32,7 +32,11 @@ public class MonsterManager : MonoBehaviour
     private Dictionary<Monsters, GameObject> dicMonsters = new Dictionary<Monsters, GameObject>();
     public List<GameObject> monstersPrefabs;
     public List<GameObject> curMonsters;
-    private bool isInit = true;
+    public List<GameObject> bossMonsterPrefabs;
+    public List<GameObject> curBossMonsters;
+
+    public int curStage;
+    public int deathCount = 0;
 
     private float lastTime = 0f;
     private float lastRate = 1f;
@@ -62,16 +66,22 @@ public class MonsterManager : MonoBehaviour
         dicMonsters.Add(Monsters.Mushroom, monstersPrefabs[3]);
         dicMonsters.Add(Monsters.Cactus, monstersPrefabs[4]);
 
-        SpawnMonster(1);
+        SpawnMonster(curStage);
 
     }
 
     private void Update()
     {
-        if (!CheckMonsterActive())
+        if(!CheckBossMonsterActive() && deathCount >= 20)
+        {
+            BossMonsterActive();
+        }
+        else if (!CheckMonsterActive() && deathCount < 20)
         {
             MonsterActive();
         }
+
+
         if (Time.time - lastTime > lastRate)
         {
             lastTime = Time.time;
@@ -89,6 +99,12 @@ public class MonsterManager : MonoBehaviour
             GameObject monster = Instantiate(dicMonsters[(Monsters)Random.Range(0,monstersPrefabs.Count)], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
             curMonsters.Add(monster);
         }
+        GameObject bossMonster = Instantiate(bossMonsterPrefabs[0], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
+        curBossMonsters.Add(bossMonster);
+        for (int i = 0; i < curBossMonsters.Count; i++)
+        {
+            curBossMonsters[i].SetActive(false);
+        }
     }
 
     private void CheckMonsterPosition()
@@ -100,6 +116,16 @@ public class MonsterManager : MonoBehaviour
                 curMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
                 curMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
                 curMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
+            }
+        }
+
+        for (int i = 0; i < curBossMonsters.Count; i++)
+        {
+            if (Vector3.Distance(curBossMonsters[i].transform.position, PlayerManager.Instance.PlayerTransform.position) > 30f)
+            {
+                curBossMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
+                curBossMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
+                curBossMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
             }
         }
     }
@@ -116,6 +142,18 @@ public class MonsterManager : MonoBehaviour
         return false;
     }
 
+    private bool CheckBossMonsterActive()
+    {
+        for (int i = 0; i < curBossMonsters.Count; i++)
+        {
+            if (curBossMonsters[i].activeSelf == true)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void MonsterActive()
     {
         for (int i = 0; i < curMonsters.Count; i++)
@@ -125,7 +163,23 @@ public class MonsterManager : MonoBehaviour
             curMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
             curMonsters[i].GetComponent<Enemy>().isDead = false;
             curMonsters[i].GetComponent<Enemy>().Init();
+            curMonsters[i].GetComponent<Enemy>().SetStatus(curStage);
             curMonsters[i].SetActive(true);
+        }
+    }
+
+    private void BossMonsterActive()
+    {
+        // 보스몬스터가 여러마리 일 경우 랜덤으로 몬스터 하나의 정보를 가져와서 활성화로 로직 변경해야함
+        for (int i = 0; i < curBossMonsters.Count; i++)
+        {
+            curBossMonsters[i].GetComponent<NavMeshAgent>().enabled = false;
+            curBossMonsters[i].transform.position = spawners[Random.Range(2, spawners.Count)].position;
+            curBossMonsters[i].GetComponent<NavMeshAgent>().enabled = true;
+            curBossMonsters[i].SetActive(true);
+            curBossMonsters[i].GetComponent<Enemy>().isDead = false;
+            curBossMonsters[i].GetComponent<Enemy>().Init();
+            curBossMonsters[i].GetComponent<Enemy>().SetStatus(curStage);
         }
     }
 
