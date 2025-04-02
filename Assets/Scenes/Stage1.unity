@@ -2514,7 +2514,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378976242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3820,6 +3820,11 @@ MonoBehaviour:
   - {fileID: 5557079053346427154, guid: 86fc534f8169ab54682ed8dafc19537b, type: 3}
   - {fileID: 7206064466083898896, guid: ea385e54359a75c4ab0296df02917b2a, type: 3}
   curMonsters: []
+  bossMonsterPrefabs:
+  - {fileID: 2395704307670532510, guid: b6c866c7a15572d4eb93bfb5fcf6c476, type: 3}
+  curBossMonsters: []
+  curStage: 1
+  deathCount: 0
 --- !u!4 &490370824
 Transform:
   m_ObjectHideFlags: 0
@@ -10145,11 +10150,11 @@ RectTransform:
   - {fileID: 678914562}
   - {fileID: 1598879044}
   - {fileID: 1454764191}
-  - {fileID: 378976243}
-  - {fileID: 1361438877}
   - {fileID: 456776910}
   - {fileID: 434151988}
   - {fileID: 1730194993}
+  - {fileID: 1361438877}
+  - {fileID: 378976243}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

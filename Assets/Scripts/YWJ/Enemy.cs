@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float power;
     [SerializeField] private float defence;
     public bool isDead = false;
+    private float maxHealth;
+    private float maxPower;
+    private float maxDefence;
 
     public float Power 
     {
@@ -15,12 +18,24 @@ public class Enemy : MonoBehaviour
     }
 
     private MonsterManager monsterManager;
+    private EnemyController enemyController;
 
-
-    private void Start()
+    private void Awake()
     {
         monsterManager = MonsterManager.Instance;
+        enemyController = GetComponent<EnemyController>();
+        maxHealth = health;
+        maxPower = power;
+        maxDefence = defence;
     }
+
+    public void Init()
+    {
+        health = maxHealth;
+        power = maxPower;
+        maxDefence = defence;
+    }
+    
     public void TakeDamage(float damage)
     {
         if (damage <= 0)
@@ -30,8 +45,24 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            Destroy(this.gameObject);
-            monsterManager.curMonsters.Remove(this.gameObject);
+            this.gameObject.SetActive(false);
+            if(enemyController.isBoss)
+            {
+                PlayerManager.Instance.player.AddExp(Random.Range(80, 101));
+                monsterManager.deathCount = 0;
+            }
+            else
+            {
+                PlayerManager.Instance.player.AddExp(Random.Range(10, 21));
+                monsterManager.deathCount++;
+            }
         }
+    }
+
+    public void SetStatus(int stage)
+    {
+        health += (stage*0.1f)*health;
+        power += (stage * 0.1f) * power;
+        defence += (stage * 0.1f) * defence;
     }
 }

@@ -45,9 +45,13 @@ public class MapController : MonoBehaviour
         monsterManager.spawners = spawners;
 
     }
-    private void Start()
+    private void Awake()
     {
         Init();
+
+    }
+    private void Start()
+    {
     }
 
     private void ChangeMaps()
