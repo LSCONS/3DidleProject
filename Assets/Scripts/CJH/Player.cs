@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Playables;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public int helmetIndex { get; private set; } = -1;
 
     private int expUp = 1;
+    private bool isDead = false;
 
     public PlayerController controller;
     
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
     {
         PlayerManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
-        Init("기사", 500, 20, 15);
+        Init("기사", 1000f, 20f, 15f);
     }
 
     public void Init(string playerName, float maxHp, float damage, float defence)
@@ -58,6 +59,10 @@ public class Player : MonoBehaviour
     {
         SubstractHelath(damage);
         // 피해 받는 이벤트 추가하기
+        if (CurrentHP <= 0)
+        {
+            PlayerDeath();
+        }
     }
 
     public void AddHealth(float value)
@@ -115,6 +120,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     public void  SetGold(int amount)
     {
         Gold = Mathf.Max(0, amount);
@@ -133,6 +139,26 @@ public class Player : MonoBehaviour
     public void AddGold(int amount)
     {
         Gold += amount;
+    }
+    public void PlayerDeath()
+    {
+        if (CurrentHP <= 0 && !isDead)
+        {
+            isDead = true;
+
+            controller.playerInputEnabled(false);
+            controller.enabled = false;
+            controller.rb.velocity = Vector3.zero;
+            controller.isAutoMode = false;
+
+            GetComponent<PlayerAutoCombat>().SetAutoMode(false);
+            GetComponent<PlayerAutoCombat>().enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
+
+            controller.animationHandler?.PlayDead();
+
+        }
+
     }
 
 }

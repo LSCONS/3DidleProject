@@ -34,8 +34,11 @@ public class PlayerAutoCombat : MonoBehaviour
         if (targetEnemy != null)
         {
 
+            Collider targetCollider = targetEnemy.GetComponent<Collider>();
+            if (targetCollider == null) return;
 
-            float distance = Vector3.Distance(transform.position, targetEnemy.position);
+            Vector3 closetPoint = targetCollider.ClosestPoint(transform.position);
+            float distance = Vector3.Distance(transform.position, closetPoint);
 
             if (distance > PlayerManager.Instance.Player.AttackRange)
             {
@@ -60,7 +63,7 @@ public class PlayerAutoCombat : MonoBehaviour
 
     private void FindEnemy()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, 10f, enemyLayer);
+        Collider[] hits = Physics.OverlapSphere(transform.position, 50f, enemyLayer);
         float minDistance = float.MaxValue;
         Transform nearest = null;
 
@@ -71,7 +74,8 @@ public class PlayerAutoCombat : MonoBehaviour
             Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy == null || enemy.isDead) continue;
 
-            float distance = Vector3.Distance(transform.position, hit.transform.position);
+            Vector3 closestPoint = hit.ClosestPoint(transform.position);
+            float distance = Vector3.Distance(transform.position, closestPoint);
             if (distance < minDistance)
             {
                 minDistance = distance;
