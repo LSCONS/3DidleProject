@@ -34,8 +34,11 @@ public class PlayerAutoCombat : MonoBehaviour
         if (targetEnemy != null)
         {
 
+            Collider targetCollider = targetEnemy.GetComponent<Collider>();
+            if (targetCollider == null) return;
 
-            float distance = Vector3.Distance(transform.position, targetEnemy.position);
+            Vector3 closetPoint = targetCollider.ClosestPoint(transform.position);
+            float distance = Vector3.Distance(transform.position, closetPoint);
 
             if (distance > PlayerManager.Instance.Player.AttackRange)
             {

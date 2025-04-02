@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -43,24 +44,29 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Collider playerCollider = PlayerManager.Instance.PlayerTransform.GetComponent<Collider>();
+        Collider myCollider = GetComponent<Collider>();
+        if (playerCollider == null || myCollider == null) return;
+        Vector3 closetPoint = playerCollider.ClosestPoint(transform.position);
+        Vector3 myColset = myCollider.ClosestPoint(PlayerManager.Instance.PlayerTransform.position);
         if (!isBoss)
         {
-            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 2f)
+            if (Vector3.Distance(myColset, closetPoint) <= 2f)
             {
                 stateMachine.SetState(curState[MonsterBehavior.Attack]);
             }
-            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 2f)
+            if (Vector3.Distance(myColset, closetPoint) > 2f)
             {
                 stateMachine.SetState(curState[MonsterBehavior.Move]);
             }
         }
         else
         {
-            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) <= 6f)
+            if (Vector3.Distance(myColset, closetPoint) <= 6f)
             {
                 stateMachine.SetState(curState[MonsterBehavior.Attack]);
             }
-            if (Vector3.Distance(this.gameObject.transform.position, PlayerManager.Instance.PlayerTransform.position) > 6f)
+            if (Vector3.Distance(myColset, closetPoint) > 6f)
             {
                 stateMachine.SetState(curState[MonsterBehavior.Move]);
             }
