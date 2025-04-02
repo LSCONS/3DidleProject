@@ -436,28 +436,28 @@ public class SoundManager : Singleton<SoundManager>
     /// <summary>
     /// SFX PlayerWalk을 실행할 메서드
     /// </summary>
-    public void StartAudioSFX_PlayerWalk()
+    public void StartAudioSFXMoveRun_PlayerWalk()
     {
-        StartAudioSFX(playerWalkSFX);
+        StartAudioSFXMoveRun(playerWalkSFX);
     }
     /// <param name="delayTime">스타트에 지연을 주고 싶은 시간을 입력</param>
-    public void StartAudioSFX_PlayerWalk(float delayTime)
+    public void StartAudioSFXMoveRun_PlayerWalk(float delayTime)
     {
-        StartCoroutine(DelayStartAudio(StartAudioSFX_PlayerWalk, delayTime));
+        StartCoroutine(DelayStartAudio(StartAudioSFXMoveRun_PlayerWalk, delayTime));
     }
 
 
     /// <summary>
     /// SFX PlayerRun을 실행할 메서드
     /// </summary>
-    public void StartAudioSFX_PlayerRun()
+    public void StartAudioSFXMoveRun_PlayerRun()
     {
         StartAudioSFXMoveRun(playerRunSFX);
     }
     /// <param name="delayTime">스타트에 지연을 주고 싶은 시간을 입력</param>
-    public void StartAudioSFX_PlayerRun(float delayTime)
+    public void StartAudioSFXMoveRun_PlayerRun(float delayTime)
     {
-        StartCoroutine(DelayStartAudio(StartAudioSFX_PlayerRun, delayTime));
+        StartCoroutine(DelayStartAudio(StartAudioSFXMoveRun_PlayerRun, delayTime));
     }
     #endregion
 
