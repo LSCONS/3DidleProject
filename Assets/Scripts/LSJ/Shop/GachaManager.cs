@@ -42,13 +42,11 @@ public class GachaManager : MonoBehaviour
 
     public void PullGacha()
     {
-        if (PlayerInventory.Instance.gold < gachaCost)
+        if (!PlayerManager.Instance.Player.TrySpendGold(gachaCost))
         {
             Debug.Log("골드 부족!");
             return;
         }
-
-        PlayerInventory.Instance.gold -= gachaCost;
         StartCoroutine(RollEffectCoroutine());
     }
 
