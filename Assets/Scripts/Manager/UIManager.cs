@@ -56,6 +56,7 @@ public class UIManager : Singleton<UIManager>
 
     bool isFade;
     bool isSettings;
+    bool isStopNow = false;
 
     protected override void Awake()
     {
@@ -201,21 +202,45 @@ public class UIManager : Singleton<UIManager>
 
     public void SetStore()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(store);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            store.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetInventory()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(inventory);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            inventory.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetUpgrade()
     {
-        SetActiveConversion(shadowUI);
-        SetActiveConversion(upgrade);
-        SetActiveConversion(inventory);
+        isStopNow = !isStopNow;
+        if (isStopNow)
+        {
+            shadowUI.SetActive(true);
+            upgrade.SetActive(true);
+            inventory.SetActive(true);
+        }
+        else
+        {
+            SetActiveAllFalse();
+        }
     }
 
     public void SetOpenInformationUI(string text)
@@ -229,9 +254,12 @@ public class UIManager : Singleton<UIManager>
         informationUI.SetActive(false);
     }
 
-    private void SetActiveConversion(GameObject obj)
+    private void SetActiveAllFalse()
     {
-        obj.SetActive(!obj.activeSelf);
+        store.SetActive(false);
+        shadowUI.SetActive(false);
+        upgrade.SetActive(false);
+        inventory.SetActive(false);
     }
 
     public void YesButton()

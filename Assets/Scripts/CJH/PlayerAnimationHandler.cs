@@ -14,6 +14,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     private static readonly int HitTrigger = Animator.StringToHash("TriggerHit");
 
 
+
     protected Animator animator;
     public GameObject retryUI;
 
@@ -42,27 +43,11 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         animator.SetFloat(IsMove, speed);
         Debug.Log($"[애니메이션] IsMove: {speed}");
-        if (speed > 0.2f)
-        {
-            SoundManager.Instance.StartAudioSFXMoveRun_PlayerWalk();
-        }
-        else
-        {
-            SoundManager.Instance.StopCurrentSFXMoveRunSource();
-        }
     }
 
     public void SetRunState(bool _isRun)
     {
         animator.SetBool(IsRun, _isRun);
-        if (_isRun)
-        {
-            SoundManager.Instance.StartAudioSFXMoveRun_PlayerRun();
-        }
-        else
-        {
-            SoundManager.Instance.StopCurrentSFXMoveRunSource();
-        }
     }
 
     public void PlayAttack()

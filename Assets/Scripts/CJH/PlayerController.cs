@@ -40,10 +40,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-
         moveInput = context.ReadValue<Vector2>();
- 
-
+        if(moveInput != Vector2.zero && !isRunning)
+        {
+            SoundManager.Instance.StartAudioSFXMoveRun_PlayerWalk();
+        }
+        else if (moveInput == Vector2.zero)
+        {
+            SoundManager.Instance.StopCurrentSFXMoveRunSource();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -52,7 +57,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpInput = true;
         }
-        
     }
 
     public void OnRun(InputAction.CallbackContext context)
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             isRunning = true;
             animationHandler?.SetRunState(true);
+            SoundManager.Instance.StartAudioSFXMoveRun_PlayerRun();
         }
         else if (context.canceled)
         {
