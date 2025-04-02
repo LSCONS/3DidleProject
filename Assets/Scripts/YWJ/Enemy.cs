@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
             return;
         
         health -= (damage-defence);
+        SoundManager.Instance.StartAudioSFX_EnemyOnDamage();
         if (health <= 0)
         {
             isDead = true;
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
                 PlayerManager.Instance.player.AddExp(Random.Range(80, 101));
                 monsterManager.deathCount = 0;
                 PlayerManager.Instance.player.AddGold(Random.Range(100,201));
+                monsterManager.curStage++;
             }
             else
             {
