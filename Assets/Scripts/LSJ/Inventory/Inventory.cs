@@ -33,6 +33,32 @@ public class Inventory : MonoBehaviour
             slots[fromIndex].Assign(tempItem, tempQty);
         }
     }
+    public void SortByRarityDescending()
+    {
+        List<InventorySlot> slotList = new List<InventorySlot>(slots);
+
+        // 비어 있지 않은 슬롯들만 대상으로 정렬
+        slotList.Sort((a, b) =>
+        {
+            if (a.IsEmpty && b.IsEmpty) return 0;
+            if (a.IsEmpty) return 1;
+            if (b.IsEmpty) return -1;
+            return b.item.Data.Rarity.CompareTo(a.item.Data.Rarity);
+        });
+
+        // 정렬된 결과를 다시 배열에 반영
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i < slotList.Count)
+            {
+                slots[i] = slotList[i];
+            }
+            else
+            {
+                slots[i] = new InventorySlot(); // 빈 슬롯
+            }
+        }
+    }
     public bool AddItem(Item item, int amount)
     {
         // 스택 가능한 아이템이면 기존 슬롯에 추가
