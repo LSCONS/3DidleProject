@@ -116,23 +116,26 @@ public class InventorySlotUI : MonoBehaviour,
 
         InventorySlotUI inventorySlotUI = draggedSlot.GetComponent<InventorySlotUI>();
 
+
+        if (this.tag == "ItemUpgrade")
+        {
+            if (inventorySlotUI.slot != null && inventorySlotUI.slot.item != null)
+            {
+                inventorySlotUI.slot.item.TryUpgradeItem();
+            }
+            return;
+        }
+
+
         if (inventorySlotUI != null && inventorySlotUI.slotIndex != this.slotIndex)
         {
             InventoryUI.Instance.inventory.MoveItem(inventorySlotUI.slotIndex, this.slotIndex);
             InventoryUI.Instance.Refresh();
             return;
         }
-
-        if(draggedSlot.tag == "ItemUpgrade")
-        {
-            if(slot != null && slot.item != null)
-            {
-                slot.item.TryUpgradeItem();
-            }
-        }
-
-        
     }
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!slot.IsEmpty)
