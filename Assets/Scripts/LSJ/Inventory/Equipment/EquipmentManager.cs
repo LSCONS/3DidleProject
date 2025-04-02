@@ -18,7 +18,7 @@ public class EquipmentManager : MonoBehaviour
         if (equippedItems.TryGetValue(type, out var oldItem))
         {
             // 기존 장비 해제 시 스탯 감소
-            var oldEquipData = oldItem.equipItemData[0];
+            var oldEquipData = oldItem.Data.equipItemData[0];
             PlayerManager.Instance.Player.RemoveEquipStats(oldEquipData.AttackValue, oldEquipData.DefenceValue);
 
             // 기존 장비 인벤토리로 되돌리기
@@ -29,7 +29,7 @@ public class EquipmentManager : MonoBehaviour
         equippedItems[type] = newItem;
 
         // 새 장비 능력치 적용
-        var newEquipData = newItem.equipItemData[0];
+        var newEquipData = newItem.Data.equipItemData[0];
         PlayerManager.Instance.Player.AddEquipStats(newEquipData.AttackValue, newEquipData.DefenceValue);
 
         // UI 갱신
@@ -41,7 +41,7 @@ public class EquipmentManager : MonoBehaviour
         if (equippedItems.TryGetValue(type, out Item item))
         {
             // 장비 해제 시 스탯 감소
-            var equipData = item.equipItemData[0];
+            var equipData = item.Data.equipItemData[0];
             PlayerManager.Instance.Player.RemoveEquipStats(equipData.AttackValue, equipData.DefenceValue);
 
             // 장비 인벤토리로 이동

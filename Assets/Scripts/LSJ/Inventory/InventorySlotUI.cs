@@ -52,7 +52,7 @@ public class InventorySlotUI : MonoBehaviour,
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
 
-            switch (slot.item.Rarity)
+            switch (slot.item.Data.Rarity)
             {
                 case ItemRarity.Common:
                     background.color = Color.white;
@@ -148,7 +148,7 @@ public class InventorySlotUI : MonoBehaviour,
         {
             if (!slot.IsEmpty)
             {
-                if (slot.item.Type == ItemType.UseItem)
+                if (slot.item.Data.Type == ItemType.UseItem)
                 {
                     UseItem();
                 }
@@ -159,7 +159,7 @@ public class InventorySlotUI : MonoBehaviour,
 
     private void UseItem()
     {
-        Item tempItem = new Item(slot.item);
+        Item tempItem = new Item(slot.item.Data);//TODO: 나중에 확인하고 교체 필요
         tempItem.UseUsableItem();
 
         slot.quantity--;
