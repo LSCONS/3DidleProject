@@ -5672,9 +5672,10 @@ GameObject:
   - component: {fileID: 803794020}
   - component: {fileID: 803794023}
   - component: {fileID: 803794022}
+  - component: {fileID: 803794024}
   m_Layer: 5
   m_Name: Img_ItemUpgrade
-  m_TagString: Untagged
+  m_TagString: ItemUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5737,6 +5738,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803794019}
   m_CullTransparentMesh: 1
+--- !u!225 &803794024
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803794019}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &807059559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,7 +6575,7 @@ GameObject:
   - component: {fileID: 930448738}
   m_Layer: 5
   m_Name: ItemUpgradeUI
-  m_TagString: ItemUpgrade
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6601,7 +6614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.57861626, g: 0.57861626, b: 0.57861626, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -125,7 +125,10 @@ public class InventorySlotUI : MonoBehaviour,
 
         if(draggedSlot.tag == "ItemUpgrade")
         {
-
+            if(slot != null && slot.item != null)
+            {
+                slot.item.TryUpgradeItem();
+            }
         }
 
         
