@@ -14,10 +14,10 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
 
         var item = draggedSlot.slot.item;
 
-        if (item.Type != ItemType.EquipItem) return;
+        if (item.Data.Type != ItemType.EquipItem) return;
 
         // 해당 슬롯에 장착 가능한지 확인
-        foreach (var equipData in item.equipItemData)
+        foreach (var equipData in item.Data.equipItemData)
         {
             if (equipData.EquipType == slotType)
             {
@@ -33,7 +33,7 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
         Debug.Log("이 슬롯에 장착할 수 없는 아이템입니다.");
     }
 
-    public void Set(ItemData item)
+    public void Set(Item item)
     {
         if (icon == null) return;
 
@@ -44,7 +44,7 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
         }
         else
         {
-            icon.sprite = item.Icon;
+            icon.sprite = item.Data.Icon;
             icon.color = Color.white;
         }
     }

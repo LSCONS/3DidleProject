@@ -5,20 +5,20 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
 
-    private Dictionary<EquipItemType, ItemData> equippedItems = new Dictionary<EquipItemType, ItemData>();
+    private Dictionary<EquipItemType, Item> equippedItems = new Dictionary<EquipItemType, Item>();
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void Equip(EquipItemType type, ItemData newItem)
+    public void Equip(EquipItemType type, Item newItem)
     {
         // 기존 장비가 있으면 인벤토리로 되돌리기
         if (equippedItems.TryGetValue(type, out var oldItem))
         {
             // 기존 장비 해제 시 스탯 감소
-            var oldEquipData = oldItem.equipItemData[0];
+            var oldEquipData = oldItem.Data.equipItemData[0];
             PlayerManager.Instance.Player.RemoveEquipStats(oldEquipData.AttackValue, oldEquipData.DefenceValue);
 
             // 기존 장비 인벤토리로 되돌리기
@@ -29,7 +29,7 @@ public class EquipmentManager : MonoBehaviour
         equippedItems[type] = newItem;
 
         // 새 장비 능력치 적용
-        var newEquipData = newItem.equipItemData[0];
+        var newEquipData = newItem.Data.equipItemData[0];
         PlayerManager.Instance.Player.AddEquipStats(newEquipData.AttackValue, newEquipData.DefenceValue);
 
         // UI 갱신
@@ -38,10 +38,10 @@ public class EquipmentManager : MonoBehaviour
 
     public void Unequip(EquipItemType type)
     {
-        if (equippedItems.TryGetValue(type, out var item))
+        if (equippedItems.TryGetValue(type, out Item item))
         {
             // 장비 해제 시 스탯 감소
-            var equipData = item.equipItemData[0];
+            var equipData = item.Data.equipItemData[0];
             PlayerManager.Instance.Player.RemoveEquipStats(equipData.AttackValue, equipData.DefenceValue);
 
             // 장비 인벤토리로 이동
@@ -55,13 +55,13 @@ public class EquipmentManager : MonoBehaviour
         EquipmentUI.Instance.Refresh();
     }
 
-    public ItemData GetEquipped(EquipItemType type)
+    public Item GetEquipped(EquipItemType type)
     {
-        equippedItems.TryGetValue(type, out var item);
+        equippedItems.TryGetValue(type, out Item item);
         return item;
     }
 
-    public Dictionary<EquipItemType, ItemData> GetAllEquippedItems()
+    public Dictionary<EquipItemType, Item> GetAllEquippedItems()
     {
         return equippedItems;
     }

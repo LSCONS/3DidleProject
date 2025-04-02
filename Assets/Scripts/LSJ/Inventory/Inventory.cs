@@ -26,21 +26,21 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            ItemData tempItem = slots[toIndex].item;
+            Item tempItem = slots[toIndex].item;
             int tempQty = slots[toIndex].quantity;
 
             slots[toIndex].Assign(slots[fromIndex].item, slots[fromIndex].quantity);
             slots[fromIndex].Assign(tempItem, tempQty);
         }
     }
-    public bool AddItem(ItemData item, int amount)
+    public bool AddItem(Item item, int amount)
     {
         // 스택 가능한 아이템이면 기존 슬롯에 추가
-        if (item.IsStack)
+        if (item.Data.IsStack)
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].item == item && slots[i].quantity < item.MaxStack)
+                if (slots[i].item == item && slots[i].quantity < item.Data.MaxStack)
                 {
                     slots[i].AddQuantity(amount);
                     return true;

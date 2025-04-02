@@ -48,11 +48,11 @@ public class InventorySlotUI : MonoBehaviour,
         }
         else
         {
-            icon.sprite = slot.item.Icon;
+            icon.sprite = slot.item.Data.Icon;  
             icon.enabled = true;
             quantityText.text = slot.quantity.ToString();
 
-            switch (slot.item.Rarity)
+            switch (slot.item.Data.Rarity)
             {
                 case ItemRarity.Common:
                     background.color = Color.white;
@@ -111,18 +111,33 @@ public class InventorySlotUI : MonoBehaviour,
 
     public void OnDrop(PointerEventData eventData)
     {
-        var draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlotUI>();
-        if (draggedSlot != null && draggedSlot.slotIndex != this.slotIndex)
+        GameObject draggedSlot = eventData.pointerDrag;
+        if (draggedSlot == null) return;
+
+        InventorySlotUI inventorySlotUI = draggedSlot.GetComponent<InventorySlotUI>();
+
+        if (inventorySlotUI != null && inventorySlotUI.slotIndex != this.slotIndex)
         {
-            InventoryUI.Instance.inventory.MoveItem(draggedSlot.slotIndex, this.slotIndex);
+            InventoryUI.Instance.inventory.MoveItem(inventorySlotUI.slotIndex, this.slotIndex);
             InventoryUI.Instance.Refresh();
+            return;
         }
+
+        if(draggedSlot.tag == "ItemUpgrade")
+        {
+            if(slot != null && slot.item != null)
+            {
+                slot.item.TryUpgradeItem();
+            }
+        }
+
+        
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!slot.IsEmpty)
         {
-            ItemTooltip.Instance.Show(slot.item);
+            ItemTooltip.Instance.Show(slot.item.Data);
         }
     }
 
@@ -136,18 +151,37 @@ public class InventorySlotUI : MonoBehaviour,
         {
             if (!slot.IsEmpty)
             {
-                if (slot.item.Type == ItemType.UseItem)
+                if (slot.item.Data.Type == ItemType.UseItem)
                 {
                     UseItem();
                 }
-                //자동 장착도 여기 추가 예정
+                else if (slot.item.Data.Type == ItemType.EquipItem)
+                {
+                    AutoEquip();
+                }
             }
         }
     }
+    private void AutoEquip()
+    {
+        Item item = slot.item;
+
+        if (item == null || item.Data.Type != ItemType.EquipItem) return;
+
+        foreach (var equip in item.Data.equipItemData)
+        {
+            EquipmentManager.Instance.Equip(equip.EquipType, item);
+            slot.Clear();
+            InventoryUI.Instance.Refresh();
+            break; // 하나만 처리
+        }
+    }
+
+
 
     private void UseItem()
     {
-        Item tempItem = new Item(slot.item);
+        Item tempItem = new Item(slot.item.Data);//TODO: 나중에 확인하고 교체 필요
         tempItem.UseUsableItem();
 
         slot.quantity--;

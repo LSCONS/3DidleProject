@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
         // UI 초기화
         InventoryUI.Instance.Initialize(inventory);
     }
-    public void AddItem(ItemData item, int count)
+    public void AddItem(Item item, int count)
     {
         inventory.AddItem(item, count);
         InventoryUI.Instance.Refresh();

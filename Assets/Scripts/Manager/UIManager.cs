@@ -44,6 +44,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] Button btnExitInformation;
     [SerializeField] GameObject shadowUI;
 
+    [Header("PlayerDeathPopUp")]
+    [SerializeField] GameObject Yes;
+    [SerializeField] GameObject No;
+
     bool isFade;
     bool isSettings;
 
@@ -221,5 +225,15 @@ public class UIManager : Singleton<UIManager>
     private void SetActiveConversion(GameObject obj)
     {
         obj.SetActive(!obj.activeSelf);
+    }
+
+    public void YesButton()
+    {
+        LoadingSceneController.LoadScene("Stage1");
+    }
+
+    public void NoButton()
+    {
+        LoadingSceneController.LoadScene("StartScene");
     }
 }

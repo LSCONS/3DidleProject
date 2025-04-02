@@ -17,34 +17,13 @@ public class GachaManager : MonoBehaviour
     {
         Instance = this;
         gachaPool = new List<ItemData>();
-
-        // 장비 아이템 불러오기
-        LoadItemsFromPath("ItemData/EquipItem/Armor");
-        LoadItemsFromPath("ItemData/EquipItem/Helmet");
-        LoadItemsFromPath("ItemData/EquipItem/Necklace");
-        LoadItemsFromPath("ItemData/EquipItem/Ring");
-        LoadItemsFromPath("ItemData/EquipItem/Shoes");
-        LoadItemsFromPath("ItemData/EquipItem/Weapon");
-
-        // 소비 아이템 불러오기
-        LoadItemsFromPath("ItemData/UseItem/PotionHP");
-        LoadItemsFromPath("ItemData/UseItem/PotionMP");
-
-        Debug.Log($"[GachaManager] 총 등록된 가챠 아이템 수: {gachaPool.Count}");
-    }
-
-
-    private void LoadItemsFromPath(string path)
-    {
-        ItemData[] items = Resources.LoadAll<ItemData>(path);
-        gachaPool.AddRange(items);
     }
 
     public void PullGacha()
     {
         if (!PlayerManager.Instance.Player.TrySpendGold(gachaCost))
         {
-            Debug.Log("골드 부족!");
+            UIManager.Instance.SetOpenInformationUI("골드 부족!");
             return;
         }
         StartCoroutine(RollEffectCoroutine());
@@ -53,12 +32,12 @@ public class GachaManager : MonoBehaviour
     private IEnumerator RollEffectCoroutine()
     {
         float timer = 0f;
-        ItemData lastShown = null;
+        Item lastShown = null;
 
         while (timer < rollingTime)
         {
-            lastShown = gachaPool[Random.Range(0, gachaPool.Count)];
-            rollingImage.sprite = lastShown.Icon;
+            lastShown = ResourceManager.Instance.GetRandomRarityItem();
+            rollingImage.sprite = lastShown.Data.Icon;
             timer += interval;
             yield return new WaitForSeconds(interval);
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class InventorySlot
 {
-    public ItemData item;
+    public Item item;
     public int quantity;
 
     public bool IsEmpty => item == null || quantity <= 0;
@@ -14,7 +14,7 @@ public class InventorySlot
         quantity = 0;
     }
 
-    public void Assign(ItemData newItem, int count)
+    public void Assign(Item newItem, int count)
     {
         item = newItem;
         quantity = count;
