@@ -19,7 +19,7 @@ public class CallbackSliderCostomEvent : MonoBehaviour
     private void Update()
     {
         float currentValue = rectSlider.anchorMin.x;
-        if(Mathf.Abs(currentValue - lastValue) > 0.001f)
+        if(Mathf.Abs(currentValue - lastValue) >= 0.001f)
         {
             UpdateMixerVolume?.Invoke(currentValue);
             lastValue = currentValue;

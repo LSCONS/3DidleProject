@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -469,8 +470,15 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetMasterVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(MasterGroupName, volume);
+        if (sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(MasterGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(MasterGroupName, volume);
+        }
     }
 
 
@@ -480,8 +488,16 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetBGMVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(BGMGroupName, volume);
+        if(sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(BGMGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(BGMGroupName, volume);
+        }
+
     }
 
 
@@ -491,8 +507,15 @@ public class SoundManager : Singleton<SoundManager>
     /// <param name="sliderValue">0 ~ 1의 값을 가진 슬라이더 바</param>
     public void SetSFXVolume(float sliderValue)
     {
-        float volume = Mathf.Log10(sliderValue) * 20f;
-        audioMixer.SetFloat(SFXGroupName, volume);
+        if (sliderValue <= 0.0001f)
+        {
+            audioMixer.SetFloat(SFXGroupName, -80f);
+        }
+        else
+        {
+            float volume = Mathf.Log10(sliderValue) * 20f;
+            audioMixer.SetFloat(SFXGroupName, volume);
+        }
     }
     #endregion
 
