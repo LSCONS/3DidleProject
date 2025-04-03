@@ -74,3 +74,31 @@
 
 본 프로젝트는 Unity를 활용하여 **3D 방치형과 로그라이크를 결합**한 게임을 제작하는 과정에서 다양한 기술을 실험하고 적용한 결과물입니다.
 상호간 배려와 존중으로 즐겁게 소통하여 문제점들을 해결해 나아갔고 실력과 커뮤니케이션 능력이 향상되는 뜻깊은 경험이였습니다. 
+
+## 🛍️ 에셋 링크
+
+- **Player**
+
+https://kaylousberg.itch.io/kaykit-adventurers
+
+- **Enemy**
+
+https://kaylousberg.itch.io/kaykit-skeletons
+
+https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-buddy-pbr-polyart-253961
+
+https://assetstore.unity.com/packages/3d/characters/creatures/kawaii-slimes-221172
+
+- **Map**
+
+https://assetstore.unity.com/packages/3d/environments/fantasy/anime-natural-environment-236927 
+
+- **ICON**
+
+https://clockworkraven.itch.io/raven-fantasy-icons
+
+https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343
+
+- **GUI**
+
+https://humblepixel.itch.io/super-asset-bundle-5-mini-pocket-status
