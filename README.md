@@ -89,6 +89,8 @@ https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-buddy-
 
 https://assetstore.unity.com/packages/3d/characters/creatures/kawaii-slimes-221172
 
+https://assetstore.unity.com/packages/3d/characters/creatures/dragon-pbr-94333
+
 - **Map**
 
 https://assetstore.unity.com/packages/3d/environments/fantasy/anime-natural-environment-236927 
