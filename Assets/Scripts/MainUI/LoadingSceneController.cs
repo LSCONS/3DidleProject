@@ -12,17 +12,20 @@ public class LoadingSceneController : MonoBehaviour
     [SerializeField]
     Slider slider;
 
-    public static void LoadScene(string sceneName)
+
+    public static void LoadScene(ESceneName name)
     {
-        nextScene = sceneName;
-        SceneManager.LoadScene("LoadingScene");
+        nextScene = name.ToString();
+        SceneManager.LoadScene(ESceneName.LoadingScene.ToString());
     }
+
 
     private void Start()
     {
         SoundManager.Instance.StopCurrentBGMSource();
         StartCoroutine(LoadSceneProcess());
     }
+
 
     IEnumerator LoadSceneProcess()
     {
@@ -50,4 +53,12 @@ public class LoadingSceneController : MonoBehaviour
             }
         }
     }
+}
+
+
+public enum ESceneName
+{
+    StartScene,
+    LoadingScene,
+    Stage1
 }
