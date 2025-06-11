@@ -7,20 +7,20 @@ using UnityEngine.Rendering;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    public readonly string MasterGroupName = "Master";  //오디오 믹서 마스터 그룹 이름
-    public readonly string SFXGroupName = "SFX";        //오디오 믹서 SFX 그룹 이름
-    public readonly string BGMGroupName = "BGM";        //오디오 믹서 BGM 그룹 이름
-    public readonly string SoundDataName = "SoundData"; //오디오 폴더 이름
+    public readonly string MasterGroupName  = "Master";     //오디오 믹서 마스터 그룹 이름
+    public readonly string SFXGroupName     = "SFX";        //오디오 믹서 SFX 그룹 이름
+    public readonly string BGMGroupName     = "BGM";        //오디오 믹서 BGM 그룹 이름
+    public readonly string SoundDataName    = "SoundData";  //오디오 폴더 이름
 
-    public GameObject BGM_SoundPool;        //BGM소리 오브젝트를 풀링할 오브젝트
-    public GameObject SFX_SoundPool;        //SFX소리 오브젝트를 풀링할 오브젝트
-    public GameObject SFX_MoveRun_SoundPool;//걷거나 뛰는 SFX소리 오브젝트를 풀링할 오브젝트
+    public GameObject BGM_SoundPool;            //BGM소리 오브젝트를 풀링할 오브젝트
+    public GameObject SFX_SoundPool;            //SFX소리 오브젝트를 풀링할 오브젝트
+    public GameObject SFX_MoveRun_SoundPool;    //걷거나 뛰는 SFX소리 오브젝트를 풀링할 오브젝트
 
-    public AudioSource CurrentBGMSource;     //현재 재생되고 있는 BGM소스
+    public AudioSource CurrentBGMSource;        //현재 재생되고 있는 BGM소스
     public AudioSource CurrentSFXMoveRunSource; //현재 재생되고 있는 SFX MoveRun소스
 
-    Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX = new();     //SFX오디오 소스를 저장할 Dictionary
-    Dictionary<AudioClip, AudioSource> audioPoolsBGM = new();           //BGM오디오 소스를 저장할 Dictionary
+    Dictionary<AudioClip, List<AudioSource>> audioPoolsSFX  = new();    //SFX오디오 소스를 저장할 Dictionary
+    Dictionary<AudioClip, AudioSource> audioPoolsBGM        = new();    //BGM오디오 소스를 저장할 Dictionary
     Dictionary<AudioClip, AudioSource> audioPoolsSFXMoveRun = new();    //SFX MoveRun오디오 소스를 저장할 Dictionary
 
     public AudioMixer audioMixer;
@@ -58,31 +58,31 @@ public class SoundManager : Singleton<SoundManager>
     //풀링하는 오브젝트를 한꺼번에 저장할 오브젝트 생성
     private void CreatePoolObject()
     {
-        BGM_SoundPool = new GameObject("SoundPoolBGM");
-        SFX_SoundPool = new GameObject("SoundPoolSFX");
-        SFX_MoveRun_SoundPool = new GameObject("SoundPoolSFXMoveRun");
-        BGM_SoundPool.transform.parent = transform;
-        SFX_SoundPool.transform.parent = transform;
-        SFX_MoveRun_SoundPool.transform.parent = transform;
+        BGM_SoundPool                           = new GameObject("SoundPoolBGM");
+        SFX_SoundPool                           = new GameObject("SoundPoolSFX");
+        SFX_MoveRun_SoundPool                   = new GameObject("SoundPoolSFXMoveRun");
+        BGM_SoundPool.transform.parent          = transform;
+        SFX_SoundPool.transform.parent          = transform;
+        SFX_MoveRun_SoundPool.transform.parent  = transform;
     }
 
 
     //오디오 클립을 초기화
     private void initAudioClip()
     {
-        menuBGM = Resources.Load<AudioClip>($"{SoundDataName}/MenuBGM");
-        battleBGM = Resources.Load<AudioClip>($"{SoundDataName}/BattleBGM");
-        playerOnDamageSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerOnDamage");
-        playerWalkSFX = Resources.Load<AudioClip>($"{SoundDataName}/Walk");
-        playerJumpSFX = Resources.Load<AudioClip>($"{SoundDataName}/Jump");
-        playerRunSFX = Resources.Load<AudioClip>($"{SoundDataName}/Run");
-        playerDieSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerDie");
-        playerLevelUpSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerLevelUp");
-        enemyOnDamageSFX = Resources.Load<AudioClip>($"{SoundDataName}/EnemyOnDamage");
-        itemEquippedSFX = Resources.Load<AudioClip>($"{SoundDataName}/ItemEquipped");
-        itemUpgradeSFX = Resources.Load<AudioClip>($"{SoundDataName}/ItemUpgrade");
-        useItemUseSFX = Resources.Load<AudioClip>($"{SoundDataName}/PlayerUseUseItem");
-        dungeonClearSFX = Resources.Load<AudioClip>($"{SoundDataName}/DungeonClear");
+        menuBGM             = Resources.Load<AudioClip>($"{SoundDataName}/MenuBGM");
+        battleBGM           = Resources.Load<AudioClip>($"{SoundDataName}/BattleBGM");
+        playerOnDamageSFX   = Resources.Load<AudioClip>($"{SoundDataName}/PlayerOnDamage");
+        playerWalkSFX       = Resources.Load<AudioClip>($"{SoundDataName}/Walk");
+        playerJumpSFX       = Resources.Load<AudioClip>($"{SoundDataName}/Jump");
+        playerRunSFX        = Resources.Load<AudioClip>($"{SoundDataName}/Run");
+        playerDieSFX        = Resources.Load<AudioClip>($"{SoundDataName}/PlayerDie");
+        playerLevelUpSFX    = Resources.Load<AudioClip>($"{SoundDataName}/PlayerLevelUp");
+        enemyOnDamageSFX    = Resources.Load<AudioClip>($"{SoundDataName}/EnemyOnDamage");
+        itemEquippedSFX     = Resources.Load<AudioClip>($"{SoundDataName}/ItemEquipped");
+        itemUpgradeSFX      = Resources.Load<AudioClip>($"{SoundDataName}/ItemUpgrade");
+        useItemUseSFX       = Resources.Load<AudioClip>($"{SoundDataName}/PlayerUseUseItem");
+        dungeonClearSFX     = Resources.Load<AudioClip>($"{SoundDataName}/DungeonClear");
     }
 
 

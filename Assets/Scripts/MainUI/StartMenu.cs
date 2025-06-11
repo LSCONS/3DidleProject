@@ -8,11 +8,13 @@ public class StartMenu : MonoBehaviour
     {
         SoundManager.Instance.StartAudioBGM_Mainmenu();
     }
+
+
     void Update()
     {
         if (Input.anyKeyDown)
         {
-            LoadingSceneController.LoadScene("Stage1");
+            LoadingSceneController.LoadScene(ESceneName.Stage1);
         }
     }
 }

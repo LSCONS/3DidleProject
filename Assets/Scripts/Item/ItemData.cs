@@ -10,6 +10,7 @@ public enum ItemType
     Resource,       //자원 아이템
 }
 
+
 public enum EquipItemType
 {
     Helmet,       //헬멧 
@@ -20,6 +21,7 @@ public enum EquipItemType
     Weapon,       //무기
 }
 
+
 public enum ItemRarity
 {
     Common,         //보통
@@ -29,13 +31,22 @@ public enum ItemRarity
     Legend,         //전설
 }
 
+
 public enum UseItemType
 {
     HP,     //체력
     MP      //마나
 }
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
+
+public struct GradeProbability
+{
+    public ItemRarity Rarity;        //아이템 등급
+    public int Weight;               //뽑기 확률 가중치
+}
+
+
+[CreateAssetMenu(fileName = "NewItem", menuName = "Item")]
 public class ItemData : ScriptableObject
 {
     public int ID;                          //아이디
@@ -52,8 +63,9 @@ public class ItemData : ScriptableObject
     public bool IsStack;                    //겹치는 아이템 가능
     public int MaxStack;                    //최대 겹칠 수 있는 수
 
-    public bool AvailableInShop = false; // 상점에 등장 가능한 아이템인지 여부
-    public int ShopPrice = 100;          // 상점에서 판매되는 가격
+    public bool AvailableInShop = false;    //상점에 등장 가능한 아이템인지 여부
+    public int ShopPrice = 100;             //상점에서 판매되는 가격
+
 
     public override bool Equals(object obj)
     {
@@ -61,6 +73,7 @@ public class ItemData : ScriptableObject
             return this.ID == other.ID;
         return false;
     }
+
 
     public override int GetHashCode()
     {
@@ -87,5 +100,3 @@ public class EquipItemData
     public int UpgradeAttackValue;      //업그레이드 공격력 증가 수치
     public int DefenceAttackValue;      //업그레이드 방어력 증가 수치
 }
-
-

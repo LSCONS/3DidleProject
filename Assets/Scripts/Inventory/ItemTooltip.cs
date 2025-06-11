@@ -9,11 +9,23 @@ public class ItemTooltip : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text descriptionText;
     private Vector3 offset = new Vector3(20f, -20f, 0f);
+
+
     private void Awake()
     {
         Instance = this;
         Hide();
     }
+
+
+    private void Update()
+    {
+        if (tooltipPanel.activeSelf)
+        {
+            tooltipPanel.transform.position = Input.mousePosition + offset;
+        }
+    }
+
 
     public void Show(ItemData item)
     {
@@ -22,16 +34,9 @@ public class ItemTooltip : MonoBehaviour
         descriptionText.text = item.Description;
     }
 
+
     public void Hide()
     {
         tooltipPanel.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (tooltipPanel.activeSelf)
-        {
-            tooltipPanel.transform.position = Input.mousePosition + offset;
-        }
     }
 }

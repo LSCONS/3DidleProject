@@ -11,18 +11,25 @@ public class SettingsMenuManager : MonoBehaviour
     public Slider masterVol, bgmVol, sfxVol;
     public AudioMixer mainAudioMixer;
 
+
     public void ChangeGraphicsQuality()
     {
         QualitySettings.SetQualityLevel(graphicsDropdown.value);
     }
+
+
     public void ChangeMasterVolume()
     {
         mainAudioMixer.SetFloat("MasterVol", masterVol.value);
     }
+
+
     public void ChangeBgmVolume()
     {
         mainAudioMixer.SetFloat("BgmVol", bgmVol.value);
     }
+
+
     public void ChangeSfxVolume()
     {
         mainAudioMixer.SetFloat("SfxVol", sfxVol.value);

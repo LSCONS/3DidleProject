@@ -1,7 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.EventSystems;
 public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     public EquipItemType slotType; // 이 슬롯의 타입 (Helmet, Weapon 등)
@@ -33,6 +32,7 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
         Debug.Log("이 슬롯에 장착할 수 없는 아이템입니다.");
     }
 
+
     public void Set(Item item)
     {
         if (icon == null) return;
@@ -47,6 +47,8 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
             icon.color = Color.white;
         }
     }
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -56,6 +58,4 @@ public class EquipSlotUI : MonoBehaviour, IDropHandler, IPointerClickHandler
             InventoryUI.Instance.Refresh();
         }
     }
-
-
 }

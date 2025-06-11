@@ -7,10 +7,12 @@ public class EquipmentManager : MonoBehaviour
 
     private Dictionary<EquipItemType, Item> equippedItems = new Dictionary<EquipItemType, Item>();
 
+
     private void Awake()
     {
         Instance = this;
     }
+
 
     public void Equip(EquipItemType type, Item newItem)
     {
@@ -37,6 +39,7 @@ public class EquipmentManager : MonoBehaviour
         EquipmentUI.Instance.Refresh();
     }
 
+
     public void Unequip(EquipItemType type)
     {
         if (equippedItems.TryGetValue(type, out Item item))
@@ -56,11 +59,13 @@ public class EquipmentManager : MonoBehaviour
         EquipmentUI.Instance.Refresh();
     }
 
+
     public Item GetEquipped(EquipItemType type)
     {
         equippedItems.TryGetValue(type, out Item item);
         return item;
     }
+
 
     public Dictionary<EquipItemType, Item> GetAllEquippedItems()
     {

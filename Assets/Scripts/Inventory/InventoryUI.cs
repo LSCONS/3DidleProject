@@ -17,6 +17,7 @@ public class InventoryUI : MonoBehaviour
         Instance = this;
     }
 
+
     public void Initialize(Inventory targetInventory)
     {
         inventory = targetInventory;
@@ -36,11 +37,15 @@ public class InventoryUI : MonoBehaviour
             slotUIs.Add(slotUI); // 슬롯 UI 따로 저장
         }
     }
+
+
     public void SortAndRefresh()
     {
         inventory.SortByRarityDescending();
         Refresh();
     }
+
+
     public void Refresh()
     {
         for (int i = 0; i < slotUIs.Count; i++)
@@ -48,6 +53,7 @@ public class InventoryUI : MonoBehaviour
             slotUIs[i].Set(inventory.slots[i]);
         }
     }
+
     public void Close()
     {
         panel.SetActive(false);

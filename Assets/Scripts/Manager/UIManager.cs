@@ -65,6 +65,7 @@ public class UIManager : Singleton<UIManager>
             btnExitInformation.onClick.AddListener(SetCloseInformationUI);
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -76,6 +77,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     private void LateUpdate()
     {
         if (level == null) return;
@@ -83,6 +85,7 @@ public class UIManager : Singleton<UIManager>
         UpdateStat();
         UpdateCondition();
     }
+
 
     void UpdateStat()
     {
@@ -95,12 +98,14 @@ public class UIManager : Singleton<UIManager>
         money.text = player.Gold.ToString();
     }
 
+
     void UpdateCondition()
     {
         hpSlider.value = player.CurrentHP / player.MaxHp;
         mpSlider.value = player.CurrentMp / player.MaxMp;
         expSlider.value = (float)player.CurrentExp / (float)player.MaxExp;
     }
+
 
     public void MovePauseMenu()
     {
@@ -114,11 +119,13 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     public void MoveSettingsMenu()
     {
         isSettings = !isSettings;
         settingsMenu.MoveToTarget();
     }
+
 
     IEnumerator FadeInOut(bool isFade)
     {
@@ -144,6 +151,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     public void AutoButton(bool isAutoMode)
     {
         activeButton.gameObject.SetActive(!isAutoMode);
@@ -165,6 +173,7 @@ public class UIManager : Singleton<UIManager>
         }
 
     }
+
 
     private IEnumerator GlowEffectCoroutine(Button target)
     {
@@ -194,6 +203,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     private void SetAlpha(Button button, float alpha)
     {
         CanvasGroup canvasGroup = button.gameObject.GetComponent<CanvasGroup>();
@@ -202,6 +212,7 @@ public class UIManager : Singleton<UIManager>
             canvasGroup.alpha = alpha;
         }
     }
+
 
     public void SetStore()
     {
@@ -218,6 +229,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     public void SetInventory()
     {
         isStopNow = !isStopNow;
@@ -232,6 +244,7 @@ public class UIManager : Singleton<UIManager>
             SetActiveAllFalse();
         }
     }
+
 
     public void SetUpgrade()
     {
@@ -249,16 +262,19 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     public void SetOpenInformationUI(string text)
     {
         textInformation.text = text;
         informationUI.SetActive(true);
     }
 
+
     private void SetCloseInformationUI()
     {
         informationUI.SetActive(false);
     }
+
 
     public void SetActiveAllFalse()
     {
@@ -270,13 +286,15 @@ public class UIManager : Singleton<UIManager>
         Time.timeScale = 1f;
     }
 
+
     public void YesButton()
     {
-        LoadingSceneController.LoadScene("Stage1");
+        LoadingSceneController.LoadScene(ESceneName.Stage1);
     }
+
 
     public void NoButton()
     {
-        LoadingSceneController.LoadScene("StartScene");
+        LoadingSceneController.LoadScene(ESceneName.StartScene);
     }
 }

@@ -11,6 +11,7 @@ public enum Type
     Cubic
 }
 
+
 public class BackgroundController : MonoBehaviour
 {
     public Type type;
@@ -39,6 +40,7 @@ public class BackgroundController : MonoBehaviour
         }
     }
 
+
     IEnumerator Default()
     {
         while (true)
@@ -53,6 +55,7 @@ public class BackgroundController : MonoBehaviour
         yield return null;
     }
 
+
     IEnumerator Sine()
     {
         while (true)
@@ -66,6 +69,7 @@ public class BackgroundController : MonoBehaviour
         }
         yield return null;
     }
+
 
     IEnumerator Cubic()
     {

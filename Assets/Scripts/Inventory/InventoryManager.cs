@@ -5,6 +5,8 @@ public class InventoryManager : MonoBehaviour
     public Inventory inventory;
     public InventoryUI inventoryUI;
     public int slotCount = 20;
+
+
     private void Awake()
     {
         if (inventory == null)
@@ -13,6 +15,8 @@ public class InventoryManager : MonoBehaviour
         if (inventoryUI == null)
             inventoryUI = FindObjectOfType<InventoryUI>();
     }
+
+
     private void Start()
     {
         inventory.Initialize(slotCount);

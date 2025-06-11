@@ -30,6 +30,7 @@ public class DropConfirmPanel : MonoBehaviour
         });
     }
 
+
     public void Show(InventorySlotUI slot)
     {
         targetSlot = slot;

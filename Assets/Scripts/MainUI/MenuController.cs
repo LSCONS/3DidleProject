@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public enum UIType
 {
     pause,
     settings
 }
+
 
 public class MenuController : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class MenuController : MonoBehaviour
     Coroutine coroutine;
     Animator animator;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,11 +32,13 @@ public class MenuController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+
     private void OnEnable()
     {
         if (animator != null)
             animator.Play("ButtonAnim", 0);
     }
+
 
     public void MoveToTarget()
     {
@@ -82,11 +87,13 @@ public class MenuController : MonoBehaviour
         isMove = !isMove;
     }
 
+
     IEnumerator WaitForOpen(float duration)
     {
         yield return new WaitForSeconds(duration);
         Time.timeScale = 0;
     }
+
 
     IEnumerator WaitForClose(float duration)
     {

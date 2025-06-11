@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public InventorySlot[] slots;
+
 
     public void Initialize(int slotCount)
     {
@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
             slots[i] = new InventorySlot();
         }
     }
+
 
     public void MoveItem(int fromIndex, int toIndex)
     {
@@ -33,6 +34,8 @@ public class Inventory : MonoBehaviour
             slots[fromIndex].Assign(tempItem, tempQty);
         }
     }
+
+
     public void SortByRarityDescending()
     {
         List<InventorySlot> slotList = new List<InventorySlot>(slots);
@@ -59,6 +62,8 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+
     public bool AddItem(Item item, int amount)
     {
         // 스택 가능한 아이템이라면 기존 슬롯에 수량 추가
@@ -97,7 +102,6 @@ public class Inventory : MonoBehaviour
                     return true;
             }
         }
-
         Debug.Log("인벤토리에 공간이 부족합니다.");
         return false;
     }

@@ -14,11 +14,13 @@ public class InventorySlot
         quantity = 0;
     }
 
+
     public void Assign(Item newItem, int count)
     {
         item = newItem;
         quantity = count;
     }
+
 
     public void AddQuantity(int count)
     {

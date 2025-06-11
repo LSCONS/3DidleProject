@@ -59,6 +59,7 @@ public class ResolutionControl : MonoBehaviour
         SetResolution(currentResolutionIndex);
     }
 
+
     // 해상도 설정 함수
     public void SetResolution(int resolutionIndex)
     {

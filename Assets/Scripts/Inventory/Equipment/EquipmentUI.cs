@@ -16,6 +16,7 @@ public class EquipmentUI : MonoBehaviour
         Instance = this;
     }
 
+
     public void Refresh()
     {
         var eq = EquipmentManager.Instance;

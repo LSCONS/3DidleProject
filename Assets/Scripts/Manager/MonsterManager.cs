@@ -4,32 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterManager : MonoBehaviour
+public class MonsterManager : Singleton<MonsterManager>
 {
-    public enum Monsters
-    {
-        Skeleton,
-        Slime1,
-        Slime2,
-        Mushroom,
-        Cactus,
-    }
-    private static MonsterManager instance;
-    public static MonsterManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameObject("MonsterManager").AddComponent<MonsterManager>();
-            }
-            return instance;
-        }
-    }
-
     public List<Transform> spawners = new List<Transform>();
     private Dictionary<int, int> stages = new Dictionary<int, int>();
-    private Dictionary<Monsters, GameObject> dicMonsters = new Dictionary<Monsters, GameObject>();
+    private Dictionary<EMonsters, GameObject> dicMonsters = new Dictionary<EMonsters, GameObject>();
     public List<GameObject> monstersPrefabs;
     public List<GameObject> curMonsters;
     public List<GameObject> bossMonsterPrefabs;
@@ -41,19 +20,6 @@ public class MonsterManager : MonoBehaviour
     private float lastTime = 0f;
     private float lastRate = 1f;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-    }
 
     private void Start()
     {
@@ -68,16 +34,15 @@ public class MonsterManager : MonoBehaviour
         stages.Add(9, 10);
         stages.Add(10, 10);
 
-
-        dicMonsters.Add(Monsters.Skeleton, monstersPrefabs[0]);
-        dicMonsters.Add(Monsters.Slime1, monstersPrefabs[1]);
-        dicMonsters.Add(Monsters.Slime2, monstersPrefabs[2]);
-        dicMonsters.Add(Monsters.Mushroom, monstersPrefabs[3]);
-        dicMonsters.Add(Monsters.Cactus, monstersPrefabs[4]);
+        dicMonsters.Add(EMonsters.Skeleton, monstersPrefabs[0]);
+        dicMonsters.Add(EMonsters.Slime1, monstersPrefabs[1]);
+        dicMonsters.Add(EMonsters.Slime2, monstersPrefabs[2]);
+        dicMonsters.Add(EMonsters.Mushroom, monstersPrefabs[3]);
+        dicMonsters.Add(EMonsters.Cactus, monstersPrefabs[4]);
 
         SpawnMonster(curStage);
-
     }
+
 
     private void Update()
     {
@@ -90,13 +55,13 @@ public class MonsterManager : MonoBehaviour
             MonsterActive();
         }
 
-
         if (Time.time - lastTime > lastRate)
         {
             lastTime = Time.time;
             CheckMonsterPosition();
         }
     }
+
 
     private void SpawnMonster(int stage)
     {
@@ -105,7 +70,7 @@ public class MonsterManager : MonoBehaviour
         for (int i = 0; i < stages[stage]; i++)
         {
             // 몬스터 생성시 랜덤위치 스폰
-            GameObject monster = Instantiate(dicMonsters[(Monsters)Random.Range(0,monstersPrefabs.Count)], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
+            GameObject monster = Instantiate(dicMonsters[(EMonsters)Random.Range(0,monstersPrefabs.Count)], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
             curMonsters.Add(monster);
         }
         GameObject bossMonster = Instantiate(bossMonsterPrefabs[0], spawners[Random.Range(2, spawners.Count)].position, Quaternion.identity);
@@ -115,6 +80,7 @@ public class MonsterManager : MonoBehaviour
             curBossMonsters[i].SetActive(false);
         }
     }
+
 
     private void CheckMonsterPosition()
     {
@@ -139,6 +105,7 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+
     private bool CheckMonsterActive()
     {
         for (int i = 0; i < curMonsters.Count; i++)
@@ -151,6 +118,7 @@ public class MonsterManager : MonoBehaviour
         return false;
     }
 
+
     private bool CheckBossMonsterActive()
     {
         for (int i = 0; i < curBossMonsters.Count; i++)
@@ -162,6 +130,7 @@ public class MonsterManager : MonoBehaviour
         }
         return false;
     }
+
 
     private void MonsterActive()
     {
@@ -177,6 +146,7 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+
     private void BossMonsterActive()
     {
         // 보스몬스터가 여러마리 일 경우 랜덤으로 몬스터 하나의 정보를 가져와서 활성화로 로직 변경해야함
@@ -191,5 +161,14 @@ public class MonsterManager : MonoBehaviour
             curBossMonsters[i].GetComponent<Enemy>().SetStatus(curStage);
         }
     }
+}
 
+
+public enum EMonsters
+{
+    Skeleton,
+    Slime1,
+    Slime2,
+    Mushroom,
+    Cactus,
 }

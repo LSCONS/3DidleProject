@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
-    private static PlayerManager instance;
-    public static PlayerManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameObject("PlayerManager").AddComponent<PlayerManager>();
-            }
-            return instance;
-        }
-    }
-
     public Player player;
     public Player Player
     {
@@ -27,18 +14,9 @@ public class PlayerManager : MonoBehaviour
 
     public Transform PlayerTransform { get;  set; }
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-                Destroy(gameObject);
-        }
-
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
     }
-
 }

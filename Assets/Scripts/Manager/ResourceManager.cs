@@ -6,28 +6,28 @@ using UnityEngine;
 public class ResourceManager : Singleton<ResourceManager>
 {
     #region 종류별 아이템 데이터 정리
-    public ItemData[] ArmorItemDatas;           //모든 갑옷 아이템
-    public ItemData[] HelmetItemDatas;          //모든 헬멧 아이템
-    public ItemData[] NecklaceItemDatas;        //모든 목걸이 아이템
-    public ItemData[] RingItemDatas;            //모든 반지 아이템
-    public ItemData[] ShoesItemDatas;           //모든 신발 아이템
-    public ItemData[] WeaponItemDatas;          //모든 무기 아이템
-    public ItemData[] PotionHPItemDatas;        //모든 HP포션 아이템
-    public ItemData[] PotionMPItemDatas;        //모든 MP포션 아이템
+    public ItemData[] ArmorItemDatas;       //모든 갑옷 아이템
+    public ItemData[] HelmetItemDatas;      //모든 헬멧 아이템
+    public ItemData[] NecklaceItemDatas;    //모든 목걸이 아이템
+    public ItemData[] RingItemDatas;        //모든 반지 아이템
+    public ItemData[] ShoesItemDatas;       //모든 신발 아이템
+    public ItemData[] WeaponItemDatas;      //모든 무기 아이템
+    public ItemData[] PotionHPItemDatas;    //모든 HP포션 아이템
+    public ItemData[] PotionMPItemDatas;    //모든 MP포션 아이템
     #endregion
 
     #region 타입별 아이템 데이터 리스트 정리
     public List<ItemData> EquipItemDataList = new();    //모든 장비 아이템
-    public List<ItemData> UseItemDataList = new();      //모든 사용 아이템
-    public List<ItemData> AllItemDataList = new();      //모든 아이템
+    public List<ItemData> UseItemDataList   = new();    //모든 사용 아이템
+    public List<ItemData> AllItemDataList   = new();    //모든 아이템
     #endregion
 
     #region 등급별 아이템 데이터 리스트 정리
-    public List<ItemData> CommonDataList = new();       //모든 Common등급 아이템
-    public List<ItemData> RareDataList = new();         //모든 Rare등급 아이템
+    public List<ItemData> CommonDataList    = new();    //모든 Common등급 아이템
+    public List<ItemData> RareDataList      = new();    //모든 Rare등급 아이템
     public List<ItemData> SuperRareDataList = new();    //모든 SuperRare등급 아이템
-    public List<ItemData> EpicDataList = new();         //모든 Epic등급 아이템
-    public List<ItemData> LegendDataList = new();       //모든 Legend등급 아이템
+    public List<ItemData> EpicDataList      = new();    //모든 Epic등급 아이템
+    public List<ItemData> LegendDataList    = new();    //모든 Legend등급 아이템
 
     public List<GradeProbability> GradeProbabilities = new();   //등급별 확률을 저장할 리스트
     #endregion
@@ -40,8 +40,8 @@ public class ResourceManager : Singleton<ResourceManager>
     private int probabilityLegend = 3;
     #endregion
 
-    private const string equipItemPath = "ItemData/EquipItem";
-    private const string useItemPath = "ItemData/UseItem";
+    private const string equipItemPath  = "ItemData/EquipItem";
+    private const string useItemPath    = "ItemData/UseItem";
 
     protected override void Awake()
     {
@@ -54,14 +54,14 @@ public class ResourceManager : Singleton<ResourceManager>
     //Resource의 데이터를 모두 통합
     private void InitDatas()
     {
-        ArmorItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Armor");
-        HelmetItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Helmet");
-        NecklaceItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Necklace");
-        RingItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Ring");
-        ShoesItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Shoes");
-        WeaponItemDatas = Resources.LoadAll<ItemData>(equipItemPath + "/Weapon");
-        PotionHPItemDatas = Resources.LoadAll<ItemData>(useItemPath + "/PotionHP");
-        PotionMPItemDatas = Resources.LoadAll<ItemData>(useItemPath + "/PotionMP");
+        ArmorItemDatas      = Resources.LoadAll<ItemData>(equipItemPath + "/Armor");
+        HelmetItemDatas     = Resources.LoadAll<ItemData>(equipItemPath + "/Helmet");
+        NecklaceItemDatas   = Resources.LoadAll<ItemData>(equipItemPath + "/Necklace");
+        RingItemDatas       = Resources.LoadAll<ItemData>(equipItemPath + "/Ring");
+        ShoesItemDatas      = Resources.LoadAll<ItemData>(equipItemPath + "/Shoes");
+        WeaponItemDatas     = Resources.LoadAll<ItemData>(equipItemPath + "/Weapon");
+        PotionHPItemDatas   = Resources.LoadAll<ItemData>(useItemPath   + "/PotionHP");
+        PotionMPItemDatas   = Resources.LoadAll<ItemData>(useItemPath   + "/PotionMP");
     }
 
 

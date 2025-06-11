@@ -20,6 +20,8 @@ public class InventorySlotUI : MonoBehaviour,
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     public InventorySlot slot;
+
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -31,7 +33,6 @@ public class InventorySlotUI : MonoBehaviour,
             Debug.LogWarning($"[InventorySlotUI] ({gameObject.name}) UI 컴포넌트가 할당안됨 ");
         }
     }
-
     
 
     public void Set(InventorySlot slot)
@@ -85,10 +86,12 @@ public class InventorySlotUI : MonoBehaviour,
         }
     }
 
+
     public void OnDrag(PointerEventData eventData)
     {
         DragIcon.Move(eventData.position);
     }
+
 
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -108,6 +111,7 @@ public class InventorySlotUI : MonoBehaviour,
             InventoryUI.Instance.Refresh(); // 정상 슬롯 이동 시
         }
     }
+
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -144,10 +148,13 @@ public class InventorySlotUI : MonoBehaviour,
         }
     }
 
+
     public void OnPointerExit(PointerEventData eventData)
     {
         ItemTooltip.Instance.Hide();
     }
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -165,6 +172,8 @@ public class InventorySlotUI : MonoBehaviour,
             }
         }
     }
+
+
     private void AutoEquip()
     {
         Item item = slot.item;
@@ -179,7 +188,6 @@ public class InventorySlotUI : MonoBehaviour,
             break; // 하나만 처리
         }
     }
-
 
 
     private void UseItem()

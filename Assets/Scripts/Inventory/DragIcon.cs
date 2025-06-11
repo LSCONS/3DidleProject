@@ -5,6 +5,7 @@ public static class DragIcon
     public static GameObject iconObject;
     public static Image iconImage;
 
+
     public static void Show(Sprite sprite, Transform parent)
     {
         if (iconObject == null)
@@ -24,6 +25,7 @@ public static class DragIcon
         iconObject.SetActive(true);
     }
 
+
     public static void Move(Vector2 position)
     {
         if (iconObject != null)
@@ -31,6 +33,7 @@ public static class DragIcon
             iconObject.transform.position = position;
         }
     }
+
 
     public static void Hide()
     {
