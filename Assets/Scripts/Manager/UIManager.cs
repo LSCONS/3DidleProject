@@ -109,6 +109,7 @@ public class UIManager : Singleton<UIManager>
 
     public void MovePauseMenu()
     {
+        //TODO: 버튼 이벤트 두 번 등록돼서 문제 생기고 있음.
         if (!isSettings)
         {
             StopCoroutine(FadeInOut(isFade));

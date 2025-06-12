@@ -26,7 +26,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
         if (Time.time - enemyController.lastAttackTime > enemyController.attackRate)
         {
             enemyController.lastAttackTime = Time.time;
-            if(PlayerManager.Instance.player.CurrentHP > 0)
+            if(PlayerManager.Instance.Player.CurrentHP > 0)
                 enemyController.animator.SetTrigger("Attack");
         }
     }
@@ -37,7 +37,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
     /// </summary>
     public void OnAttack()
     {
-        if (PlayerManager.Instance.player == null)
+        if (PlayerManager.Instance.Player == null)
         {
             Debug.Log("플레이어는 null입니다.");
         }
@@ -46,6 +46,6 @@ public class MonsterAttack : MonoBehaviour, IMonsterBehaivor<EnemyController>
             Debug.Log("enemy는 null입니다.");
         }
         Debug.Log("플레이어 공격");
-        PlayerManager.Instance.player.TakeDamage(enemy.Power);
+        PlayerManager.Instance.Player.TakeDamage(enemy.Power);
     }
 }

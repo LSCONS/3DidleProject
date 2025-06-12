@@ -5,32 +5,27 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    public string PlayerName { get; private set; }
-    public int Level { get; private set; } = 1;
-    public int MaxExp { get; private set; }
-    public int CurrentExp { get; private set; }
-    public float MaxHp { get; private set; }
-    public float CurrentHP { get; private set; }
-    public float MaxMp { get; private set; }
-    public float CurrentMp { get; private set; }
-    public float Damage { get; private set; }
-    public float AttackRange { get; private set; }
-    public float Defence { get; private set; }
-
-    public float CriticalChance { get; private set; }
-    public float CriticalDamage { get; private set; }
-
-    public int Gold { get; private set; } = 1000;
-
-    public bool isWeaponEquip { get; private set; } = false;
-    public int weaponIndex { get; private set; } = -1;
-    public bool isHelmetEquip { get; private set; } = false;
-    public int helmetIndex { get; private set; } = -1;
-
-    public bool isInvincible { get; private set; } = false; //무적판정 
-
-    private int expUp = 1;
-    private bool isDead = false;
+    public string   PlayerName      { get; private set; }
+    public float    MaxHp           { get; private set; }
+    public float    CurrentHP       { get; private set; }
+    public float    MaxMp           { get; private set; }
+    public float    CurrentMp       { get; private set; }
+    public float    Damage          { get; private set; }
+    public float    AttackRange     { get; private set; }
+    public float    Defence         { get; private set; }
+    public float    CriticalChance  { get; private set; }
+    public float    CriticalDamage  { get; private set; }
+    public bool     IsWeaponEquip   { get; private set; } = false;
+    public bool     IsHelmetEquip   { get; private set; } = false;
+    public bool     IsInvincible    { get; private set; } = false; //무적판정 
+    public int      Level           { get; private set; } = 1;
+    public int      MaxExp          { get; private set; }
+    public int      CurrentExp      { get; private set; }
+    public int      Gold            { get; private set; } = 1000;
+    public int      WweaponIndex     { get; private set; } = -1;
+    public int      HelmetIndex     { get; private set; } = -1;
+    private int     ExpUp           { get; set; } = 1;
+    private bool    IsDead          { get; set; } = false;
 
 
     private Coroutine hitCoroutine;
@@ -40,11 +35,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        PlayerManager.Instance.Player = this;
-        PlayerManager.Instance.PlayerTransform = this.transform;
         controller = GetComponent<PlayerController>();
         Init("기사", 100f, 20f, 15f);
     }
+
 
     // 플레이어 기본설정
     public void Init(string playerName, float maxHp, float damage, float defence)
@@ -62,8 +56,9 @@ public class Player : MonoBehaviour
         Gold = 1000;
         CurrentExp = 0;
         MaxExp = 50;
-        isDead = false;
+        IsDead = false;
     }
+
 
     // damage만큼의 피해를 입습니다.
     public void TakeDamage(float damage)
@@ -73,7 +68,7 @@ public class Player : MonoBehaviour
             PlayerDeath();
             return;
         }
-        if (isInvincible) return;
+        if (IsInvincible) return;
         SubstractHelath(damage);
         controller.animationHandler?.PlayerHit();
 
@@ -88,20 +83,25 @@ public class Player : MonoBehaviour
         
     }
 
+
     // 플레이어가 피해를 받으면 일정시간동안 무적이 되게 설정
     private IEnumerator HitCorourtine()
     {
-        isInvincible = true;
+        IsInvincible = true;
 
         yield return new WaitForSeconds(1.2f);
-        isInvincible = false;
+        IsInvincible = false;
 
     }
+
+
     // 체력 회복
     public void AddHealth(float value)
     {
         CurrentHP = Mathf.Min(CurrentHP + value, MaxHp);
     }
+
+
     // 체력 감소
     public void SubstractHelath(float value)
     {
@@ -111,11 +111,15 @@ public class Player : MonoBehaviour
         }
         CurrentHP = Mathf.Max(CurrentHP - value, 0);
     }
+
+
     // 마나 회복
     public void AddMana(float value)
     {
         CurrentMp = Mathf.Min(CurrentMp + value, MaxMp);
     }
+
+
     // 마나 감소
     public void SubstractMana(float value)
     {
@@ -125,6 +129,8 @@ public class Player : MonoBehaviour
         }
         CurrentMp = Mathf.Max(CurrentMp - value, 0);
     }
+
+
     // 레벨업
     public void LevelUp()
     {
@@ -132,9 +138,9 @@ public class Player : MonoBehaviour
         CurrentExp -= MaxExp;
         if (Level % 10 == 0)
         {
-            expUp++;
+            ExpUp++;
         }
-        MaxExp = expUp * Level * 50;
+        MaxExp = ExpUp * Level * 50;
 
         Damage++;
         Defence += 0.5f;
@@ -144,6 +150,8 @@ public class Player : MonoBehaviour
         AddMana(MaxMp);
         SoundManager.Instance.StartAudioSFX_PlayerLevelUp();
     }
+
+
     // 경험치 추가
     public void AddExp(int value)
     {
@@ -154,11 +162,13 @@ public class Player : MonoBehaviour
         }
     }
 
+
     // 골드 설정
     public void  SetGold(int amount)
     {
         Gold = Mathf.Max(0, amount);
     }
+
 
     // amount만큼의 골드 감소
     public bool TrySpendGold(int amount)
@@ -171,18 +181,20 @@ public class Player : MonoBehaviour
         return false;
     }
 
+
     // 골드 증가
     public void AddGold(int amount)
     {
         Gold += amount;
     }
 
+
     // 플레이어 사망
     public void PlayerDeath()
     {
-        if (CurrentHP <= 0 && !isDead)
+        if (CurrentHP <= 0 && !IsDead)
         {
-            isDead = true;
+            IsDead = true;
 
             controller.playerInputEnabled(false);
             controller.enabled = false;
@@ -195,21 +207,22 @@ public class Player : MonoBehaviour
 
             controller.animationHandler?.PlayDead();
             SoundManager.Instance.StartAudioSFX_PlayerDie();
-
         }
-
     }
+
+
     //장착적용
     public void AddEquipStats(int atk, int def)
     {
         Damage += atk;
         Defence += def;
     }
+
+
     //장착해제
     public void RemoveEquipStats(int atk, int def)
     {
         Damage -= atk;
         Defence -= def;
     }
-
 }

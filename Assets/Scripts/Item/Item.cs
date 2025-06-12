@@ -21,12 +21,12 @@ public class Item
         {
             EquipItemData data = Data.equipItemData[0];
 
-            if(data.UpgradePrice > PlayerManager.Instance.player.Gold)
+            if(data.UpgradePrice > PlayerManager.Instance.Player.Gold)
             {
                 UIManager.Instance.SetOpenInformationUI("강화 실패\n플레이어 골드 부족");
                 return;
             }
-            PlayerManager.Instance.player.AddGold(-data.UpgradePrice);
+            PlayerManager.Instance.Player.AddGold(-data.UpgradePrice);
             Data.GradeCount++;
             AddEquipItemValue(data, data.UpgradeAttackValue, data.DefenceAttackValue);
         }
@@ -80,11 +80,11 @@ public class Item
             switch (useItemData.UseType)
             {
                 case UseItemType.HP:
-                    PlayerManager.Instance.player.AddHealth(useItemData.HealthValue);
+                    PlayerManager.Instance.Player.AddHealth(useItemData.HealthValue);
                     break;
 
                 case UseItemType.MP:
-                    PlayerManager.Instance.player.AddMana(useItemData.HealthValue);
+                    PlayerManager.Instance.Player.AddMana(useItemData.HealthValue);
                     break;
             }
         }

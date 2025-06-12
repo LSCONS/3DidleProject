@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class LoadingSceneController : MonoBehaviour
 {
-    static string nextScene;
+    static ESceneName nextScene;
 
     [SerializeField]
     Slider slider;
@@ -15,7 +15,7 @@ public class LoadingSceneController : MonoBehaviour
 
     public static void LoadScene(ESceneName name)
     {
-        nextScene = name.ToString();
+        nextScene = name;
         SceneManager.LoadScene(ESceneName.LoadingScene.ToString());
     }
 
@@ -29,7 +29,7 @@ public class LoadingSceneController : MonoBehaviour
 
     IEnumerator LoadSceneProcess()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene.ToString());
         op.allowSceneActivation = false;
 
         float timer = 0f;
@@ -47,6 +47,16 @@ public class LoadingSceneController : MonoBehaviour
                 slider.value = Mathf.Lerp(0.9f, 1f, timer);
                 if (slider.value >= 1f)
                 {
+                    switch (nextScene)
+                    {
+                        case ESceneName.StartScene:
+                            SoundManager.Instance.StartAudioBGM_Mainmenu();
+                            break;
+                        case ESceneName.Stage1:
+                            SoundManager.Instance.StartAudioBGM_Battle();
+                            break;
+                    }
+
                     op.allowSceneActivation = true;
                     yield break;
                 }

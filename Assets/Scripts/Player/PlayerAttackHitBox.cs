@@ -10,7 +10,7 @@ public class PlayerAttackHitBox : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // 적에게 피해를 입히기
-            other.GetComponent<Enemy>().TakeDamage(PlayerManager.Instance.player.Damage);
+            other.GetComponent<Enemy>().TakeDamage(PlayerManager.Instance.Player.Damage);
             Debug.Log("적에게 공격");
         }
     }

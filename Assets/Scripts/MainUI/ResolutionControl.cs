@@ -1,27 +1,23 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ResolutionControl : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
     private Resolution[] resolutions;
-    private List<Resolution> filteredResolutions;
+    private List<Resolution> filteredResolutions = new();
 
-    private float currentRefreshRate;
     private int currentResolutionIndex = 0;
 
     void Start()
     {
         // 현재 모니터에서 지원하는 모든 해상도를 Resolution 배열로 반환한다.
         resolutions = Screen.resolutions;
-        filteredResolutions = new List<Resolution>();
 
         resolutionDropdown.ClearOptions();
-        currentRefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
+        float currentRefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
 
         // 화면 재생률(주사율) 비교 후 리스트에 추가
         for (int i = 0; i < resolutions.Length; i++)
@@ -63,6 +59,7 @@ public class ResolutionControl : MonoBehaviour
     // 해상도 설정 함수
     public void SetResolution(int resolutionIndex)
     {
+        if (filteredResolutions.Count == 0) return;
         Resolution resolution = filteredResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, true);
     }

@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    public Player player;
+    private Player player;
     public Player Player
     {
-        get { return player; }
-        set { player = value; }
+        get 
+        {
+            if(player == null)
+            {
+                player = FindFirstObjectByType<Player>();
+            }
+            return player; 
+        }
     }
 
-    public Transform PlayerTransform { get;  set; }
+    public Transform PlayerTransform => Player?.transform;
 
     protected override void Awake()
     {

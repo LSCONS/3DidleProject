@@ -529,7 +529,7 @@ public class SoundManager : Singleton<SoundManager>
     //실행되는 오디오의 Transform의 값을 플레이어 근처로 초기화시켜주는 메서드.
     private void SetAudioPositionForPlayer(AudioSource audioSource)
     {
-        Transform playerTransform = PlayerManager.Instance.player?.transform;
+        Transform playerTransform = PlayerManager.Instance?.Player?.transform;
         if(playerTransform != null)
         {
             audioSource.transform.position = playerTransform.position;

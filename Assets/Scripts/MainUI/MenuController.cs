@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public enum UIType
@@ -18,6 +19,10 @@ public class MenuController : MonoBehaviour
     public Vector3 targetPos;
     public float duration;
 
+    [field: SerializeField] public Button BtnResume     { get; private set; }
+    [field: SerializeField] public Button BtnSetting    { get; private set; }
+    [field: SerializeField] public Button BtnExit       { get; private set; }
+
     Vector3 lastPos;
     bool isMove;
     Coroutine coroutine;
@@ -26,6 +31,10 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        BtnResume?.onClick.AddListener(UIManager.Instance.MovePauseMenu);
+        BtnSetting?.onClick.AddListener(UIManager.Instance.MoveSettingsMenu);
+        BtnExit?.onClick.AddListener(() => LoadingSceneController.LoadScene(ESceneName.StartScene));
+
         animator = GetComponent<Animator>();
         lastPos = transform.position;
         targetPos += transform.position;
